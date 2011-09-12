@@ -1,0 +1,10 @@
+UCP - THE BEST FILE TRANSFER PROGRAM EVER!!!
+
+I hate huge repositories so rather than put everything in this one, you'll
+have to have a couple dependencies installed on your system and in the 
+build path.  You can thank me later.
+
+Dependencies
+------------------
+Boost 1.42
+UDT
