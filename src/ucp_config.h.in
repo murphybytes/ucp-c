@@ -1,0 +1,3 @@
+
+#define ucp_VERSION_MAJOR @ucp_VERSION_MAJOR@
+#define ucp_VERSION_MINOR @ucp_VERSION_MINOR@
