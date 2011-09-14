@@ -11,5 +11,9 @@ configure_file (
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_executable( ucp main.cpp )
+add_executable( ucp main.cpp
+  application.cpp 
+  listener.cpp
+  client.cpp )
+
 target_link_libraries( ucp boost_program_options )

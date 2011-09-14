@@ -1,16 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <boost/program_options.hpp>
+
 #include "ucp_config.h"
 #include "ucp.hpp"
+#include "application.hpp"
 
-using std::cout;
-using std::endl;
-using std::vector;
-using std::string;
-
-namespace po = boost::program_options;
 
 int main( int argc, char* argv[] ) {
     int result = ucp::SUCCESS;
@@ -37,6 +29,14 @@ int main( int argc, char* argv[] ) {
     if( vm.count("version") ) {
 	cout << "ucp - Version: " << ucp_VERSION_MAJOR << "." << ucp_VERSION_MINOR << endl;
     }
+
+    try {
+      ucp::application_ptr application_ptr = ucp::get_application( vm );
+      application_ptr->run();
+    } catch( const exception& e ) {
+      cout << "Application error -> " << e.what() << endl;
+      result = ucp::ERROR;
+    }      
 
     return result;
 }
