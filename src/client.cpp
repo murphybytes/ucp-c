@@ -1,17 +1,19 @@
 #include "client.hpp"
 
+using ucp::logger;
+
 namespace ucp { 
 
   client::client( const po::variables_map& command_arguments ) {
-    cout << "create client" << endl;
+    logger.debug(  "create client" );
   }
 
   client::~client() {
-    cout << "destroy client" << endl;
+    logger.debug( "destroy client" );
   }
 
   void client::run() const {
-    cout << "run client" << endl;
+    logger.debug( "run client" );
   }
 
 }

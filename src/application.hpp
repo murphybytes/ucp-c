@@ -7,6 +7,7 @@
 #include <vector>
 #include <exception>
 #include <string>
+#include "log.hpp"
 
 using std::cout;
 using std::endl;
