@@ -1,6 +1,9 @@
 #ifndef __APPLICATION_HPP__
 #define __APPLICATION_HPP__
 
+#include <udt.h>
+#include <arpa/inet.h>
+#include <netdb.h>
 #include <boost/program_options.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/format.hpp>

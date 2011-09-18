@@ -6,7 +6,9 @@
 namespace ucp {
 
   copy_command::copy_command( const po::variables_map& vm )
-    :direction(none), port( default_port ) {
+    :direction(none), 
+     port( default_port ), 
+     service( boost::lexical_cast<string>(default_port)) {
 
     vector< string > args = vm["copy-command"].as< vector< string > >();
     if( args.size() != 2 ) {
@@ -59,7 +61,8 @@ namespace ucp {
 
     if( end_colon_pos != -1 ) {
       string raw = remote_command.substr( colon_pos + 1, (end_colon_pos - colon_pos - 1) );
-      port = boost::lexical_cast<int>( raw );
+      service = raw;
+     port = boost::lexical_cast<int>( raw );
       colon_pos = end_colon_pos;
     }
 

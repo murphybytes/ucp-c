@@ -9,8 +9,14 @@ configure_file (
   "${PROJECT_BINARY_DIR}/ucp_config.h"
 )
 
+link_directories( 
+"${PROJECT_BINARY_DIR}/../deps/UDT4/src"
+)
 
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories(
+"${PROJECT_BINARY_DIR}"
+"${PROJECT_BINARY_DIR}/../deps/UDT4/src"
+)
 
 add_executable( ucp main.cpp
   application.cpp 
@@ -20,7 +26,9 @@ add_executable( ucp main.cpp
 
 target_link_libraries( ucp 
 boost_program_options
-boost_regex )
+boost_regex 
+udt
+)
 
 add_executable( test  test.cpp
   copy_command.cpp )

@@ -3,8 +3,10 @@
 
 
 #include <iostream>
+#include <string>
 using std::cout;
 using std::endl;
+using std::string;
 
 namespace ucp {
    
@@ -43,6 +45,10 @@ namespace ucp {
 	log_message( DEBUG, msg );
       } 
     }
+    
+    void debug( const std::string& msg ) const {
+      debug( msg.c_str() );
+    }
 
     void error( const char* msg ) const {
       if( log_level >= ERROR ) {
@@ -50,16 +56,28 @@ namespace ucp {
       } 
     }
 
+    void error( const std::string& msg ) const {
+      error( msg.c_str() );
+    }
+
     void info( const char* msg ) const {
       if( log_level >= INFO ) {
 	log_message( INFO, msg );
       } 
+    }
+
+    void info( const std::string& msg ) const {
+      info( msg.c_str() );
     }
     
     void warn( const char* msg ) const {
       if( log_level >= WARN ) {
 	log_message( WARN, msg ); 
       }
+    }
+
+    void warn( const std::string& msg ) const {
+      warn( msg.c_str() );
     }
 
   };

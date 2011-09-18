@@ -24,6 +24,7 @@ namespace ucp {
     int port;
     string source;
     string target;
+    string service;
   public:
     copy_command( const po::variables_map& vm );
     copy_command( const string& left_command, const string& right_command ); 
@@ -35,6 +36,7 @@ namespace ucp {
     const string& get_user() const { return user; }
     const string& get_host() const { return host; }
     const int get_port() const { return port; }
+    const string& get_service() const { return service; } 
   private:
     void parse_remote( const string& remote_command ) ;
     void init( const string& left_command, const string& right_command );
