@@ -5,3 +5,7 @@ CMakeFiles
 CMakeCache.txt
 ucp_config.h
 ucp
+test
+*.o
+*.a
+*.so

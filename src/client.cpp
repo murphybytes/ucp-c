@@ -4,8 +4,10 @@ using ucp::logger;
 
 namespace ucp { 
 
-  client::client( const po::variables_map& command_arguments ) {
+  client::client( const po::variables_map& command_arguments )
+    :command( command_arguments ) {
     logger.debug(  "create client" );
+    
   }
 
   client::~client() {

@@ -3,6 +3,7 @@
 
 #include <boost/program_options.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/format.hpp>
 #include <iostream>
 #include <vector>
 #include <exception>
@@ -16,6 +17,7 @@ using std::endl;
 using std::vector;
 using std::string;
 using std::exception;
+using boost::format;
 
 namespace po = boost::program_options;
 using boost::shared_ptr;

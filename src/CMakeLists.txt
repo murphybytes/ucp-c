@@ -15,6 +15,16 @@ include_directories("${PROJECT_BINARY_DIR}")
 add_executable( ucp main.cpp
   application.cpp 
   listener.cpp
-  client.cpp )
+  client.cpp
+  copy_command.cpp)
 
-target_link_libraries( ucp boost_program_options )
+target_link_libraries( ucp 
+boost_program_options
+boost_regex )
+
+add_executable( test  test.cpp
+  copy_command.cpp )
+
+target_link_libraries( test
+boost_program_options
+boost_regex )
