@@ -1,6 +1,5 @@
 #include "copy_command.hpp"
 #include <boost/regex.hpp>
-#include <boost/lexical_cast.hpp>
 #include <assert.h>
 
 namespace ucp {

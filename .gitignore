@@ -9,3 +9,5 @@ test
 *.o
 *.a
 *.so
+deps/UDT4/app/*
+deps/UDT4/src/udt

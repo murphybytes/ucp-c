@@ -1,7 +1,9 @@
 #include "client.hpp"
 #include "listener.hpp"
 
+
 namespace ucp {
+
 
 
   shared_ptr<application> get_application( const po::variables_map& command_arguments ) {

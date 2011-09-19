@@ -15,7 +15,7 @@ namespace ucp {
     logger.debug( "destroy client" );
   }
 
-  void client::run() const {
+  void client::run()  {
     logger.debug( "run client" );
     logger.debug( (format("Preparing to connect to %1% on port %2%") % command.get_host() %
 		   command.get_port() ).str() );

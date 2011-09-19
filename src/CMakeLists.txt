@@ -22,11 +22,17 @@ add_executable( ucp main.cpp
   application.cpp 
   listener.cpp
   client.cpp
-  copy_command.cpp)
+  copy_command.cpp
+  listen_thread.cpp
+  connection_handler.cpp
+  messaging.cpp
+)
 
 target_link_libraries( ucp 
 boost_program_options
-boost_regex 
+boost_regex
+boost_signals 
+boost_thread
 udt
 )
 

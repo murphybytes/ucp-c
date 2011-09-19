@@ -13,7 +13,8 @@ namespace ucp {
     client(const po::variables_map& );
   public:
     virtual ~client();
-    virtual void run() const; 
+    virtual void run(); 
+    virtual void signal(int) {}
   };
 }
 
