@@ -5,7 +5,22 @@
 #include "application.hpp"
 
 namespace ucp {
+
   class connection_handler {
+
+    enum server_connection_state {
+      initial,
+      invalid,
+      waiting_for_direction,
+      client_expecting_ack,
+      client_send,
+      client_receive,
+      success,
+      error,
+      term
+    };
+
+
     shared_ptr<UDTSOCKET> socket_ptr_;
   public:
     connection_handler( shared_ptr<UDTSOCKET> socket_ptr ) 

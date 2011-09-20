@@ -1,6 +1,5 @@
 
 #include "ucp_config.h"
-#include "ucp.hpp"
 #include "application.hpp"
 #include <signal.h>
 
