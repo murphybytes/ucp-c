@@ -3,6 +3,7 @@
 
 
 #include "application.hpp"
+#include "messaging.hpp"
 
 namespace ucp {
 
@@ -22,6 +23,10 @@ namespace ucp {
 
 
     shared_ptr<UDTSOCKET> socket_ptr_;
+
+    void server_send_file( messaging endpoint );
+    void server_receive_file( messaging endpoint );
+
   public:
     connection_handler( shared_ptr<UDTSOCKET> socket_ptr ) 
       :socket_ptr_(socket_ptr){}

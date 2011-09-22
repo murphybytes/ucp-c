@@ -1,5 +1,5 @@
 #include "client.hpp"
-
+#include "messaging.hpp"
 
 using ucp::logger;
 
@@ -22,20 +22,43 @@ namespace ucp {
 
     UDT::startup();
     
-    try {
-      addrinfo hints;
-      addrinfo* res;
-      memset( &hints, 0, sizeof( addrinfo ));
-      hints.ai_flags = AI_PASSIVE;
-      hints.ai_family = AF_INET;
-      hints.ai_socktype = SOCK_STREAM;
+    addrinfo hints;
+    addrinfo* peer;
+    memset( &hints, 0, sizeof( addrinfo ));
+    hints.ai_flags = AI_PASSIVE;
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
       
-      UDTSOCKET fhandle = UDT::socket(hints.ai_family, hints.ai_socktype, hints.ai_protocol );
+    UDTSOCKET fhandle = UDT::socket(hints.ai_family, hints.ai_socktype, hints.ai_protocol );
+    int response = getaddrinfo( command.get_host().c_str(), 
+				command.get_service().c_str(),
+				&hints, &peer );
       
-    } catch( ... ) {
-      UDT::cleanup();
+    if(response != 0 ) {
+      throw std::runtime_error( (format("Client connection failed. getaddrinfo returned %1% %2% %3%") 
+				 % response 
+				 % __FILE__ 
+				 % __LINE__ ).str() );
     }
+
+    response = UDT::connect( fhandle, peer->ai_addr, peer->ai_addrlen );
     
+    if( UDT::ERROR == response ) {
+      throw std::runtime_error( (format("%1% : %2% %3%") 
+				 % UDT::getlasterror().getErrorMessage() 
+				 % __FILE__
+				 % __LINE__).str() );
+    }
+
+    // ok we're all connected up so lets talk to the server
+    talk_to_server( fhandle );
+
+    UDT::close( fhandle );
+    UDT::cleanup();
+    
+  }
+
+  void client::talk_to_server( UDTSOCKET socket ) {
   }
 
 }

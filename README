@@ -7,9 +7,11 @@ build path.  You can thank me later.
 Dependencies
 ------------------
 Boost 1.42
-UDT
+
 
 cmake 2.8.3 (For generating makefile)
 
 Building
 ----------------
+
+Run build.sh in the root of the project.

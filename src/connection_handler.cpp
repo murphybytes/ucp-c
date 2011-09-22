@@ -3,7 +3,14 @@
 
 namespace ucp {
 
-  
+  void connection_handler::server_send_file( messaging endpoint ) {
+    logger.debug( "server send file" );
+  }
+
+  void connection_handler::server_receive_file( messaging endpoint ) {
+    logger.debug( "server receive file" );
+  }
+
   void connection_handler::operator()() {
     logger.debug("started connection handler");
     // make a copy of the shared pointer, this thread will live
@@ -50,9 +57,15 @@ namespace ucp {
 	  break;
 	    
 	case client_send :
-	  // method here
+	  server_receive_file( endpoint );
+	  state = term;
+	  break;
+
 	case client_receive :
-	  // method here
+	  server_send_file( endpoint );
+	  state = term;
+	  break;
+
 	case term :
 	  endpoint.receive( client_message );
 	  if( client_message != GOODBYE_MSG ) {

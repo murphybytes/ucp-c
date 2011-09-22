@@ -11,6 +11,7 @@ namespace ucp {
     
     copy_command command;
     client(const po::variables_map& );
+    void talk_to_server( UDTSOCKET socket );
   public:
     virtual ~client();
     virtual void run(); 
