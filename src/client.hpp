@@ -6,6 +6,15 @@
 
 namespace ucp {
   class client : public application {
+    enum client_state {
+      initial,
+      hello_ack,
+      error_msg,
+      receive_ack,
+      send_ack,
+      goodbye,
+      term
+    };
 
     friend shared_ptr<application> get_application( const po::variables_map& );
     

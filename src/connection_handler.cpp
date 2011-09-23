@@ -15,7 +15,7 @@ namespace ucp {
     logger.debug("started connection handler");
     // make a copy of the shared pointer, this thread will live
     // longer than inclosing class
-    messaging endpoint(  socket_ptr_ );
+    messaging endpoint(  socket_ptr_, server_role );
     
     server_connection_state state = initial;
 
@@ -27,11 +27,12 @@ namespace ucp {
 	switch( state ) {
 	case initial :
 	  endpoint.receive( client_message );
-	  if( client_message == CLIENT_VERSION_MSG ) {
+	  if( client_message == CLIENT_HELLO_MSG ) {
 	    state = waiting_for_direction;
 	    endpoint.send( OK_MSG );
 	  } else { 
-	    state = invalid;
+	    endpoint.send( ERROR_MSG );
+	    state = error;
 	  }
 	  break;
 	case waiting_for_direction :

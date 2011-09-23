@@ -59,6 +59,48 @@ namespace ucp {
   }
 
   void client::talk_to_server( UDTSOCKET socket ) {
+    client_state state = initial;
+    messaging endpoint( shared_ptr<UDTSOCKET>( new UDTSOCKET(socket) ), client_role );
+    string server_response;
+
+    while( true ) {
+      switch( state ) {
+      case initial :
+	endpoint.send( CLIENT_HELLO_MSG );
+	state = hello_ack;
+	break;
+      case hello_ack :
+	endpoint.receive( server_response );
+	if( server_response == OK_MSG ) {
+	  direction_t direction = command.get_direction() ;
+	  assert( none != direction );
+	  if( from_remote == direction ) {
+	    endpoint.send( CLIENT_RECEIVE_MSG );
+	    state = receive_ack;
+	  } else { // to remote
+	    endpoint.send( CLIENT_SEND_MSG );
+	    state = send_ack;
+	  }
+	}
+
+	if( server_response == ERROR_MSG ) {
+	  state = error_msg;
+	}
+	break;
+      case error_msg :
+	endpoint.receive( server_response );
+	logger.error( server_response );
+	state = goodbye;
+	break;
+      case goodbye :
+	endpoint.send( GOODBYE_MSG );
+	state = term;
+	break;
+      case term :
+	return;
+      } // switch
+
+    } // while
   }
 
 }
