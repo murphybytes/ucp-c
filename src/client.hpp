@@ -10,8 +10,7 @@ namespace ucp {
       initial,
       hello_ack,
       error_msg,
-      receive_ack,
-      send_ack,
+      direction_ack,
       goodbye,
       term
     };

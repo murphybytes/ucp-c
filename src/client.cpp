@@ -76,15 +76,29 @@ namespace ucp {
 	  assert( none != direction );
 	  if( from_remote == direction ) {
 	    endpoint.send( CLIENT_RECEIVE_MSG );
-	    state = receive_ack;
 	  } else { // to remote
 	    endpoint.send( CLIENT_SEND_MSG );
-	    state = send_ack;
 	  }
+	  state = direction_ack;
 	}
 
 	if( server_response == ERROR_MSG ) {
 	  state = error_msg;
+	  endpoint.send( OK_MSG );
+	}
+	break;
+      case direction_ack :
+	endpoint.receive( server_response );
+	if( OK_MSG == server_response ) {
+	  if( command.get_direction() == from_remote ) {
+	    receive_file( endpoint );
+	  } else {
+	  }
+	} else if( ERROR_MSG == server_response ) {
+	  endpoint.send( OK_MSG );
+	  state = error_msg;
+	} else {
+	  state = term;
 	}
 	break;
       case error_msg :
@@ -97,6 +111,7 @@ namespace ucp {
 	state = term;
 	break;
       case term :
+	logger.debug( "Client terminate" );
 	return;
       } // switch
 
