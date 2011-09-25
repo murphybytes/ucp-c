@@ -14,4 +14,10 @@ cmake 2.8.3 (For generating makefile)
 Building
 ----------------
 
-Run build.sh in the root of the project.
+Run build.sh in the root of the project.  
+
+You may have to specify your architecture and operating system
+to build:
+
+UDT_OS=[LINUX(default), BSD, OSX]
+UDT_ARCH=[IA64(default), IA32, POWERPC, IA64, AMD64]

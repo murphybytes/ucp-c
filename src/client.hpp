@@ -3,6 +3,7 @@
 
 #include "application.hpp"
 #include "copy_command.hpp"
+#include "messaging.hpp"
 
 namespace ucp {
   class client : public application {
@@ -20,6 +21,8 @@ namespace ucp {
     copy_command command;
     client(const po::variables_map& );
     void talk_to_server( UDTSOCKET socket );
+    void send_file( messaging endpoint );
+    void receive_file( messaging endpoint );
   public:
     virtual ~client();
     virtual void run(); 
