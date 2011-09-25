@@ -4,12 +4,12 @@ namespace ucp {
   
   void messaging::trace_send( const string& msg ) {
     string role_name = (client_role == role ? "CLIENT" : "SERVER");
-    logger.debug((format("%1% SEND: %2%") % msg ).str());
+    logger.debug((format("%1% SEND: %2%") % role_name % msg ).str());
   }
 
   void messaging::trace_recv( const string& msg ) {
     string role_name = (client_role == role ? "CLIENT" : "SERVER");
-    logger.debug( (format( "%1% RECV: %2%" ) % msg ).str() );
+    logger.debug( (format( "%1% RECV: %2%" ) % role_name % msg ).str() );
   }
 
   void messaging::trace_send( int_t msg ) {

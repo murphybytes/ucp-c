@@ -3,6 +3,15 @@
 
 namespace ucp {
 
+  connection_handler::connection_handler( UDTSOCKET socket )
+    :socket_(socket) {
+    logger.debug( (format("Connected socket %1%") % socket).str() );
+  }
+
+  connection_handler::~connection_handler() {
+   
+  }
+
   void connection_handler::server_send_file( messaging endpoint ) {
     logger.debug( "server send file" );
   }
@@ -15,7 +24,7 @@ namespace ucp {
     logger.debug("started connection handler");
     // make a copy of the shared pointer, this thread will live
     // longer than inclosing class
-    messaging endpoint(  socket_ptr_, server_role );
+    messaging endpoint(  shared_ptr<UDTSOCKET>( new UDTSOCKET(socket_) ), server_role  ); 
     
     server_connection_state state = initial;
 

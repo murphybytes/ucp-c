@@ -30,6 +30,7 @@ namespace ucp {
     hints.ai_socktype = SOCK_STREAM;
       
     UDTSOCKET fhandle = UDT::socket(hints.ai_family, hints.ai_socktype, hints.ai_protocol );
+    logger.debug((format("Client connect host: %1%, service: %2%") % command.get_host() % command.get_service() ).str() );
     int response = getaddrinfo( command.get_host().c_str(), 
                                 command.get_service().c_str(),
                                 &hints, &peer );
@@ -50,6 +51,7 @@ namespace ucp {
                                  % __LINE__).str() );
     }
 
+    logger.debug("client connected");
     // ok we're all connected up so lets talk to the server
     talk_to_server( fhandle );
 

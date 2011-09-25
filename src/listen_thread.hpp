@@ -7,10 +7,11 @@
 namespace ucp {
 
   class listen_thread {
-    UDTSOCKET socket_;
     bool runnable_;
+    UDTSOCKET socket_;
+    unsigned int port_;
   public:
-    listen_thread( UDTSOCKET socket );
+    listen_thread(unsigned int port  );
     virtual ~listen_thread() ;
     void shutdown() { runnable_ = false; }
     void operator()();

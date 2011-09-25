@@ -22,15 +22,14 @@ namespace ucp {
     };
 
 
-    shared_ptr<UDTSOCKET> socket_ptr_;
+    UDTSOCKET socket_;
 
     void server_send_file( messaging endpoint );
     void server_receive_file( messaging endpoint );
 
   public:
-    connection_handler( shared_ptr<UDTSOCKET> socket_ptr ) 
-      :socket_ptr_(socket_ptr){}
-    virtual ~connection_handler() {}
+    connection_handler( UDTSOCKET socket ); 
+    virtual ~connection_handler();
     void operator()() ;
 
   };
