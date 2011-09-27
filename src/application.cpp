@@ -19,6 +19,10 @@ namespace ucp {
     return result;
   }
 
+  int_t get_file_size( const string& file_name ) {
+    return 0;
+  }
+
 
 
 }

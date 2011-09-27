@@ -11,6 +11,7 @@
 #include <boost/bind.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/thread.hpp>
+#include <boost/filesystem.hpp>
 #include <iostream>
 #include <vector>
 #include <exception>
@@ -34,6 +35,8 @@ using boost::mutex;
 using boost::unique_lock;
 
 namespace po = boost::program_options;
+namespace fs = boost::filesystem;
+
 using boost::shared_ptr;
 
 namespace ucp {
@@ -59,6 +62,8 @@ namespace ucp {
 
   shared_ptr<application> get_application( const po::variables_map& command_arguments );
 
+
+  int_t get_file_size( const string& file_name );
 }
 
 

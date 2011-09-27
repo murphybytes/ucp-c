@@ -23,13 +23,15 @@ namespace ucp {
 
 
     UDTSOCKET socket_;
+    string last_error_;
 
     void server_send_file( messaging endpoint );
     void server_receive_file( messaging endpoint );
-
+    
   public:
     connection_handler( UDTSOCKET socket ); 
     virtual ~connection_handler();
+    const string& last_error() const { return last_error_; }
     void operator()() ;
 
   };

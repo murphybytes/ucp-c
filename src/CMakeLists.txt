@@ -18,7 +18,7 @@ include_directories(
 "${PROJECT_BINARY_DIR}/../deps/UDT4/src"
 )
 
-add_executable( ucp main.cpp
+add_library( ucp_core SHARED 
   application.cpp 
   listener.cpp
   client.cpp
@@ -28,17 +28,22 @@ add_executable( ucp main.cpp
   messaging.cpp
 )
 
-target_link_libraries( ucp 
+target_link_libraries( ucp_core 
 boost_program_options
 boost_regex
 boost_signals 
 boost_thread
+boost_filesystem
 udt
 )
 
-add_executable( test  test.cpp
-  copy_command.cpp )
 
-target_link_libraries( test
-boost_program_options
-boost_regex )
+add_executable( ucp main.cpp )
+
+target_link_libraries( ucp ucp_core )
+
+
+add_executable( test  test.cpp )
+
+
+target_link_libraries( test ucp_core )

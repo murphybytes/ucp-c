@@ -1,7 +1,9 @@
 #include "messaging.hpp"
 
 namespace ucp {
-  
+  void messaging::send_file( const string& file_name ) {
+  }
+
   void messaging::trace_send( const string& msg ) {
     string role_name = (client_role == role ? "CLIENT" : "SERVER");
     logger.debug((format("%1% SEND: %2%") % role_name % msg ).str());
@@ -74,5 +76,7 @@ namespace ucp {
     trace_recv( buffer );
   }
 
+
+  
 
 }

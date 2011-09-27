@@ -28,6 +28,8 @@ int test_main( int argc, char* argv[] ) {
   BOOST_CHECK( command.get_host() == "eee.fff.com" );
   BOOST_CHECK( command.get_source() == "" );
   BOOST_CHECK( command.get_target() == "xyz" );
+
+  BOOST_CHECK( 332 == ucp::get_file_size("../data/testfile") );
   return 0;
 
 }

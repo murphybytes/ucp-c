@@ -1,5 +1,6 @@
 #include "connection_handler.hpp"
 #include "messaging.hpp"
+#include "states.hpp"
 
 namespace ucp {
 
@@ -14,6 +15,53 @@ namespace ucp {
 
   void connection_handler::server_send_file( messaging endpoint ) {
     logger.debug( "server send file" );
+    send::txfer_state state = send::wait_for_req_file;
+    string client_message ;
+    string error_message;
+    string requested_file;
+
+    while(true) {
+      switch( state ) {
+      case send::wait_for_req_file :
+	endpoint.receive( requested_file );
+	endpoint.send( OK_MSG );
+	state = send::wait_for_file_size_req;
+	break;
+      case send::wait_for_file_size_req :
+	endpoint.receive( client_message );
+	if( client_message == FILE_SIZE_REQ ) {
+	  endpoint.send( get_file_size( requested_file ) );
+	  state = send::wait_for_send_ack;
+	} else {
+	  logger.warn( (format("Expected %1% got %2% at %3% %4%") % FILE_SIZE_REQ % 
+			client_message % __FILE__ % __LINE__ ).str() );
+	  state = send::term;
+	}		       
+	break;
+      case send::wait_for_send_ack :
+	endpoint.receive(client_message );
+	if( client_message == OK_MSG ) {
+	  endpoint.send_file( requested_file );
+	} else {
+	  logger.warn((format("Unexpected response %1% at %2% %3%") %
+		       client_message % __FILE__ % __LINE__ ).str() );	  
+	}
+	state = send::term;
+	break;
+      case send::error :
+	endpoint.receive( client_message );
+	if( client_message == OK_MSG ) {
+	  endpoint.send( error_message );	  
+	}
+	state = send::term;
+	break;
+      case send::term :
+	logger.debug( "get send term" );
+	return;
+	
+      }
+    }
+    
   }
 
   void connection_handler::server_receive_file( messaging endpoint ) {
