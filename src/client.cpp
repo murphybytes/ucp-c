@@ -1,5 +1,5 @@
 #include "client.hpp"
-
+#include "states.hpp"
 
 using ucp::logger;
 
@@ -60,10 +60,52 @@ namespace ucp {
     
   }
 
-  void client::receive_file( messaging endpoint ) {
+  void client::receive_file( messaging& endpoint ) {
+    recv::txfer_state state = recv::send_file_name;
+    int_t file_size = 0;
+    string message;
+
+    while(true) {
+      switch( state ) {
+      case recv::send_file_name :
+	endpoint.send( command.get_source() ); 
+	state = recv::send_file_ack;
+	break;
+      case recv::send_file_ack :
+	endpoint.receive( message );
+	if( OK_MSG == message ) {
+	  state = recv::request_file_size;
+	} else {
+	  state = recv::error;
+	}
+	break;
+      case recv::request_file_size :
+	endpoint.send(FILE_SIZE_REQ);
+	state = recv::receive_file_size;
+	break;
+      case recv::receive_file_size :
+	logger.debug("getting file size");
+	endpoint.receive( &file_size );
+	state = recv::ack_file_size;
+	break;
+      case recv::ack_file_size :
+	endpoint.send( OK_MSG );
+	state = recv::receive_file;
+	break;
+      case recv::receive_file :
+	endpoint.receive_file( command.get_target(), file_size );
+	state = recv::term;
+	break;
+      case recv::error :
+	logger.debug("error");
+	break;
+      case recv::term :
+	return;
+      }
+    }
   }
 
-  void client::send_file( messaging endpoint ) {
+  void client::send_file( messaging& endpoint ) {
   }
 
   void client::talk_to_server( UDTSOCKET socket ) {
@@ -106,9 +148,8 @@ namespace ucp {
         } else if( ERROR_MSG == server_response ) {
           endpoint.send( OK_MSG );
           state = error_msg;
-        } else {
-          state = term;
-        }
+        } 
+	state = goodbye;
         break;
       case error_msg :
         endpoint.receive( server_response );

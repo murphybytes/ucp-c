@@ -1,7 +1,36 @@
 #include "messaging.hpp"
+#include <fstream> 
+
+using std::fstream;
+using std::ios;
 
 namespace ucp {
   void messaging::send_file( const string& file_name ) {
+    logger.debug( (format("Preparing to send file %1%") % file_name ).str());
+    fstream in_stream( file_name.c_str(), ios::in | ios::binary );
+    int_t file_size = get_file_size( file_name );
+    int_t offset = 0;
+    UDT::TRACEINFO trace;
+    UDT::perfmon( *socket_, &trace );
+    
+    if( UDT::ERROR == UDT::sendfile( *socket_, in_stream, offset, file_size )) {
+      throw std::runtime_error( UDT::getlasterror().getErrorMessage() );
+    }
+
+    UDT::perfmon( *socket_, &trace );
+    logger.info( (format("Transfer speed %1% Mbits/sec") % trace.mbpsSendRate ).str() );
+    
+  }
+  
+  void messaging::receive_file( const string& file_name, int_t file_size ) {
+    logger.debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
+    fstream out_stream( file_name.c_str(), ios::binary | ios::trunc | ios::out );
+    int_t received_size = 0;
+    int_t offset = 0 ;
+    if( UDT::ERROR == ( received_size = UDT::recvfile( *socket_, out_stream, offset, file_size ))) {
+      throw std::runtime_error( UDT::getlasterror().getErrorMessage() );
+    }  
+    logger.debug( (format("%1% was received successfully") % file_name ).str() );
   }
 
   void messaging::trace_send( const string& msg ) {
@@ -21,7 +50,7 @@ namespace ucp {
 
   void messaging::trace_recv( int_t msg ) {
     string str_msg = boost::lexical_cast< string >( msg );
-    trace_recv( msg );
+    trace_recv( str_msg );
   }
 
   messaging::~messaging() {
@@ -52,7 +81,8 @@ namespace ucp {
   }
 
   void messaging::receive( int_t* msg ) {
-    int received = UDT::recv( *socket_, reinterpret_cast<char*>( msg ), sizeof(int_t), 0 );
+    
+    int received = UDT::recv( *socket_, (char*)msg, sizeof(int_t), 0 );
     if( UDT::ERROR == received ) {
       throw std::runtime_error( UDT::getlasterror().getErrorMessage() );
     }

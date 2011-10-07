@@ -29,8 +29,16 @@ namespace ucp {
 	break;
       case send::wait_for_file_size_req :
 	endpoint.receive( client_message );
+	logger.debug("get file size request");
 	if( client_message == FILE_SIZE_REQ ) {
-	  endpoint.send( get_file_size( requested_file ) );
+	  try {
+	    endpoint.send( get_file_size( requested_file ) );
+	    logger.debug("sent file size");
+	  } catch( const std::exception& e ) {
+	    error_message = e.what();
+	    logger.warn( (format("file size request failed. Msg = %1%. %2% %3%") % error_message % __FILE__ % __LINE__ ).str() );
+	    
+	  }
 	  state = send::wait_for_send_ack;
 	} else {
 	  logger.warn( (format("Expected %1% got %2% at %3% %4%") % FILE_SIZE_REQ % 

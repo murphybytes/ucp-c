@@ -31,7 +31,7 @@ namespace ucp {
     void receive( int_t* msg );
     void close() ;
     void send_file( const string& file_name );     
-
+    void receive_file( const string& file_name, int_t file_size );
   };
 
 }

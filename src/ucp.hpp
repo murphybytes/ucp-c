@@ -6,7 +6,7 @@ namespace ucp {
   const int ERROR = 1;
   // platform independent integer for wire 
   // communication ( at least little endian platforms )
-  typedef unsigned long long int int_t;
+  typedef int64_t int_t;
 }
 
 

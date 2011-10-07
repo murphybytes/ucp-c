@@ -20,7 +20,17 @@ namespace ucp {
   }
 
   int_t get_file_size( const string& file_name ) {
-    return 0;
+    fs::path path( file_name, fs::native );
+
+    if( !fs::exists( path ) ) {
+      throw std::runtime_error( (format("File '%1%' does not exist") % file_name ).str() ); 
+    }
+
+    if( !fs::is_regular( path ) ) {
+      throw std::runtime_error( (format("File '%1%' is not a regular file") % file_name).str() );
+    }
+    
+    return fs::file_size( file_name );
   }
 
 
