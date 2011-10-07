@@ -74,6 +74,37 @@ namespace ucp {
 
   void connection_handler::server_receive_file( messaging endpoint ) {
     logger.debug( "server receive file" );
+    string file_name;
+    int_t file_size = 0;
+    recv::txfer_state state = recv::send_file_name;
+
+    while( true ) {
+      switch( state ) {
+      case recv::send_file_name :
+	endpoint.receive( file_name );
+	state = recv::send_file_ack;
+	break;
+      case recv::send_file_ack :
+	endpoint.send( OK_MSG );
+	state = recv::wait_for_file_size;
+	break;
+      case recv::wait_for_file_size :
+	endpoint.receive( &file_size );
+	state = recv::ack_file_size;
+	break;
+      case recv::ack_file_size :
+	endpoint.send( OK_MSG );
+	state = recv::receive_file;
+	break;
+      case recv::receive_file :
+	endpoint.receive_file( file_name, file_size );
+	state = recv::term;
+	break;
+      case recv::term :
+	return;
+      }
+    }
+    
   }
 
   void connection_handler::operator()() {
