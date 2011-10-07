@@ -106,6 +106,53 @@ namespace ucp {
   }
 
   void client::send_file( messaging& endpoint ) {
+    logger.debug("send file");
+    send::txfer_state state = send::file_name;
+    string server_response;
+
+    while( true ) {
+      switch( state ) {
+      case send::file_name :
+	endpoint.send( command.get_target() );
+	state = send::file_name_ack;
+	break;
+      case send::file_name_ack :
+	endpoint.receive( server_response );
+	if( server_response == OK_MSG ) {
+	  state = send::file_size ;
+	} else {
+	  state = send::error_ack;
+	}
+	break;
+      case send::file_size :
+	endpoint.send( get_file_size( command.get_source() ) );
+	state = send::file_size_ack;
+	break;
+      case send::file_size_ack :
+	endpoint.receive( server_response );
+	if( server_response == OK_MSG ) {
+	  state = send::file_send;	  
+	} else {
+	  state = send::error_ack;
+	}
+	break;
+      case send::file_send :
+	endpoint.send_file( command.get_source() );
+	state = send::term;
+	break;
+      case send::error_ack :
+	endpoint.send( OK_MSG );
+	state = send::error;
+	break;
+      case send::error :
+	endpoint.receive( server_response );
+	logger.error( server_response );
+	state = send::term;
+      case send::term :
+	logger.debug( "got term" );
+	return;
+      }
+    }
   }
 
   void client::talk_to_server( UDTSOCKET socket ) {

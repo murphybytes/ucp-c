@@ -4,9 +4,15 @@
 namespace ucp {
   namespace send {
     enum txfer_state {
+      file_name,
+      file_name_ack,
+      file_size,
+      file_size_ack,
+      file_send,
       wait_for_req_file,
       wait_for_file_size_req,
       wait_for_send_ack,
+      error_ack,
       error,
       term
     };
