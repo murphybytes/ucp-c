@@ -33,7 +33,7 @@ int main( int argc, char* argv[] ) {
     ucp::logger.debug( "ucp starting" );
     signal(SIGINT, on_signal);
 
-    if( vm.count("help") ) {
+    if( vm.count("help") || 1 == argc  ) {
 	cout << desc << endl;
 	return result;
     }
