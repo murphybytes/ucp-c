@@ -2,7 +2,7 @@ cmake_minimum_required ( VERSION 2.8 )
 project (ucp)
 set (ucp_VERSION_MAJOR 0)
 set (ucp_VERSION_MINOR 1)
-set( CMAKE_CXX_FLAGS "-g" )
+set( CMAKE_CXX_FLAGS "-g -O2" )
 
 configure_file (
   "${PROJECT_SOURCE_DIR}/ucp_config.h.in"

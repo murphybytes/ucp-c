@@ -4,10 +4,29 @@ I hate huge repositories so rather than put everything in this one, you'll
 have to have a couple dependencies installed on your system and in the 
 build path.  You can thank me later.
 
-Dependencies
+External Dependencies
 ------------------
 Boost 1.42
 
+I've listed the libraries that are required on the system to build and
+run UCP.  Most of these will already be on your system, but if they are not
+you'll have to install them. 
+
+libboost_program_options
+libboost_regex
+libboost_signals
+libboost_thread
+libboost_filesystem
+libstdc++
+libm
+libgcc_s
+libc
+libpthread
+libboost_system
+librt
+libicudata
+libicui18n
+libicuuc
 
 cmake 2.8.3 (For generating makefile)
 
@@ -21,3 +40,43 @@ to build:
 
 UDT_OS=[LINUX(default), BSD, OSX]
 UDT_ARCH=[IA64(default), IA32, POWERPC, IA64, AMD64]
+
+Usage
+-------------------------------
+ucp options:
+  -h [ --help ]                    Show help message.
+  -v [ --version ]                 Show version.
+  -V [ --verbose ]                 Verbose output.
+  -l [ --log-level ] arg (=3)      Log level, 3 most verbose, 0 least verbose
+  -L [ --listener ]                Run in listener mode.
+  -P [ --listen-port ] arg (=9090) Port to listen on in listener mode
+  --copy-command arg               Client copy command source-file 
+                                   user@host:port:dest-file
+
+The ucp program can run as client or server.  The typical use case would be to have 
+a server running on each machine as a deamon and kick of ucp in client mode to 
+transfer files.  You could run ucp in server mode like so:
+
+./ucp -L >> ucp.log & 
+
+You could then tail the ucp.log to see what's going on with the file transfers.
+
+Call the client to send a file to the server
+
+./ucp filetotransfer me@myhost:/home/me/serverfile
+
+Call the client to send a file to the client
+
+./ucp me@myhost:/home/me/serverfile clientfile
+
+As you can see, ucp works pretty much like scp.  
+
+TODO's
+--------------------------------------------
+Right now ucp knows nothing about file permissions.  In server
+mode ucp runs as the user that starts it in listener mode.  If you
+try to copy  a file to the server, the server must have write 
+priveledges on the directory that the file is written to.  Future
+releases will remedy this.  
+
+Files are not encrypted on the wire.  
