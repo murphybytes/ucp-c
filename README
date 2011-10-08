@@ -10,7 +10,7 @@ Boost 1.42
 
 I've listed the libraries that are required on the system to build and
 run UCP.  Most of these will already be on your system, but if they are not
-you'll have to install them. 
+you'll have to install them along with development headers. 
 
 libboost_program_options
 libboost_regex
@@ -33,10 +33,10 @@ cmake 2.8.3 (For generating makefile)
 Building
 ----------------
 
-Run build.sh in the root of the project.  
+Install cmake and run build.sh in the root of the project.  
 
-You may have to specify your architecture and operating system
-to build:
+UDT_OS and UDT_ARCH environment variables may be defined to specify architecture and operating system 
+before building. 
 
 UDT_OS=[LINUX(default), BSD, OSX]
 UDT_ARCH=[IA64(default), IA32, POWERPC, IA64, AMD64]
@@ -54,8 +54,9 @@ ucp options:
                                    user@host:port:dest-file
 
 The ucp program can run as client or server.  The typical use case would be to have 
-a server running on each machine as a deamon and kick of ucp in client mode to 
-transfer files.  You could run ucp in server mode like so:
+a server running on a machine as a deamon and kick of ucp in client mode on 
+another machine to transfer files back and forth.  You run ucp in server 
+mode like so:
 
 ./ucp -L >> ucp.log & 
 
