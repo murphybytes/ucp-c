@@ -20,7 +20,7 @@ namespace ucp {
   }
 
   int_t get_file_size( const string& file_name ) {
-    fs::path path( file_name, fs::native );
+    fs::path path( file_name);
 
     if( !fs::exists( path ) ) {
       throw std::runtime_error( (format("File '%1%' does not exist") % file_name ).str() ); 

@@ -34,6 +34,7 @@ boost_regex
 boost_signals 
 boost_thread
 boost_filesystem
+boost_system
 udt
 )
 
