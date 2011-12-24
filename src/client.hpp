@@ -19,14 +19,20 @@ namespace ucp {
     friend shared_ptr<application> get_application( const po::variables_map& );
     
     copy_command command;
+
+ 
+    
+
     client(const po::variables_map& );
     void talk_to_server( UDTSOCKET socket );
     void send_file( messaging& endpoint );
     void receive_file( messaging& endpoint );
+    void secure_session();
   public:
     virtual ~client();
     virtual void run(); 
     virtual void signal(int) {}
+
   };
 }
 

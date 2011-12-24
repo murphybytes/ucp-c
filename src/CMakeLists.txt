@@ -1,8 +1,8 @@
 cmake_minimum_required ( VERSION 2.8 )
 project (ucp)
 set (ucp_VERSION_MAJOR 0)
-set (ucp_VERSION_MINOR 1)
-set( CMAKE_CXX_FLAGS "-g -O2" )
+set (ucp_VERSION_MINOR 2)
+set( CMAKE_CXX_FLAGS "-g" )
 
 configure_file (
   "${PROJECT_SOURCE_DIR}/ucp_config.h.in"
@@ -26,6 +26,7 @@ add_library( ucp_core SHARED
   listen_thread.cpp
   connection_handler.cpp
   messaging.cpp
+  encryption_service.cpp
 )
 
 target_link_libraries( ucp_core 
@@ -35,6 +36,7 @@ boost_signals
 boost_thread
 boost_filesystem
 boost_system
+crypto++
 udt
 )
 

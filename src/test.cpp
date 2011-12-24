@@ -1,7 +1,8 @@
 
-
+#include <iostream>
 #include <boost/test/minimal.hpp>
 #include "copy_command.hpp"
+#include "encryption_service.hpp"
 
 int test_main( int argc, char* argv[] ) {
 
@@ -30,6 +31,14 @@ int test_main( int argc, char* argv[] ) {
   BOOST_CHECK( command.get_target() == "xyz" );
 
   BOOST_CHECK( 332 == ucp::get_file_size("../data/testfile") );
+
+  ucp::encryption_service encryption_service;
+  byte_string shared_secret;
+  
+  encryption_service.generate_shared_secret( shared_secret );
+  std::cout << "Length " << shared_secret.length() << std::endl;
+  BOOST_CHECK( shared_secret.length() == 16 );
+
   return 0;
 
 }

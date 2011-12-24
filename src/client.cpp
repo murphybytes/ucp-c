@@ -1,7 +1,10 @@
 #include "client.hpp"
 #include "states.hpp"
+#include <crypto++/osrng.h>
 
 using ucp::logger;
+
+
 
 namespace ucp { 
 
@@ -14,12 +17,32 @@ namespace ucp {
   client::~client() {
     logger.debug( "destroy client" );
   }
+  
+  /*
+  void client::generate_keys() {
+    AutoSeededRandomPool random_number_generator;
+
+  }
+  */
+  // TODO: 
+  // 1) Generate AES key
+  // 2) Write AES key to .ucp/<pid>.<clienthostname>.key
+  // 3) Fork process copy key file to server 
+  // 4) wait until fork returns
+  void client::secure_session() {
+
+  
+  }
 
   void client::run()  {
     logger.debug( "run client" );
     logger.debug( (format("Preparing to connect to %1% on port %2%") % command.get_host() %
                    command.get_port() ).str() );
+    
+    secure_session();
 
+    return;
+  
     UDT::startup();
     
     addrinfo hints;

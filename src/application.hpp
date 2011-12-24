@@ -34,6 +34,8 @@ using boost::condition_variable;
 using boost::mutex;
 using boost::unique_lock;
 
+typedef std::basic_string< unsigned char > byte_string;
+
 namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
