@@ -6,7 +6,7 @@ build path.  You can thank me later.
 
 External Dependencies
 ------------------
-Boost 1.42
+Boost 1.46
 
 I've listed the libraries that are required on the system to build and
 run UCP.  Most of these will already be on your system, but if they are not
@@ -27,6 +27,7 @@ librt
 libicudata
 libicui18n
 libicuuc
+libcrypto++ 
 
 cmake 2.8.3 (For generating makefile)
 
