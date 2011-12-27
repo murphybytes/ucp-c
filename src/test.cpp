@@ -37,7 +37,15 @@ int test_main( int argc, char* argv[] ) {
   
   encryption_service.generate_shared_secret( shared_secret );
   std::cout << "Length " << shared_secret.length() << std::endl;
+  std::cout << "content " << shared_secret.c_str() << std::endl;
   BOOST_CHECK( shared_secret.length() == 16 );
+
+  string file_name;
+  encryption_service.write_shared_secret_to_file( shared_secret, file_name );
+  byte_string read_from_file;
+  encryption_service.read_shared_secret_from_file( file_name, read_from_file );
+  std::cout << "read " << read_from_file.c_str() << std::endl;
+  BOOST_CHECK( shared_secret == read_from_file );
 
   return 0;
 
