@@ -4,6 +4,7 @@
 #include "encryption_service.hpp"
 #include <fstream>
 #include <unistd.h>
+#include <stdlib.h>
 
 using CryptoPP::AutoSeededRandomPool;
 using CryptoPP::Rijndael_Info;
@@ -65,6 +66,21 @@ namespace ucp {
     stream.get( buffer, aes_params.DEFAULT_KEYLENGTH + 1  );
     stream.close();
     shared_secret.append( (unsigned char*)buffer, aes_params.DEFAULT_KEYLENGTH );
+  }
+
+
+  void encryption_service::send_shared_secret_to_remote_host( const string& remote_user, const string& remote_host, const string& file_name ) const {
+    std::stringstream command ;
+    command << "scp " << file_name << " "  << remote_user << "@" << remote_host << ":.ucp/.";
+    int result = system( command.str().c_str() );
+
+    if( result ) {
+      throw std::runtime_error( (format("Failed to copy key to remote %1% %2% %3%") %
+				 command.str() % __FILE__ % __LINE__ ).str() );
+    }
+      
+ 
+    
   }
 
 

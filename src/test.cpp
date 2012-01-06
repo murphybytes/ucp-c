@@ -46,7 +46,15 @@ int test_main( int argc, char* argv[] ) {
   encryption_service.read_shared_secret_from_file( file_name, read_from_file );
   std::cout << "read " << read_from_file.c_str() << std::endl;
   BOOST_CHECK( shared_secret == read_from_file );
-
+ 
+  bool success = true ;
+  try {
+    encryption_service.send_shared_secret_to_remote_host( "dummy", "localhost", file_name );
+  } catch( const std::runtime_error& e ) {
+    success = false;
+    std::cout << "Exception " << e.what() << std::endl;
+  }
+  BOOST_CHECK( success );
   return 0;
 
 }

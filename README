@@ -42,6 +42,12 @@ before building.
 UDT_OS=[LINUX(default), BSD, OSX]
 UDT_ARCH=[IA64(default), IA32, POWERPC, IA64, AMD64]
 
+Testing
+-------------------------------
+The build script will create unit tests in a binary called 'test'.  Run test_setup.sh
+before running the test script. This script will create a test user 
+that is used for some of the unit tests. 
+
 Usage
 -------------------------------
 ucp options:
