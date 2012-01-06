@@ -38,6 +38,7 @@ int test_main( int argc, char* argv[] ) {
   encryption_service.generate_shared_secret( shared_secret );
   std::cout << "Length " << shared_secret.length() << std::endl;
   std::cout << "content " << shared_secret.c_str() << std::endl;
+  std::cout << "key directory " << encryption_service.get_key_directory() << std::endl;
   BOOST_CHECK( shared_secret.length() == 16 );
 
   string file_name;

@@ -6,13 +6,15 @@
 namespace ucp {
 
   class encryption_service {
+    string key_directory;
   public:
     void generate_shared_secret( byte_string& shared_secret ) const;
     void write_shared_secret_to_file( const byte_string& shared_secret, string& file_name ) const ;
     void read_shared_secret_from_file( const string& file_name, byte_string& shared_secret ) const;
     void get_random_filename( string& file_name ) const;
     void send_shared_secret_to_remote_host( const string& remote_user, const string& remote_host, const string& file_name ) const;
-
+    const string& get_key_directory() const { return key_directory; } 
+    encryption_service() ;
     virtual ~encryption_service() {
     }
   };

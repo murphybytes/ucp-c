@@ -14,9 +14,12 @@ using std::fstream;
 
 namespace ucp {
 
-  static const char* UCP_DIRECTORY = "/home/jam/.ucp";
+
   static const char* CHAR_MAPPING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+  encryption_service::encryption_service() {
+    key_directory = (format("%1%/.ucp") % getenv( "HOME" )).str() ;
+  }
   void encryption_service::generate_shared_secret( byte_string& shared_secret ) const {
     AutoSeededRandomPool generator;
     Rijndael_Info aes_params;
@@ -41,7 +44,8 @@ namespace ucp {
   }
 
   void encryption_service::write_shared_secret_to_file( const byte_string& shared_secret, string& file_name ) const  {
-    fs::path ucp_hidden_path(  UCP_DIRECTORY );
+    
+    fs::path ucp_hidden_path( key_directory );
     Rijndael_Info aes_params;
     if( !fs::exists( ucp_hidden_path ) ) {
       fs::create_directory( ucp_hidden_path ) ;
