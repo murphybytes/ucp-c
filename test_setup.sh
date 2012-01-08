@@ -12,11 +12,20 @@
 #
 ################################################
 
+if [ "$(whoami)" != "root" ]; then
+    echo "Script Failed. You need to use sudo to run this script"
+    exit 1 
+fi
+
+if [ ! -x "src/ucp" ]; then
+    echo "Script Failed. Run build.sh to generate binaries for test."
+    exit 1
+fi 
 
 
-if [ -z $DUMMY_ACCOUNT ]; then
-   
-    DUMMY_ACCOUNT=dummy   
+
+if [ -z $DUMMY_ACCOUNT ]; then   
+    export DUMMY_ACCOUNT=dummy    
 fi
 
 echo "Dummy account ${DUMMY_ACCOUNT}"
@@ -37,3 +46,6 @@ chown -R ${DUMMY_ACCOUNT}:${DUMMY_ACCOUNT} /home/${DUMMY_ACCOUNT}
 cat ~/.ssh/id_rsa.pub >> /home/${DUMMY_ACCOUNT}/.ssh/authorized_keys 
 
 
+if [ ! -h /home/${DUMMY_ACCOUNT}/ucp ]; then
+    ln -s "$(pwd)/src/ucp" /home/${DUMMY_ACCOUNT}/ucp
+fi

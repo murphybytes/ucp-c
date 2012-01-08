@@ -39,7 +39,7 @@ namespace ucp {
     logger.debug( (format("Shared secret => %1%") % shared_secret.c_str() ).str() );
     encryption_service.write_shared_secret_to_file( shared_secret, shared_secret_file );
     logger.debug( (format("Shared secret file => %1%") % shared_secret_file ).str() );
-    // encryption_service.send_key_to_remote_host( command.get_user(), command.get_host(), share_secret_file );
+    encryption_service.send_shared_secret_to_remote_host( command.get_user(), command.get_host(), shared_secret_file );
     
   
   }

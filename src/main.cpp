@@ -20,8 +20,11 @@ int main( int argc, char* argv[] ) {
 	("verbose,V", "Verbose output.")
 	("log-level,l", po::value< unsigned int >( &log_level )->default_value( 3 ),  "Log level, 3 most verbose, 0 least verbose" )
 	("listener,L", "Run in listener mode.")
+      ("daemonize,d", "Run as daemon. (Listener only)" )
 	("listen-port,P", po::value< unsigned int >()->default_value(9090), "Port to listen on in listener mode")
+        ("pid-directory,p", po::value< string >()->default_value("/var/run"), "Pid file directory if in daemon mode" )
 	("copy-command", po::value< vector< string > >(&args), "Client copy command source-file user@host:port:dest-file" )
+     
 	;
     po::positional_options_description pod;
     pod.add( "copy-command", -1 );
