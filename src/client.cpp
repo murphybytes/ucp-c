@@ -51,7 +51,7 @@ namespace ucp {
     
     secure_session();
 
-    return;
+
   
     UDT::startup();
     
