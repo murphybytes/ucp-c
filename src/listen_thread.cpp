@@ -1,6 +1,6 @@
 #include "listen_thread.hpp"
 #include "connection_handler.hpp"
-
+#include <stdlib.h>
 namespace ucp {
   listen_thread::listen_thread(unsigned int port )
     : socket_(0), runnable_(true), port_(port)
@@ -74,8 +74,20 @@ namespace ucp {
 		     clientservice, sizeof(clientservice), NI_NUMERICHOST|NI_NUMERICSERV);
 	logger.debug( (format("New Connection: %1% : %2%") % 
 		       clienthost % clientservice ).str());
-	connection_handler handler( receive_socket);
-	boost::thread thread( handler );
+	//	connection_handler handler( receive_socket);
+	//   boost::thread thread( handler );
+	pid_t pid = fork() ;
+	if( ! pid ) { 
+	  string socket_arg = (format("--connection-socket=%1%") % receive_socket ).str();
+	  const char*  args[] = { "ucp", "--connection-handler",  socket_arg.c_str() };
+	  int result = execv( "./ucp", ( char* const*)args );
+	  logger.debug( (format("exec %1%") % result ).str() );
+	  exit( 0 );
+	}
+
+	if( pid < 0 ) {
+	  throw std::runtime_error( (format("Attempt to fork child process to handle connection failed %1% %2%") % __FILE__ % __LINE__ ).str() );
+	}
     
       }
 

@@ -13,8 +13,8 @@ int main( int argc, char* argv[] ) {
     int result = ucp::SUCCESS;
     unsigned int log_level = 0;
     vector< string > args;
-    po::options_description desc("ucp options");
-    desc.add_options()
+    po::options_description visible_options("ucp options");
+    visible_options.add_options()
 	("help,h", "Show help message.")
 	("version,v", "Show version.")
 	("verbose,V", "Verbose output.")
@@ -28,8 +28,21 @@ int main( int argc, char* argv[] ) {
 	;
     po::positional_options_description pod;
     pod.add( "copy-command", -1 );
+
+    
+    po::options_description hidden_options( "connection handler options" );
+    hidden_options.add_options() 
+      ( "connection-handler", "flag that this is a child process" )
+      ( "connection-socket", po::value< unsigned int >(), "socket to handle connection"  )
+      ;
+
+    po::options_description all_options("all options");
+    all_options.add( visible_options ).add( hidden_options );
+
+
+
     po::variables_map vm;
-    po::store(po::command_line_parser( argc, argv ).options(desc).positional(pod).run(), vm );
+    po::store(po::command_line_parser( argc, argv ).options(all_options).positional(pod).run(), vm );
     po::notify(vm);
 
     ucp::logger.level() = log_level;
@@ -37,7 +50,7 @@ int main( int argc, char* argv[] ) {
     signal(SIGINT, on_signal);
 
     if( vm.count("help") || 1 == argc  ) {
-	cout << desc << endl;
+	cout << visible_options << endl;
 	return result;
     }
 

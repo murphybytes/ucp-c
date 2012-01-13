@@ -27,6 +27,7 @@ add_library( ucp_core SHARED
   connection_handler.cpp
   messaging.cpp
   encryption_service.cpp
+  connection.cpp
 )
 
 target_link_libraries( ucp_core 
@@ -50,3 +51,7 @@ add_executable( test  test.cpp )
 
 
 target_link_libraries( test ucp_core )
+
+
+
+
