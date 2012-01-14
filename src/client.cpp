@@ -1,6 +1,5 @@
 #include "client.hpp"
 #include "states.hpp"
-#include "encryption_service.hpp"
 #include <crypto++/osrng.h>
 
 using ucp::logger;
@@ -31,15 +30,13 @@ namespace ucp {
   // 3) Fork process copy key file to server 
   // 4) wait until fork returns
   void client::secure_session() {
-    byte_string shared_secret ;
     ucp::encryption_service encryption_service ;
-    string shared_secret_file;
-    
-    encryption_service.generate_shared_secret( shared_secret );
-    logger.debug( (format("Shared secret => %1%") % shared_secret.c_str() ).str() );
-    encryption_service.write_shared_secret_to_file( shared_secret, shared_secret_file );
-    logger.debug( (format("Shared secret file => %1%") % shared_secret_file ).str() );
-    encryption_service.send_shared_secret_to_remote_host( command.get_user(), command.get_host(), shared_secret_file );
+
+    encryption_service.generate_shared_secret( shared_secret_ );
+    logger.debug( (format("Shared secret => %1%") % shared_secret_.c_str() ).str() );
+    encryption_service.write_shared_secret_to_file( shared_secret_, shared_secret_file_name_ );
+    logger.debug( (format("Shared secret file => %1%") % shared_secret_file_name_ ).str() );
+    encryption_service.send_shared_secret_to_remote_host( command.get_user(), command.get_host(), shared_secret_file_name_ );
     
   
   }
@@ -50,8 +47,6 @@ namespace ucp {
                    command.get_port() ).str() );
     
     secure_session();
-
-
   
     UDT::startup();
     
@@ -188,7 +183,7 @@ namespace ucp {
     }
   }
 
-  void client::talk_to_server( UDTSOCKET socket ) {
+  void client::talk_to_server( UDTSOCKET socket )  {
     client_state state = initial;
     messaging endpoint( shared_ptr<UDTSOCKET>( new UDTSOCKET(socket) ), client_role );
     string server_response;
@@ -200,6 +195,18 @@ namespace ucp {
         state = hello_ack;
         break;
       case hello_ack :
+	endpoint.receive( server_response ) ;
+	if( server_response == OK_MSG ) {
+	  endpoint.send( shared_secret_file_name_ );
+	  state = session_ack;
+	}
+
+	if( server_response == ERROR_MSG ) {
+	  state = error_msg;
+	}
+	break;
+
+      case session_ack :
         endpoint.receive( server_response );
         if( server_response == OK_MSG ) {
           direction_t direction = command.get_direction() ;

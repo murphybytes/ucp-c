@@ -74,8 +74,10 @@ namespace ucp {
 		     clientservice, sizeof(clientservice), NI_NUMERICHOST|NI_NUMERICSERV);
 	logger.debug( (format("New Connection: %1% : %2%") % 
 		       clienthost % clientservice ).str());
-	//	connection_handler handler( receive_socket);
-	//   boost::thread thread( handler );
+	connection_handler handler( receive_socket);
+	boost::thread thread( handler );
+
+	/*
 	pid_t pid = fork() ;
 	if( ! pid ) { 
 	  string socket_arg = (format("--connection-socket=%1%") % receive_socket ).str();
@@ -88,6 +90,7 @@ namespace ucp {
 	if( pid < 0 ) {
 	  throw std::runtime_error( (format("Attempt to fork child process to handle connection failed %1% %2%") % __FILE__ % __LINE__ ).str() );
 	}
+	*/
     
       }
 

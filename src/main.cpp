@@ -33,7 +33,7 @@ int main( int argc, char* argv[] ) {
     po::options_description hidden_options( "connection handler options" );
     hidden_options.add_options() 
       ( "connection-handler", "flag that this is a child process" )
-      ( "connection-socket", po::value< unsigned int >(), "socket to handle connection"  )
+      ( "connection-socket", po::value< int >(), "socket to handle connection"  )
       ;
 
     po::options_description all_options("all options");

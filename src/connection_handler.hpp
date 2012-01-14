@@ -13,6 +13,7 @@ namespace ucp {
       initial,
       invalid,
       waiting_for_direction,
+      waiting_for_secret_file, 
       client_expecting_ack,
       client_send,
       client_receive,
@@ -30,6 +31,7 @@ namespace ucp {
     
   public:
     connection_handler( UDTSOCKET socket ); 
+    connection_handler( const po::variables_map& );
     virtual ~connection_handler();
     const string& last_error() const { return last_error_; }
     void operator()() ;

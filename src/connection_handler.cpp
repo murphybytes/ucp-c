@@ -3,6 +3,11 @@
 #include "states.hpp"
 
 namespace ucp {
+  connection_handler::connection_handler( const po::variables_map& commands ) {
+    assert( commands.count( "connection-socket" ) );
+    socket_ = static_cast<UDTSOCKET>( commands["connection-socket"].as<int>() );
+    logger.debug((format("Connected socket %1%") % socket_).str() );
+  }
 
   connection_handler::connection_handler( UDTSOCKET socket )
     :socket_(socket) {
@@ -124,13 +129,24 @@ namespace ucp {
 	case initial :
 	  endpoint.receive( client_message );
 	  if( client_message == CLIENT_HELLO_MSG ) {
-	    state = waiting_for_direction;
+	    state = waiting_for_secret_file;
 	    endpoint.send( OK_MSG );
 	  } else { 
 	    endpoint.send( ERROR_MSG );
 	    state = error;
 	  }
 	  break;
+	case waiting_for_secret_file :
+	  endpoint.receive( client_message );
+	  try {
+	    byte_string shared_secret;
+	    encryption_service ec;
+	    ec.read_shared_secret_from_file( client_message, shared_secret );
+	    endpoint.set_shared_secret( shared_secret );
+	    // TODO: SET SHARED SECRET ON CLIENT SIDE TOO, THEN
+	    // USE IT TO ENCODE ALL DATA GOING BACK AND FORTH
+	  } catch( const std::exception& e ) {
+	  }
 	case waiting_for_direction :
 	  endpoint.receive( client_message );
 	  if( client_message == CLIENT_SEND_MSG ) {
