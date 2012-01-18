@@ -209,6 +209,7 @@ namespace ucp {
       case session_ack :
         endpoint.receive( server_response );
         if( server_response == OK_MSG ) {
+	  endpoint.enable_encryption( shared_secret_file_name_ );
           direction_t direction = command.get_direction() ;
           assert( none != direction );
           if( from_remote == direction ) {

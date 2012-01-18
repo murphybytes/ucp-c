@@ -1,6 +1,7 @@
 #include "connection_handler.hpp"
 #include "messaging.hpp"
 #include "states.hpp"
+#include "encryption_service.hpp"
 
 namespace ucp {
   connection_handler::connection_handler( const po::variables_map& commands ) {
@@ -137,16 +138,20 @@ namespace ucp {
 	  }
 	  break;
 	case waiting_for_secret_file :
-	  endpoint.receive( client_message );
 	  try {
-	    byte_string shared_secret;
-	    encryption_service ec;
-	    ec.read_shared_secret_from_file( client_message, shared_secret );
-	    endpoint.set_shared_secret( shared_secret );
-	    // TODO: SET SHARED SECRET ON CLIENT SIDE TOO, THEN
-	    // USE IT TO ENCODE ALL DATA GOING BACK AND FORTH
+	    string secret_file;
+	    endpoint.receive( secret_file );
+	    endpoint.enable_encryption( secret_file );
+	    endpoint.send( OK_MSG );
+ 	    state = waiting_for_direction;
 	  } catch( const std::exception& e ) {
+	    state = error;
+	    error_message = (format("There was a problem establishing session. Error %1%. %2% %3%") % e.what() 
+			     % __FILE__ % __LINE__ ).str() ;
+	    endpoint.send( ERROR_MSG );
 	  }
+	  break;
+
 	case waiting_for_direction :
 	  endpoint.receive( client_message );
 	  if( client_message == CLIENT_SEND_MSG ) {

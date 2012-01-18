@@ -5,6 +5,11 @@ using std::fstream;
 using std::ios;
 
 namespace ucp {
+  void messaging::enable_encryption( const string& secret_file_name ) {
+    encryption_ = shared_ptr< encryption_service >( new encryption_service( secret_file_name ) ); 
+    
+  }
+
   void messaging::send_file( const string& file_name ) {
     logger.debug( (format("Preparing to send file %1%") % file_name ).str());
     fstream in_stream( file_name.c_str(), ios::in | ios::binary );
@@ -34,12 +39,12 @@ namespace ucp {
   }
 
   void messaging::trace_send( const string& msg ) {
-    string role_name = (client_role == role ? "CLIENT" : "SERVER");
+    string role_name = (client_role == role_ ? "CLIENT" : "SERVER");
     logger.debug((format("%1% SEND: %2%") % role_name % msg ).str());
   }
 
   void messaging::trace_recv( const string& msg ) {
-    string role_name = (client_role == role ? "CLIENT" : "SERVER");
+    string role_name = (client_role == role_ ? "CLIENT" : "SERVER");
     logger.debug( (format( "%1% RECV: %2%" ) % role_name % msg ).str() );
   }
 

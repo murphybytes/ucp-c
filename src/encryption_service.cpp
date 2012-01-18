@@ -1,6 +1,4 @@
-#include <cryptopp/aes.h>
-#include <cryptopp/osrng.h>
-#include <cryptopp/cryptlib.h>
+
 #include "encryption_service.hpp"
 #include <fstream>
 #include <unistd.h>
@@ -15,11 +13,46 @@ using std::fstream;
 namespace ucp {
 
 
-  static const char* CHAR_MAPPING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  static const char* CHAR_MAPPING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-";
 
   encryption_service::encryption_service() {
     key_directory = (format("%1%/.ucp") % getenv( "HOME" )).str() ;
   }
+
+  encryption_service::encryption_service( const string& secret_file_name ) {
+    key_directory = (format("%1%/.ucp") % getenv( "HOME" )).str() ;
+    byte_string shared_secret; 
+    read_shared_secret_from_file( secret_file_name, shared_secret );
+    encryptor_ = shared_ptr< encryptor_t >( new encryptor_t( shared_secret.data(), shared_secret.size() ) );
+    decryptor_ = shared_ptr< decryptor_t >( new decryptor_t( shared_secret.data(), shared_secret.size() ) );
+  }
+
+  encryption_service::encryption_service( const byte_string& shared_secret ) {
+    encryptor_ = shared_ptr< encryptor_t >( new encryptor_t( shared_secret.data(), shared_secret.size() ) );
+    decryptor_ = shared_ptr< decryptor_t >( new decryptor_t( shared_secret.data(), shared_secret.size() ) );
+  }
+
+  void encryption_service::encrypt( const string& plain_text, string& cipher ) const {
+    StringSink  sink( cipher  );
+    StreamTransformationFilter  sink_filter(  *encryptor_, &sink  );
+    StringSource source( plain_text, true,  &sink_filter );
+
+    StreamTransformationFilter encrypt_filter( *encryptor_ );
+    encrypt_filter.Put( (const byte*)plain_text.data(), plain_text.size() );
+    encrypt_filter.MessageEnd();
+
+    const size_t retrievable = encrypt_filter.MaxRetrievable();
+    cipher.resize( retrievable );
+    encrypt_filter.Get( (byte*)cipher.data(), cipher.size() ) ;										 
+												 
+  }
+  
+  void encryption_service::decrypt( const string& cipher, string& plain_text ) const  {
+    StringSink sink( plain_text );
+    StreamTransformationFilter filter( *decryptor_, &sink );
+    
+  }
+
   void encryption_service::generate_shared_secret( byte_string& shared_secret ) const {
     AutoSeededRandomPool generator;
     Rijndael_Info aes_params;
