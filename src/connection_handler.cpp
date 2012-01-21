@@ -140,9 +140,12 @@ namespace ucp {
 	case waiting_for_secret_file :
 	  try {
 	    string secret_file;
+
 	    endpoint.receive( secret_file );
-	    endpoint.enable_encryption( secret_file );
+	    logger.debug( (format("Got secret file --> %1%") % secret_file ).str() );
 	    endpoint.send( OK_MSG );
+	    endpoint.enable_encryption( secret_file );
+
  	    state = waiting_for_direction;
 	  } catch( const std::exception& e ) {
 	    state = error;

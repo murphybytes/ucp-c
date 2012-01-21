@@ -39,9 +39,11 @@ namespace ucp {
     void send_shared_secret_to_remote_host( const string& remote_user, const string& remote_host, const string& file_name ) const;
     const string& get_key_directory() const { return key_directory; } 
     void encrypt( const string& plain_text, string& cipher ) ;
+    void encrypt( const char* plain_text, char* cipher, size_t sz ) ;
     void decrypt( const string& cipher, string& plain_text ) ;
-    void pretty_print( const string& cipher ) ;
-
+    void decrypt( const char* cipher, char* plain_text, size_t sz );
+    void pretty_print( const string& cipher ) const ;
+    string make_pretty( const string& cipher ) const ;
     encryption_service() ;
     encryption_service( const string& secret_file_name );
     encryption_service( const byte_string& shared_secret );

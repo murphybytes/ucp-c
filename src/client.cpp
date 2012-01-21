@@ -197,6 +197,7 @@ namespace ucp {
       case hello_ack :
 	endpoint.receive( server_response ) ;
 	if( server_response == OK_MSG ) {
+
 	  endpoint.send( shared_secret_file_name_ );
 	  state = session_ack;
 	}

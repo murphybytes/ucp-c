@@ -1,18 +1,18 @@
 #include "messaging.hpp"
-#include <fstream> 
+#include "ucp_fstream.hpp"
 
-using std::fstream;
+
 using std::ios;
 
 namespace ucp {
   void messaging::enable_encryption( const string& secret_file_name ) {
-    encryption_ = shared_ptr< encryption_service >( new encryption_service( secret_file_name ) ); 
+    encryptor_ = shared_ptr< encryption_service >( new encryption_service( secret_file_name ) ); 
     
   }
 
   void messaging::send_file( const string& file_name ) {
     logger.debug( (format("Preparing to send file %1%") % file_name ).str());
-    fstream in_stream( file_name.c_str(), ios::in | ios::binary );
+    ucp_fstream in_stream( file_name, ios::in | ios::binary, encryptor_ );
     int_t file_size = get_file_size( file_name );
     int_t offset = 0;
     UDT::TRACEINFO trace;
@@ -29,7 +29,7 @@ namespace ucp {
   
   void messaging::receive_file( const string& file_name, int_t file_size ) {
     logger.debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
-    fstream out_stream( file_name.c_str(), ios::binary | ios::trunc | ios::out );
+    ucp_fstream out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );
     int_t received_size = 0;
     int_t offset = 0 ;
     if( UDT::ERROR == ( received_size = UDT::recvfile( *socket_, out_stream, offset, file_size ))) {
@@ -70,7 +70,15 @@ namespace ucp {
   void messaging::send( const string& msg ) {
     trace_send( msg );
     if( !msg.empty() ) {
-      int result = UDT::send( *socket_, msg.c_str(), msg.size() + 1, 0 );
+      string encrypted;
+
+      if( encryptor_ != NULL ) {
+	encryptor_->encrypt( msg, encrypted );
+      } else {
+	encrypted = msg;
+      }
+
+      int result = UDT::send( *socket_, encrypted.data(), encrypted.size(), 0 );
       if( UDT::ERROR == result ) {
 	throw std::runtime_error( UDT::getlasterror().getErrorMessage() );
       }
@@ -105,9 +113,14 @@ namespace ucp {
     if( !(received < (protocol_buffer_size - 1)) ) {
       throw std::runtime_error( "Protocol message too long" );
     } 
+    string encrypted( protocol_buffer, received );
+    
+    if( encryptor_ != NULL ) {
+      encryptor_->decrypt( encrypted, buffer );
+    } else {
+      buffer = encrypted ;
+    }
 
-    protocol_buffer[received] = 0; // null term
-    buffer = protocol_buffer;
     trace_recv( buffer );
   }
 

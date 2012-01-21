@@ -50,7 +50,30 @@ namespace ucp {
     }										 
 												 
   }
+
+  void encryption_service::encrypt( const char* plain_text, char* cipher, size_t sz ) {
+    if( !shared_secret_.empty() ) {
+      string pt( plain_text );
+      string cr;
+      encrypt( pt, cr );
+      strncpy( cipher, cr.data(), sz );
+    } else {
+      strncpy( cipher, plain_text, sz );
+    }
+
+  }
   
+  void encryption_service::decrypt( const char* cipher, char* plain_text, size_t sz ) {
+    if( !shared_secret_.empty() ) {
+      string cipher_string( cipher );
+      string result_string;
+      decrypt( cipher_string, result_string );
+      strncpy( plain_text, result_string.data(), sz );
+    } else {
+      strncpy( plain_text, cipher, sz );
+    }
+  }
+
   void encryption_service::decrypt( const string& cipher, string& plain_text )   {
     if( ! shared_secret_.empty()  ) {
       StringSource s( cipher, true, 
@@ -65,12 +88,15 @@ namespace ucp {
     }
     
   }
-
-
-  void encryption_service::pretty_print( const string& cipher ) {
+  
+  string encryption_service::make_pretty( const string& cipher ) const {
     string encoded;
     StringSource source( cipher, true, new HexEncoder( new StringSink( encoded ) )  );
-    cout << encoded ;
+    return encoded;
+  }
+
+  void encryption_service::pretty_print( const string& cipher ) const {
+    cout << make_pretty( cipher ) ;
   }
 
   byte_string encryption_service::encode( const byte_string& value ) const {

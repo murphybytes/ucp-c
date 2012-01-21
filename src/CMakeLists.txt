@@ -28,6 +28,7 @@ add_library( ucp_core SHARED
   messaging.cpp
   encryption_service.cpp
   connection.cpp
+  ucp_fstream.cpp
 )
 
 target_link_libraries( ucp_core 

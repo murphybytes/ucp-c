@@ -7,6 +7,13 @@ namespace ucp {
   // platform independent integer for wire 
   // communication ( at least little endian platforms )
   typedef int64_t int_t;
+
+  typedef enum {
+    none,
+    from_remote,
+    to_remote } direction_t;
+
+
 }
 
 

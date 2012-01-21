@@ -10,10 +10,6 @@ using std::size_t;
 
 namespace ucp {
 
-  typedef enum {
-    none,
-    from_remote,
-    to_remote } direction_t;
 
   const static int default_port = 9090;
 

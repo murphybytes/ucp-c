@@ -13,7 +13,7 @@ namespace ucp {
 
   class messaging {
     shared_ptr<UDTSOCKET> socket_;
-    shared_ptr<encryption_service> encryption_;
+    shared_ptr<encryption_service> encryptor_;
 
     static const unsigned int protocol_buffer_size = 2048;
     
