@@ -3,25 +3,26 @@
 namespace ucp { 
 
 
-  ucp_fstream::ucp_fstream( const string& filename, ios_base::openmode mode, shared_ptr< encryption_service > encryptor )
-    :fstream( filename.c_str(), mode ), encryptor_(encryptor) {
+  fstream::fstream( const string& filename, ios_base::openmode mode, shared_ptr< encryption_service > encryptor )
+    :std::fstream( filename.c_str(), mode ), encryptor_(encryptor) {
   }
 
-  ucp_fstream::~ucp_fstream() {
+  fstream::~fstream() {
   }
 
-  ostream& ucp_fstream::write( const char* buffer, streamsize sz ) {
+  ostream& fstream::write( const char* buffer, streamsize sz ) {
     char plain_text[sz];
     encryptor_->decrypt( buffer, plain_text, sz );
-    fstream::write( plain_text, sz );
+    std::fstream::write( plain_text, sz );
     
     return *this;
   }
 
-  istream& ucp_fstream::read( char* buffer, streamsize sz ) {
+  istream& fstream::read( char* buffer, streamsize sz ) {
     char raw_buffer[ sz ];
-    fstream::read( raw_buffer, sz );
-    encryptor_->encrypt( raw_buffer, buffer, sz );
+    std::fstream::read( raw_buffer, sz );
+    
+    encryptor_->encrypt( raw_buffer, buffer, gcount() );
 
     return *this;
   } 

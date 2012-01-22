@@ -53,24 +53,18 @@ namespace ucp {
 
   void encryption_service::encrypt( const char* plain_text, char* cipher, size_t sz ) {
     if( !shared_secret_.empty() ) {
-      string pt( plain_text );
-      string cr;
-      encrypt( pt, cr );
-      strncpy( cipher, cr.data(), sz );
+      encryptor_.ProcessData( (byte*)cipher, (byte*)plain_text, sz );
     } else {
-      strncpy( cipher, plain_text, sz );
+      memcpy( cipher, plain_text, sz );
     }
 
   }
   
   void encryption_service::decrypt( const char* cipher, char* plain_text, size_t sz ) {
     if( !shared_secret_.empty() ) {
-      string cipher_string( cipher );
-      string result_string;
-      decrypt( cipher_string, result_string );
-      strncpy( plain_text, result_string.data(), sz );
+      decryptor_.ProcessData( (byte*)plain_text, (byte*)cipher, sz );
     } else {
-      strncpy( plain_text, cipher, sz );
+      memcpy( plain_text, cipher, sz );
     }
   }
 
@@ -79,10 +73,6 @@ namespace ucp {
       StringSource s( cipher, true, 
 		      new StreamTransformationFilter( decryptor_,
 						      new StringSink( plain_text ) ));
-      // byte out[cipher.size()];
-      // memcpy( out, cipher.data(), cipher.size() );
-      // decryptor_.ProcessData( out,out, cipher.size() );
-      // plain_text = (const char*)out;
     } else { 
       plain_text = cipher ;
     }

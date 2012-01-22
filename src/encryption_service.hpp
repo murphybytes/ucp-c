@@ -18,8 +18,8 @@ using CryptoPP::AES;
 
 namespace ucp {
 
-  typedef CryptoPP::CBC_Mode< CryptoPP::AES >::Encryption encryptor_t;
-  typedef CryptoPP::CBC_Mode< CryptoPP::AES >::Decryption decryptor_t;
+  typedef CryptoPP::CFB_Mode< CryptoPP::AES >::Encryption encryptor_t;
+  typedef CryptoPP::CFB_Mode< CryptoPP::AES >::Decryption decryptor_t;
   
   class encryption_service {
     string key_directory;

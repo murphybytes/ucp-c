@@ -3,6 +3,9 @@
 #include <boost/test/minimal.hpp>
 #include "copy_command.hpp"
 #include "encryption_service.hpp"
+#include "ucp_fstream.hpp"
+
+
 
 int test_main( int argc, char* argv[] ) {
 
@@ -87,8 +90,21 @@ int test_main( int argc, char* argv[] ) {
   decrypted.clear();
   es1.decrypt( cipher,decrypted);
   BOOST_CHECK( original == decrypted );
+
   std::cout << "orginal " << original << std::endl;
   std::cout << "decrypt " << decrypted << std::endl;
+  shared_ptr<ucp::encryption_service> encryptor_ptr = shared_ptr<ucp::encryption_service>(new ucp::encryption_service( shared_secret ) );
+  ucp::fstream fin(string("../README"), std::ios::in | std::ios::binary,  encryptor_ptr );
+  ucp::fstream fout( string("README.TEMP"), std::ios::binary | ios::trunc | ios::out, encryptor_ptr );
+  while( fin.good() ) {
+    const size_t buff_size = 64;
+    char buffer[buff_size];
+    fin.read( buffer, buff_size );
+    fout.write( buffer, fin.gcount() );
+  }
+  fin.close();
+  fout.close();
+
   return 0;
 
 }

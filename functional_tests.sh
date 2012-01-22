@@ -22,6 +22,8 @@ fi
 
 src/ucp data/testfile $DUMMY_ACCOUNT@localhost:testfile
 
+
+
 #sleep 2
 
 #sudo kill -SIGINT `cat /home/${DUMMY_ACCOUNT}/ucp.pid`

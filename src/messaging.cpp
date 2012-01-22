@@ -12,7 +12,7 @@ namespace ucp {
 
   void messaging::send_file( const string& file_name ) {
     logger.debug( (format("Preparing to send file %1%") % file_name ).str());
-    ucp_fstream in_stream( file_name, ios::in | ios::binary, encryptor_ );
+    ucp::fstream in_stream( file_name, ios::in | ios::binary, encryptor_ );
     int_t file_size = get_file_size( file_name );
     int_t offset = 0;
     UDT::TRACEINFO trace;
@@ -29,7 +29,7 @@ namespace ucp {
   
   void messaging::receive_file( const string& file_name, int_t file_size ) {
     logger.debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
-    ucp_fstream out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );
+    ucp::fstream out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );
     int_t received_size = 0;
     int_t offset = 0 ;
     if( UDT::ERROR == ( received_size = UDT::recvfile( *socket_, out_stream, offset, file_size ))) {
