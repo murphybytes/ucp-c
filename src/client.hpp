@@ -11,6 +11,7 @@ namespace ucp {
     enum client_state {
       initial,
       hello_ack,
+      user_send_ack,
       session_ack,
       error_msg,
       direction_ack,

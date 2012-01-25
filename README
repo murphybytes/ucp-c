@@ -57,15 +57,17 @@ ucp options:
   -l [ --log-level ] arg (=3)      Log level, 3 most verbose, 0 least verbose
   -L [ --listener ]                Run in listener mode.
   -P [ --listen-port ] arg (=9090) Port to listen on in listener mode
+  -p [ --pid-directory ] arg (=/var/run) Directory to store pid file if in daemon mode
+  -d [ --daemonize ]               Run in daemon mode (Listener only)
   --copy-command arg               Client copy command source-file 
                                    user@host:port:dest-file
 
 The ucp program can run as client or server.  The typical use case would be to have 
 a server running on a machine as a deamon and kick of ucp in client mode on 
-another machine to transfer files back and forth.  You run ucp in server 
-mode like so:
+another machine to transfer files back and forth.  You'll want to  run ucp in server 
+mode as root like so:
 
-./ucp -L >> ucp.log & 
+sudo ./ucp -L -d --pid-directory=$(pwd) >> ucp.log & 
 
 You could then tail the ucp.log to see what's going on with the file transfers.
 
@@ -79,12 +81,20 @@ Call the client to send a file to the client
 
 As you can see, ucp works pretty much like scp.  
 
-TODO's
---------------------------------------------
-Right now ucp knows nothing about file permissions.  In server
-mode ucp runs as the user that starts it in listener mode.  If you
-try to copy  a file to the server, the server must have write 
-priveledges on the directory that the file is written to.  Future
-releases will remedy this.  
+Note.  ucp now uses ssh to authenticate users.  If you are a client wishing to send files to user
+'foo' on a server you'll need to do the following:
 
-Files are not encrypted on the wire.  
+1) create a public rsa key 
+   ssh-keygen -t rsa 
+2) transfer public key to user foo on server
+   scp .ssh/id_rsa.pub foo@server.com:
+3) append your key to authorized users file
+   ssh foo@server.com 'cat id_rsa.pub >> .ssh/authorized_keys'
+4) create a hidden directory for ucp keys
+   ssh foo@server.com 'mkdir ~/.ucp'
+
+
+TODO's 
+
+Clean up secret file when connection ends.
+  

@@ -1,13 +1,26 @@
 #include "messaging.hpp"
 #include "ucp_fstream.hpp"
+#include <sys/types.h>
+#include <pwd.h>
 
 
 using std::ios;
 
 namespace ucp {
   void messaging::enable_encryption( const string& secret_file_name ) {
-    encryptor_ = shared_ptr< encryption_service >( new encryption_service( secret_file_name ) ); 
+    if( user_ == NULL ) {
+      encryptor_ = shared_ptr< encryption_service >( new encryption_service( secret_file_name ) );  
+    } else {
+      encryptor_ = shared_ptr< encryption_service >( new encryption_service( user_->get_home_directory().string(), secret_file_name ) );
+    }
     
+  }
+
+
+  void messaging::set_user( const string& user_name ) {
+    logger.debug( (format("setting user %1% for session") % user_name ).str() );
+    user_ = shared_ptr<user>( new user( user_name ) );
+     
   }
 
   void messaging::send_file( const string& file_name ) {
@@ -27,6 +40,21 @@ namespace ucp {
     
   }
   
+  void messaging::receive_file_from_remote( const string& file_name, int_t file_size ) {
+    assert( role_ == server_role );
+
+    bfs::path path( user_->get_home_directory() );
+    path /=  file_name ;
+
+    receive_file( path, file_size );
+    
+    ucp::chown( *user_, path );
+  }
+
+  void messaging::receive_file( const bfs::path& path, int_t file_size ) {
+    receive_file( path.string(), file_size );
+  }
+
   void messaging::receive_file( const string& file_name, int_t file_size ) {
     logger.debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
     ucp::fstream out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );

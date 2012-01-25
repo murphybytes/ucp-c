@@ -30,8 +30,7 @@ namespace ucp {
     decryptor_.SetKeyWithIV( key.data(), key.size(), iv.data() );
   }
 
-  
-
+ 
   encryption_service::encryption_service( const byte_string& shared_secret ) 
     :shared_secret_(shared_secret) {
     byte_string key = get_key_from_shared_secret( shared_secret_ );
@@ -40,7 +39,20 @@ namespace ucp {
     decryptor_.SetKeyWithIV( key.data(), key.size(), iv.data() );
   }
 
-  void encryption_service::encrypt( const string& plain_text, string& cipher ) {
+  encryption_service::encryption_service( const string& home_dir, const string& secret_file_name ) 
+    :key_directory( (format("%1%/.ucp") % home_dir).str()) {
+    boost::filesystem3::path path( home_dir );
+    path /= ".ucp";
+    path /= secret_file_name;
+    read_shared_secret_from_file( path.string(), shared_secret_ ) ;
+    byte_string key = get_key_from_shared_secret( shared_secret_ );
+    byte_string iv = get_iv_from_shared_secret( shared_secret_ );
+    encryptor_.SetKeyWithIV( key.data(), key.size(), iv.data() );
+    decryptor_.SetKeyWithIV( key.data(), key.size(), iv.data() );
+
+  }
+ 
+ void encryption_service::encrypt( const string& plain_text, string& cipher ) {
     if( ! shared_secret_.empty()  ) {
       StringSource s( plain_text, true, 
 		      new StreamTransformationFilter( encryptor_, 

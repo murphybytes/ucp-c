@@ -182,6 +182,8 @@ namespace ucp {
       }
     }
   }
+  
+  
 
   void client::talk_to_server( UDTSOCKET socket )  {
     client_state state = initial;
@@ -197,8 +199,18 @@ namespace ucp {
       case hello_ack :
 	endpoint.receive( server_response ) ;
 	if( server_response == OK_MSG ) {
+	  endpoint.send( command.get_user() );
+	  state = user_send_ack;
+	} 
+	if( server_response == ERROR_MSG ) {
+	  state = error_msg; 
+	}
+	break;
+      case user_send_ack :
+	endpoint.receive( server_response ) ;
+	if( server_response == OK_MSG ) {
 
-	  endpoint.send( shared_secret_file_name_ );
+	  endpoint.send( boost::filesystem3::path( shared_secret_file_name_ ).filename().string() );
 	  state = session_ack;
 	}
 

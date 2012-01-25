@@ -5,6 +5,10 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <assert.h>
+#include <sys/types.h>
+#include <pwd.h>
+#include <unistd.h>
+
 #include <boost/program_options.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/format.hpp>
@@ -67,6 +71,7 @@ namespace ucp {
 
 
   int_t get_file_size( const string& file_name );
+
 }
 
 

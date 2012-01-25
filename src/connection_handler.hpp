@@ -14,6 +14,7 @@ namespace ucp {
       invalid,
       waiting_for_direction,
       waiting_for_secret_file, 
+      waiting_for_user_name,
       client_expecting_ack,
       client_send,
       client_receive,

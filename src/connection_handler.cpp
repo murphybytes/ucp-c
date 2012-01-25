@@ -2,6 +2,7 @@
 #include "messaging.hpp"
 #include "states.hpp"
 #include "encryption_service.hpp"
+#include "user.hpp"
 
 namespace ucp {
   connection_handler::connection_handler( const po::variables_map& commands ) {
@@ -103,7 +104,7 @@ namespace ucp {
 	state = recv::receive_file;
 	break;
       case recv::receive_file :
-	endpoint.receive_file( file_name, file_size );
+	endpoint.receive_file_from_remote( file_name, file_size );
 	state = recv::term;
 	break;
       case recv::term :
@@ -125,17 +126,24 @@ namespace ucp {
       while( true ) {
 	string client_message;
 	string error_message;
+	string user_name ;
 
 	switch( state ) {
 	case initial :
 	  endpoint.receive( client_message );
 	  if( client_message == CLIENT_HELLO_MSG ) {
-	    state = waiting_for_secret_file;
+	    state = waiting_for_user_name;
 	    endpoint.send( OK_MSG );
 	  } else { 
 	    endpoint.send( ERROR_MSG );
 	    state = error;
 	  }
+	  break;
+	case waiting_for_user_name :
+	  endpoint.receive( user_name );
+	  endpoint.set_user( user_name );
+	  endpoint.send( OK_MSG );
+	  state = waiting_for_secret_file;
 	  break;
 	case waiting_for_secret_file :
 	  try {

@@ -4,6 +4,8 @@
 #include "application.hpp"
 #include "messages.hpp"
 #include "encryption_service.hpp"
+#include "user.hpp"
+
 
 namespace ucp {
   enum messaging_role {
@@ -19,7 +21,8 @@ namespace ucp {
     
     char protocol_buffer[protocol_buffer_size ];
     messaging_role role_;
-    
+    shared_ptr<user> user_;
+
 
     void trace_send( const string& msg );
     void trace_recv( const string& msg );
@@ -36,7 +39,11 @@ namespace ucp {
     void close() ;
     void send_file( const string& file_name );     
     void receive_file( const string& file_name, int_t file_size );
+    void receive_file( const bfs::path& path, int_t file_size ) ;
+    void receive_file_from_remote( const string& file_name, int_t file_size );
     void enable_encryption( const string& secret_file_name ); 
+    void set_user( const string& user_name ); 
+
   };
 
 }

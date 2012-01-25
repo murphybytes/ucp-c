@@ -33,7 +33,7 @@ int test_main( int argc, char* argv[] ) {
   BOOST_CHECK( command.get_source() == "" );
   BOOST_CHECK( command.get_target() == "xyz" );
 
-  BOOST_CHECK( 332 == ucp::get_file_size("../data/testfile") );
+  BOOST_CHECK( 4042 == ucp::get_file_size("../data/testfile") );
 
   ucp::encryption_service encryption_service;
   byte_string shared_secret;

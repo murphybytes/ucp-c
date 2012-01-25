@@ -29,6 +29,7 @@ add_library( ucp_core SHARED
   encryption_service.cpp
   connection.cpp
   ucp_fstream.cpp
+  user.cpp
 )
 
 target_link_libraries( ucp_core 

@@ -47,6 +47,7 @@ namespace ucp {
     encryption_service() ;
     encryption_service( const string& secret_file_name );
     encryption_service( const byte_string& shared_secret );
+    encryption_service( const string& home_dir, const string& secret_file_name ) ;
     virtual ~encryption_service() {
     }
   };
