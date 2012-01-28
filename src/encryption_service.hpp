@@ -22,7 +22,8 @@ namespace ucp {
   typedef CryptoPP::CFB_Mode< CryptoPP::AES >::Decryption decryptor_t;
   
   class encryption_service {
-    string key_directory;
+    string key_directory_;
+    boost::filesystem3::path shared_secret_file_;
      encryptor_t  encryptor_;
     decryptor_t  decryptor_;
     byte_string shared_secret_;
@@ -37,7 +38,7 @@ namespace ucp {
     void read_shared_secret_from_file( const string& file_name, byte_string& shared_secret ) const;
     void get_random_filename( string& file_name ) const;
     void send_shared_secret_to_remote_host( const string& remote_user, const string& remote_host, const string& file_name ) const;
-    const string& get_key_directory() const { return key_directory; } 
+    const string& get_key_directory() const { return key_directory_; } 
     void encrypt( const string& plain_text, string& cipher ) ;
     void encrypt( const char* plain_text, char* cipher, size_t sz ) ;
     void decrypt( const string& cipher, string& plain_text ) ;
@@ -48,8 +49,7 @@ namespace ucp {
     encryption_service( const string& secret_file_name );
     encryption_service( const byte_string& shared_secret );
     encryption_service( const string& home_dir, const string& secret_file_name ) ;
-    virtual ~encryption_service() {
-    }
+    virtual ~encryption_service() ;
   };
 
 }

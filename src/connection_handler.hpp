@@ -29,7 +29,7 @@ namespace ucp {
 
     void server_send_file( messaging endpoint );
     void server_receive_file( messaging endpoint );
-    
+    void delete_secret_file( const user& u, const string& secret_file_name );
   public:
     connection_handler( UDTSOCKET socket ); 
     connection_handler( const po::variables_map& );

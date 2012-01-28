@@ -33,6 +33,7 @@ namespace ucp {
     void send_file( messaging& endpoint );
     void receive_file( messaging& endpoint );
     void secure_session() ;
+    void delete_secret_file() ;
   public:
     virtual ~client();
     virtual void run(); 

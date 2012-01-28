@@ -223,6 +223,7 @@ namespace ucp {
         endpoint.receive( server_response );
         if( server_response == OK_MSG ) {
 	  endpoint.enable_encryption( shared_secret_file_name_ );
+	  delete_secret_file( );
           direction_t direction = command.get_direction() ;
           assert( none != direction );
           if( from_remote == direction ) {
@@ -267,6 +268,17 @@ namespace ucp {
       } // switch
 
     } // while
+  }
+
+  void client::delete_secret_file( ) {
+    if( !shared_secret_file_name_.empty() ) { 
+      fs::path secret_file_path( shared_secret_file_name_ ) ;
+      
+      if( fs::exists( secret_file_path ) ) {
+	logger.debug( (format("Removing secret file %1%") % shared_secret_file_name_ ).str() );
+	fs::remove( secret_file_path );
+      }
+    }
   }
 
 }

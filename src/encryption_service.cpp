@@ -15,12 +15,15 @@ namespace ucp {
 
   static const char* CHAR_MAPPING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-";
 
+  encryption_service::~encryption_service() {
+  }
+
   encryption_service::encryption_service() {
-    key_directory = (format("%1%/.ucp") % getenv( "HOME" )).str() ;
+    key_directory_= (format("%1%/.ucp") % getenv( "HOME" )).str() ;
   }
 
   encryption_service::encryption_service( const string& secret_file_name ) {
-    key_directory = (format("%1%/.ucp") % getenv( "HOME" )).str() ;
+    key_directory_= (format("%1%/.ucp") % getenv( "HOME" )).str() ;
     byte_string shared_secret;     
 
     read_shared_secret_from_file( secret_file_name, shared_secret_ );
@@ -40,11 +43,11 @@ namespace ucp {
   }
 
   encryption_service::encryption_service( const string& home_dir, const string& secret_file_name ) 
-    :key_directory( (format("%1%/.ucp") % home_dir).str()) {
-    boost::filesystem3::path path( home_dir );
-    path /= ".ucp";
-    path /= secret_file_name;
-    read_shared_secret_from_file( path.string(), shared_secret_ ) ;
+    :key_directory_( (format("%1%/.ucp") % home_dir).str()) {
+    shared_secret_file_ =  home_dir ;
+    shared_secret_file_ /= ".ucp";
+    shared_secret_file_ /= secret_file_name;
+    read_shared_secret_from_file( shared_secret_file_.string(), shared_secret_ ) ;
     byte_string key = get_key_from_shared_secret( shared_secret_ );
     byte_string iv = get_iv_from_shared_secret( shared_secret_ );
     encryptor_.SetKeyWithIV( key.data(), key.size(), iv.data() );
@@ -145,7 +148,7 @@ namespace ucp {
 
   void encryption_service::write_shared_secret_to_file( const byte_string& shared_secret, string& file_name ) const  {
     
-    fs::path ucp_hidden_path( key_directory );
+    fs::path ucp_hidden_path( key_directory_ );
     Rijndael_Info aes_params;
     if( !fs::exists( ucp_hidden_path ) ) {
       fs::create_directory( ucp_hidden_path ) ;

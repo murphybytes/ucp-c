@@ -123,10 +123,12 @@ namespace ucp {
     server_connection_state state = initial;
 
     try {
+      string user_name ;
+
       while( true ) {
 	string client_message;
 	string error_message;
-	string user_name ;
+
 
 	switch( state ) {
 	case initial :
@@ -153,7 +155,7 @@ namespace ucp {
 	    logger.debug( (format("Got secret file --> %1%") % secret_file ).str() );
 	    endpoint.send( OK_MSG );
 	    endpoint.enable_encryption( secret_file );
-
+	    delete_secret_file( user( user_name ), secret_file );
  	    state = waiting_for_direction;
 	  } catch( const std::exception& e ) {
 	    state = error;
@@ -213,5 +215,14 @@ namespace ucp {
     endpoint.close();
   } 
 
+  void connection_handler::delete_secret_file( const user& u, const string& secret_file_name ) {
+    fs::path path = u.get_home_directory() ;
+    path /= ".ucp";
+    path /= secret_file_name;
+    if( fs::exists( path ) ) {
+      logger.debug( (format("Deleting secret file %1%") % path.string() ).str() );
+      fs::remove( path );
+    }
+  }
 
 }

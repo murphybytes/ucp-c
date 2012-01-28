@@ -42,7 +42,7 @@ using boost::unique_lock;
 typedef std::basic_string< unsigned char > byte_string;
 
 namespace po = boost::program_options;
-namespace fs = boost::filesystem;
+namespace fs = boost::filesystem3;
 
 using boost::shared_ptr;
 
