@@ -46,6 +46,11 @@ namespace ucp {
 				 pid_file_path_).str() );
     }
 
+
+    int err = daemon(0, 0) ;
+    if( err ) {
+      throw std::runtime_error( (format("Daemonize failed with %1% %2% %3%") % errno % __FILE__ % __LINE__ ).str() );
+    } 
     
     fstream pid_file( pid_file_path_.c_str(), ios::out | ios::trunc );
     pid_file << getpid();
