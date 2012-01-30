@@ -56,6 +56,9 @@ namespace ucp {
     pid_file << getpid();
     pid_file.close();
     
+    logger.daemon_log_to_file( string( "/var/log/ucp.log" ) );
+
+
   }
 
   void listener::run() {
