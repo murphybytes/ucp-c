@@ -6,7 +6,12 @@
 #include "messaging.hpp"
 
 namespace ucp {
-
+  /** 
+   *  \brief Handles connection with remote client.
+   *
+   *  Server side class that manages connection with a remote client.  Each connection 
+   *  handler exists on it's own thread. 
+   */
   class connection_handler {
 
     enum server_connection_state {

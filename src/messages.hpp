@@ -1,6 +1,7 @@
 #ifndef __MESSAGES_HPP__
 #define __MESSAGES_HPP__
 
+#include "ucp.hpp"
 
 namespace ucp {
 
@@ -10,6 +11,7 @@ namespace ucp {
   static const char* CLIENT_SEND_MSG = "CLIENT_SEND";
   static const char* CLIENT_RECEIVE_MSG = "CLIENT_RECEIVE";
   static const char* ERROR_MSG = "ERR";
+  static const int_t ERROR_INT = 0xFFFFFFFFFFFFFFFF;
   static const char* GOODBYE_MSG = "GOODBYE" ;
   static const char* FILE_SIZE_REQ = "FILE_SIZE_REQ";
 

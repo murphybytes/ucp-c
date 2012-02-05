@@ -2,8 +2,11 @@
 #include "connection_handler.hpp"
 #include <stdlib.h>
 namespace ucp {
-  listen_thread::listen_thread(unsigned int port )
-    : socket_(0), runnable_(true), port_(port)
+  listen_thread::listen_thread(const po::variables_map& command_arguments )
+    : socket_(0), 
+      runnable_(true), 
+      port_(command_arguments["listen-port"].as<unsigned int>()),
+      command_arguments_(command_arguments)
   {
 
  
@@ -45,6 +48,15 @@ namespace ucp {
 				   format("Bind failed: %1%") %
 				   UDT::getlasterror().getErrorMessage() 
 				   ).str() );
+      }
+
+      const char* max_bandwidth = reinterpret_cast< const char* >( &command_arguments_["max-bandwidth"].as<int_t>() );
+      int response = UDT::setsockopt( socket_, ucp::UNUSED, UDT_MAXBW, max_bandwidth, sizeof(int_t));
+      if( UDT::ERROR == response ) {
+	throw std::runtime_error( (format("%1% : %2% %3%") 
+				   % UDT::getlasterror().getErrorMessage() 
+				   % __FILE__
+				   % __LINE__).str() );
       }
       
       freeaddrinfo( res );

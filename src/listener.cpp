@@ -9,15 +9,13 @@ namespace ucp {
 
   listener::listener( const po::variables_map& command_arguments ) 
     :run_(true),
-     port_(9090),
+     port_( command_arguments["listen-port"].as<unsigned int>() ),
      lock_(mutex_),
      pid_file_path_((format("%1%/ucp.pid") % command_arguments["pid-directory"].as<string>() ).str()),
-     daemonize_( command_arguments.count("daemonize") )
+     daemonize_( command_arguments.count("daemonize") ),
+     command_arguments_(command_arguments)
   {
     logger.debug( "create listener" );
-    if( command_arguments.count( "listen-port" ) ) {
-      port_ = command_arguments["listen-port"].as<unsigned int>();
-    }
 
     if( daemonize_ ) {
       daemonize();
@@ -39,6 +37,8 @@ namespace ucp {
     }
 
   }
+
+
 
   void listener::daemonize() {
     if( fs::exists( pid_file_path_ ) ) {
@@ -67,7 +67,7 @@ namespace ucp {
     
     try {
       
-      listen_thread listener( port_ );
+      listen_thread listener( command_arguments_ );
       thread t( listener );
       
       condition_.wait( lock_ );

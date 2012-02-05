@@ -23,8 +23,9 @@ int main( int argc, char* argv[] ) {
       ("daemonize,d", "Run as daemon. (Listener only)" )
 	("listen-port,P", po::value< unsigned int >()->default_value(9090), "Port to listen on in listener mode")
         ("pid-directory,p", po::value< string >()->default_value("/var/run"), "Pid file directory if in daemon mode" )
+      ("max-bandwidth", po::value< int64_t >()->default_value( -1 ), "Maximum bandwidth that a single connection can use in bytes / sec.  Default -1 (infinite)" )
 	("copy-command", po::value< vector< string > >(&args), "Client copy command source-file user@host:port:dest-file" )
-     
+      
 	;
     po::positional_options_description pod;
     pod.add( "copy-command", -1 );
@@ -40,27 +41,28 @@ int main( int argc, char* argv[] ) {
     all_options.add( visible_options ).add( hidden_options );
 
 
-
-    po::variables_map vm;
-    po::store(po::command_line_parser( argc, argv ).options(all_options).positional(pod).run(), vm );
-    po::notify(vm);
+    
+    po::variables_map command_arguments;
+    
+    po::store(po::command_line_parser( argc, argv ).options(all_options).positional(pod).run(), command_arguments);
+    po::notify(command_arguments);
 
     ucp::logger.level() = log_level;
     ucp::logger.debug( "ucp starting" );
     signal(SIGINT, on_signal);
 
-    if( vm.count("help") || 1 == argc  ) {
+    if( command_arguments.count("help") || 1 == argc  ) {
 	cout << visible_options << endl;
 	return result;
     }
 
-    if( vm.count("version") ) {
+    if( command_arguments.count("version") ) {
 	cout << "ucp - Version: " << ucp_VERSION_MAJOR << "." << ucp_VERSION_MINOR << endl;
     }
     
 
     try {	
-	ucp::application_ptr application_ptr = ucp::get_application( vm );
+	ucp::application_ptr application_ptr = ucp::get_application( command_arguments );
 	
 	signal_dispatcher.connect( ucp::signal_handler(application_ptr) );
 	application_ptr->run();

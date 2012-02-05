@@ -7,6 +7,11 @@
 #include "encryption_service.hpp"
 
 namespace ucp {
+  /** 
+   *  \brief Client connection handler
+   *
+   *  Class handles client side communication with remote server.  
+   */
   class client : public application {
     enum client_state {
       initial,
@@ -25,7 +30,7 @@ namespace ucp {
     
     string shared_secret_file_name_;
     byte_string shared_secret_;
- 
+    po::variables_map command_arguments_;
     
 
     client(const po::variables_map& );

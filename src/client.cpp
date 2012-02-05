@@ -4,12 +4,19 @@
 
 using ucp::logger;
 
+#define THROW_ON_ERROR( x )     if( UDT::ERROR == x ) { \
+      throw std::runtime_error( (format("%1% : %2% %3%")  \
+                                 % UDT::getlasterror().getErrorMessage() \
+                                 % __FILE__ \
+                                 % __LINE__).str() ); \
+    }
 
 
 namespace ucp { 
 
   client::client( const po::variables_map& command_arguments )
-    :command( command_arguments ) {
+    :command( command_arguments ), command_arguments_(command_arguments)
+  {
     logger.debug(  "create client" );
     
   }
@@ -19,10 +26,10 @@ namespace ucp {
   }
   
   /*
-  void client::generate_keys() {
+    void client::generate_keys() {
     AutoSeededRandomPool random_number_generator;
 
-  }
+    }
   */
   // TODO: 
   // 1) Generate AES key
@@ -70,15 +77,13 @@ namespace ucp {
                                  % __LINE__ ).str() );
     }
 
-    response = UDT::connect( fhandle, peer->ai_addr, peer->ai_addrlen );
-    
-    if( UDT::ERROR == response ) {
-      throw std::runtime_error( (format("%1% : %2% %3%") 
-                                 % UDT::getlasterror().getErrorMessage() 
-                                 % __FILE__
-                                 % __LINE__).str() );
-    }
 
+    const char* max_bandwidth = reinterpret_cast< const char* >( &command_arguments_["max-bandwidth"].as<int_t>() );
+    THROW_ON_ERROR( UDT::setsockopt( fhandle, ucp::UNUSED, UDT_MAXBW, max_bandwidth, sizeof( int_t ) ) )
+
+    THROW_ON_ERROR( UDT::connect( fhandle, peer->ai_addr, peer->ai_addrlen ) )
+    
+ 
     logger.debug("client connected");
     // ok we're all connected up so lets talk to the server
     talk_to_server( fhandle );
@@ -114,7 +119,11 @@ namespace ucp {
       case recv::receive_file_size :
 	logger.debug("getting file size");
 	endpoint.receive( &file_size );
-	state = recv::ack_file_size;
+	if( ERROR_INT == file_size ) {
+	  state = recv::error_ack;
+	} else {
+	  state = recv::ack_file_size;
+	}
 	break;
       case recv::ack_file_size :
 	endpoint.send( OK_MSG );
@@ -124,8 +133,15 @@ namespace ucp {
 	endpoint.receive_file( command.get_target(), file_size );
 	state = recv::term;
 	break;
+      case recv::error_ack :
+	endpoint.send( OK_MSG );
+	state = recv::error;
+	break;
       case recv::error :
 	logger.debug("error");
+	state = recv::term;
+	endpoint.receive( message );
+	logger.error( message );
 	break;
       case recv::term :
 	return;

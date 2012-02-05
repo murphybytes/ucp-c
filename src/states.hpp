@@ -28,6 +28,7 @@ namespace ucp {
     receive_file_size,
     request_file_size,
     error,
+    error_ack,
     term
   };
   }

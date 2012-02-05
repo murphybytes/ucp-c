@@ -10,8 +10,9 @@ namespace ucp {
     bool runnable_;
     UDTSOCKET socket_;
     unsigned int port_;
+    po::variables_map command_arguments_;
   public:
-    listen_thread(unsigned int port  );
+    listen_thread(const po::variables_map& command_arguments  );
     virtual ~listen_thread() ;
     void shutdown() { runnable_ = false; }
     void operator()();
