@@ -68,7 +68,7 @@ a server running on a machine as a deamon and kick of ucp in client mode on
 another machine to transfer files back and forth.  You'll want to  run ucp in server 
 mode as root like so:
 
-sudo ./ucp -L -d --pid-directory=$(pwd) >> ucp.log & 
+sudo ./ucp -L -d 
 
 You could then tail the ucp.log to see what's going on with the file transfers.
 
