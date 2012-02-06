@@ -15,7 +15,9 @@ using std::string;
 using boost::shared_ptr;
 
 namespace ucp {
-   
+  /**
+   *  Provides logging service for application.  
+   */
   class log {
     unsigned int log_level ;
     shared_ptr<std::fstream>  out_;
@@ -52,8 +54,16 @@ namespace ucp {
 	out_->close();
       }
     }
-
+    /**
+     *  This function is used to pass heap allocated file pointer from thread to thread
+     *  in daemon mode.  Logger doesn't work otherwise since we use a static global
+     *  instance to log and statics are stack based storage and threads have their own
+     *  stack.
+     */
     shared_ptr<std::fstream> get_fstream() { return out_; }
+    /**
+     *  See get_fstream
+     */ 
     void set_fstream( shared_ptr<std::fstream> fs ) { out_ = fs; }
 
     void daemon_log_to_file( const string& log ) {

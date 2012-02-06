@@ -58,6 +58,7 @@ ucp options:
   -L [ --listener ]                Run in listener mode.
   -P [ --listen-port ] arg (=9090) Port to listen on in listener mode
   -p [ --pid-directory ] arg (=/var/run) Directory to store pid file if in daemon mode
+  -m [ --max-bandwidth ] arg (= -1) Throttle bandwidth value in bytes per second.  -1 = infinite
   -d [ --daemonize ]               Run in daemon mode (Listener only)
   --copy-command arg               Client copy command source-file 
                                    user@host:port:dest-file
@@ -96,5 +97,5 @@ Note.  ucp now uses ssh to authenticate users.  If you are a client wishing to s
 
 TODO's 
 
-Clean up secret file when connection ends.
+create command line way to specify location of log file.
   

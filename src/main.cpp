@@ -23,7 +23,7 @@ int main( int argc, char* argv[] ) {
       ("daemonize,d", "Run as daemon. (Listener only)" )
 	("listen-port,P", po::value< unsigned int >()->default_value(9090), "Port to listen on in listener mode")
         ("pid-directory,p", po::value< string >()->default_value("/var/run"), "Pid file directory if in daemon mode" )
-      ("max-bandwidth", po::value< int64_t >()->default_value( -1 ), "Maximum bandwidth that a single connection can use in bytes / sec.  Default -1 (infinite)" )
+      ("max-bandwidth,m", po::value< int64_t >()->default_value( -1 ), "Maximum bandwidth that a single connection can use in bytes / sec.  Default -1 (infinite)" )
 	("copy-command", po::value< vector< string > >(&args), "Client copy command source-file user@host:port:dest-file" )
       
 	;
