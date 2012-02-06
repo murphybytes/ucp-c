@@ -14,7 +14,7 @@ namespace ucp {
   }
 
   void connection::run() {
-    handler_();
+    handler_(logger.get_fstream());
   }
 
   void connection::signal( int sig ) {

@@ -15,7 +15,7 @@ namespace ucp {
     listen_thread(const po::variables_map& command_arguments  );
     virtual ~listen_thread() ;
     void shutdown() { runnable_ = false; }
-    void operator()();
+    void operator()(shared_ptr<std::fstream>);
   };
 
 }

@@ -19,7 +19,8 @@ namespace ucp {
   class log {
     unsigned int log_level ;
     shared_ptr<std::fstream>  out_;
-  
+
+
   void log_message( unsigned int level, const char* msg )  {
     std::ostream* pout = out_ != NULL ? out_.get() : &cout;
 
@@ -52,9 +53,13 @@ namespace ucp {
       }
     }
 
+    shared_ptr<std::fstream> get_fstream() { return out_; }
+    void set_fstream( shared_ptr<std::fstream> fs ) { out_ = fs; }
+
     void daemon_log_to_file( const string& log ) {
       out_ = shared_ptr<std::fstream>(new std::fstream( log.c_str(),  std::ios::app | std::ios::out ) );
       chmod( log.c_str(), S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH );
+
     }
     
     unsigned int& level() { return log_level; }
