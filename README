@@ -64,13 +64,13 @@ ucp options:
                                    user@host:port:dest-file
 
 The ucp program can run as client or server.  The typical use case would be to have 
-a server running on a machine as a deamon and kick of ucp in client mode on 
+a server running on a machine as a deamon and kick off ucp in client mode on 
 another machine to transfer files back and forth.  You'll want to  run ucp in server 
 mode as root like so:
 
 sudo ./ucp -L -d 
 
-You could then tail the ucp.log to see what's going on with the file transfers.
+You could then tail /var/log/ucp.log to see what's going on with the file transfers.
 
 Call the client to send a file to the server
 
@@ -98,4 +98,6 @@ Note.  ucp now uses ssh to authenticate users.  If you are a client wishing to s
 TODO's 
 
 create command line way to specify location of log file.
+
+make logging thread safe
   
