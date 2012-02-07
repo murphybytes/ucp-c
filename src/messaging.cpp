@@ -18,13 +18,13 @@ namespace ucp {
 
 
   void messaging::set_user( const string& user_name ) {
-    logger.debug( (format("setting user %1% for session") % user_name ).str() );
+    logger().debug( (format("setting user %1% for session") % user_name ).str() );
     user_ = shared_ptr<user>( new user( user_name ) );
      
   }
 
   void messaging::send_file( const string& file_name ) {
-    logger.debug( (format("Preparing to send file %1%") % file_name ).str());
+    logger().debug( (format("Preparing to send file %1%") % file_name ).str());
     ucp::fstream in_stream( file_name, ios::in | ios::binary, encryptor_ );
     int_t file_size = get_file_size( file_name );
     int_t offset = 0;
@@ -36,7 +36,7 @@ namespace ucp {
     }
 
     UDT::perfmon( *socket_, &trace );
-    logger.info( (format("Transfer speed %1% Mbits/sec") % trace.mbpsSendRate ).str() );
+    logger().info( (format("Transfer speed %1% Mbits/sec") % trace.mbpsSendRate ).str() );
     
   }
   
@@ -56,24 +56,24 @@ namespace ucp {
   }
 
   void messaging::receive_file( const string& file_name, int_t file_size ) {
-    logger.debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
+    logger().debug( (format("Preparing to receive file %1% of size %2%.") % file_name % file_size ).str() ); 
     ucp::fstream out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );
     int_t received_size = 0;
     int_t offset = 0 ;
     if( UDT::ERROR == ( received_size = UDT::recvfile( *socket_, out_stream, offset, file_size ))) {
       throw std::runtime_error( UDT::getlasterror().getErrorMessage() );
     }  
-    logger.debug( (format("%1% was received successfully") % file_name ).str() );
+    logger().debug( (format("%1% was received successfully") % file_name ).str() );
   }
 
   void messaging::trace_send( const string& msg ) {
     string role_name = (client_role == role_ ? "CLIENT" : "SERVER");
-    logger.debug((format("%1% SEND: %2%") % role_name % msg ).str());
+    logger().debug((format("%1% SEND: %2%") % role_name % msg ).str());
   }
 
   void messaging::trace_recv( const string& msg ) {
     string role_name = (client_role == role_ ? "CLIENT" : "SERVER");
-    logger.debug( (format( "%1% RECV: %2%" ) % role_name % msg ).str() );
+    logger().debug( (format( "%1% RECV: %2%" ) % role_name % msg ).str() );
   }
 
   void messaging::trace_send( int_t msg ) {
@@ -91,7 +91,7 @@ namespace ucp {
   }
   
   void messaging::close() {
-    logger.debug((format("Closing socket %1%") % *socket_).str());
+    logger().debug((format("Closing socket %1%") % *socket_).str());
     UDT::close( *socket_ );
   }
 

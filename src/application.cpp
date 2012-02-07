@@ -1,13 +1,13 @@
 #include "client.hpp"
 #include "listener.hpp"
-//#include "connection.hpp"
+
 
 namespace ucp {
 
 
 
   shared_ptr<application> get_application( const po::variables_map& command_arguments ) {
-    logger.debug("Called get_application" );
+    logger().debug("Called get_application" );
     shared_ptr<application> result ;
     
     if( command_arguments.count("listener") ) {

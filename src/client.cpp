@@ -2,7 +2,7 @@
 #include "states.hpp"
 #include <crypto++/osrng.h>
 
-using ucp::logger;
+
 
 #define THROW_ON_ERROR( x )     if( UDT::ERROR == x ) { \
       throw std::runtime_error( (format("%1% : %2% %3%")  \
@@ -17,12 +17,12 @@ namespace ucp {
   client::client( const po::variables_map& command_arguments )
     :command( command_arguments ), command_arguments_(command_arguments)
   {
-    logger.debug(  "create client" );
+    logger().debug(  "create client" );
     
   }
 
   client::~client() {
-    logger.debug( "destroy client" );
+    logger().debug( "destroy client" );
   }
   
   /*
@@ -40,17 +40,17 @@ namespace ucp {
     ucp::encryption_service encryption_service ;
 
     encryption_service.generate_shared_secret( shared_secret_ );
-    logger.debug( (format("Shared secret => %1%") % shared_secret_.c_str() ).str() );
+    logger().debug( (format("Shared secret => %1%") % shared_secret_.c_str() ).str() );
     encryption_service.write_shared_secret_to_file( shared_secret_, shared_secret_file_name_ );
-    logger.debug( (format("Shared secret file => %1%") % shared_secret_file_name_ ).str() );
+    logger().debug( (format("Shared secret file => %1%") % shared_secret_file_name_ ).str() );
     encryption_service.send_shared_secret_to_remote_host( command.get_user(), command.get_host(), shared_secret_file_name_ );
     
   
   }
 
   void client::run()  {
-    logger.debug( "run client" );
-    logger.debug( (format("Preparing to connect to %1% on port %2%") % command.get_host() %
+    logger().debug( "run client" );
+    logger().debug( (format("Preparing to connect to %1% on port %2%") % command.get_host() %
                    command.get_port() ).str() );
     
     secure_session();
@@ -65,7 +65,7 @@ namespace ucp {
     hints.ai_socktype = SOCK_STREAM;
       
     UDTSOCKET fhandle = UDT::socket(hints.ai_family, hints.ai_socktype, hints.ai_protocol );
-    logger.debug((format("Client connect host: %1%, service: %2%") % command.get_host() % command.get_service() ).str() );
+    logger().debug((format("Client connect host: %1%, service: %2%") % command.get_host() % command.get_service() ).str() );
     int response = getaddrinfo( command.get_host().c_str(), 
                                 command.get_service().c_str(),
                                 &hints, &peer );
@@ -84,7 +84,7 @@ namespace ucp {
     THROW_ON_ERROR( UDT::connect( fhandle, peer->ai_addr, peer->ai_addrlen ) )
     
  
-    logger.debug("client connected");
+    logger().debug("client connected");
     // ok we're all connected up so lets talk to the server
     talk_to_server( fhandle );
 
@@ -117,7 +117,7 @@ namespace ucp {
 	state = recv::receive_file_size;
 	break;
       case recv::receive_file_size :
-	logger.debug("getting file size");
+	logger().debug("getting file size");
 	endpoint.receive( &file_size );
 	if( ERROR_INT == file_size ) {
 	  state = recv::error_ack;
@@ -138,10 +138,10 @@ namespace ucp {
 	state = recv::error;
 	break;
       case recv::error :
-	logger.debug("error");
+	logger().debug("error");
 	state = recv::term;
 	endpoint.receive( message );
-	logger.error( message );
+	logger().error( message );
 	break;
       case recv::term :
 	return;
@@ -150,7 +150,7 @@ namespace ucp {
   }
 
   void client::send_file( messaging& endpoint ) {
-    logger.debug("send file");
+    logger().debug("send file");
     send::txfer_state state = send::file_name;
     string server_response;
 
@@ -190,10 +190,10 @@ namespace ucp {
 	break;
       case send::error :
 	endpoint.receive( server_response );
-	logger.error( server_response );
+	logger().error( server_response );
 	state = send::term;
       case send::term :
-	logger.debug( "got term" );
+	logger().debug( "got term" );
 	return;
       }
     }
@@ -271,7 +271,7 @@ namespace ucp {
         break;
       case error_msg :
         endpoint.receive( server_response );
-        logger.error( server_response );
+        logger().error( server_response );
         state = goodbye;
         break;
       case goodbye :
@@ -279,7 +279,7 @@ namespace ucp {
         state = term;
         break;
       case term :
-        logger.debug( "Client terminate" );
+        logger().debug( "Client terminate" );
         return;
       } // switch
 
@@ -291,7 +291,7 @@ namespace ucp {
       fs::path secret_file_path( shared_secret_file_name_ ) ;
       
       if( fs::exists( secret_file_path ) ) {
-	logger.debug( (format("Removing secret file %1%") % shared_secret_file_name_ ).str() );
+	logger().debug( (format("Removing secret file %1%") % shared_secret_file_name_ ).str() );
 	fs::remove( secret_file_path );
       }
     }

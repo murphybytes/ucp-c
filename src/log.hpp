@@ -115,8 +115,10 @@ namespace ucp {
     }
 
   };
+
+  log& logger(); 
+
   
-  static log logger;
 
 }
 

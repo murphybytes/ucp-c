@@ -8,12 +8,12 @@ namespace ucp {
   connection_handler::connection_handler( const po::variables_map& commands ) {
     assert( commands.count( "connection-socket" ) );
     socket_ = static_cast<UDTSOCKET>( commands["connection-socket"].as<int>() );
-    logger.debug((format("Connected socket %1%") % socket_).str() );
+    logger().debug((format("Connected socket %1%") % socket_).str() );
   }
 
   connection_handler::connection_handler( UDTSOCKET socket )
     :socket_(socket) {
-    logger.debug( (format("Connected socket %1%") % socket).str() );
+    logger().debug( (format("Connected socket %1%") % socket).str() );
   }
 
   connection_handler::~connection_handler() {
@@ -21,7 +21,7 @@ namespace ucp {
   }
 
   void connection_handler::server_send_file( messaging endpoint ) {
-    logger.debug( "server send file" );
+    logger().debug( "server send file" );
     send::txfer_state state = send::wait_for_req_file;
     string client_message ;
     string error_message;
@@ -36,21 +36,21 @@ namespace ucp {
 	break;
       case send::wait_for_file_size_req :
 	endpoint.receive( client_message );
-	logger.debug("get file size request");
+	logger().debug("get file size request");
 	if( client_message == FILE_SIZE_REQ ) {
 	  try {
 	    endpoint.send( get_file_size( requested_file ) );
-	    logger.debug("sent file size");
+	    logger().debug("sent file size");
 	    state = send::wait_for_send_ack;
 	  } catch( const std::exception& e ) {
 	    error_message = e.what();
-	    logger.warn( (format("file size request failed. Msg = %1%. %2% %3%") % error_message % __FILE__ % __LINE__ ).str() );
+	    logger().warn( (format("file size request failed. Msg = %1%. %2% %3%") % error_message % __FILE__ % __LINE__ ).str() );
 	    state = send::error;
 	    endpoint.send( ERROR_INT );
 	  }
 
 	} else {
-	  logger.warn( (format("Expected %1% got %2% at %3% %4%") % FILE_SIZE_REQ % 
+	  logger().warn( (format("Expected %1% got %2% at %3% %4%") % FILE_SIZE_REQ % 
 			client_message % __FILE__ % __LINE__ ).str() );
 	  state = send::term;
 	}		       
@@ -60,7 +60,7 @@ namespace ucp {
 	if( client_message == OK_MSG ) {
 	  endpoint.send_file( requested_file );
 	} else {
-	  logger.warn((format("Unexpected response %1% at %2% %3%") %
+	  logger().warn((format("Unexpected response %1% at %2% %3%") %
 		       client_message % __FILE__ % __LINE__ ).str() );	  
 	}
 	state = send::term;
@@ -73,7 +73,7 @@ namespace ucp {
 	state = send::term;
 	break;
       case send::term :
-	logger.debug( "get send term" );
+	logger().debug( "get send term" );
 	return;
 	
       }
@@ -82,7 +82,7 @@ namespace ucp {
   }
 
   void connection_handler::server_receive_file( messaging endpoint ) {
-    logger.debug( "server receive file" );
+    logger().debug( "server receive file" );
     string file_name;
     int_t file_size = 0;
     recv::txfer_state state = recv::send_file_name;
@@ -117,9 +117,9 @@ namespace ucp {
   }
 
   void connection_handler::operator()(shared_ptr<std::fstream> stm, unsigned int log_level ) {
-    logger.set_fstream( stm );
-    logger.level() = log_level;
-    logger.debug("started connection handler");
+    logger().set_fstream( stm );
+    logger().level() = log_level;
+    logger().debug("started connection handler");
     // make a copy of the shared pointer, this thread will live
     // longer than inclosing class
     messaging endpoint(  shared_ptr<UDTSOCKET>( new UDTSOCKET(socket_) ), server_role  ); 
@@ -156,7 +156,7 @@ namespace ucp {
 	    string secret_file;
 
 	    endpoint.receive( secret_file );
-	    logger.debug( (format("Got secret file --> %1%") % secret_file ).str() );
+	    logger().debug( (format("Got secret file --> %1%") % secret_file ).str() );
 	    endpoint.send( OK_MSG );
 	    endpoint.enable_encryption( secret_file );
 	    delete_secret_file( user( user_name ), secret_file );
@@ -204,16 +204,16 @@ namespace ucp {
 	case term :
 	  endpoint.receive( client_message );
 	  if( client_message != GOODBYE_MSG ) {
-	    logger.warn( (format("Expecting %1%, got %2%") % GOODBYE_MSG % client_message ).str() );	
+	    logger().warn( (format("Expecting %1%, got %2%") % GOODBYE_MSG % client_message ).str() );	
 	  }
 	  return;
 	case invalid :
-	  logger.warn( "got connection from client I dont know how to deal with ... exiting" );
+	  logger().warn( "got connection from client I dont know how to deal with ... exiting" );
 	  return;
 	}
       }
     } catch( const std::exception& e ) {
-      logger.error( (format("Exception: %1% %2% %3%") % e.what() % __FILE__ % __LINE__ ).str() );
+      logger().error( (format("Exception: %1% %2% %3%") % e.what() % __FILE__ % __LINE__ ).str() );
     }
 
     endpoint.close();
@@ -224,7 +224,7 @@ namespace ucp {
     path /= ".ucp";
     path /= secret_file_name;
     if( fs::exists( path ) ) {
-      logger.debug( (format("Deleting secret file %1%") % path.string() ).str() );
+      logger().debug( (format("Deleting secret file %1%") % path.string() ).str() );
       fs::remove( path );
     }
   }

@@ -1,7 +1,7 @@
 #include "listener.hpp"
 #include "listen_thread.hpp"
 
-using ucp::logger;
+
 using std::fstream;
 using std::ios;
 
@@ -15,7 +15,7 @@ namespace ucp {
      daemonize_( command_arguments.count("daemonize") ),
      command_arguments_(command_arguments)
   {
-    logger.debug( "create listener" );
+    logger().debug( "create listener" );
 
     if( daemonize_ ) {
       daemonize();
@@ -25,13 +25,13 @@ namespace ucp {
   }
 
   listener::~listener() {
-    logger.debug( "destroy listener" );
+    logger().debug( "destroy listener" );
     UDT::cleanup();
 
     if( daemonize_ ) {
       if( fs::exists( pid_file_path_ ) ) {
 	  fs::remove_all( pid_file_path_ ) ;
-	  logger.debug( (format("Removed lock file %1%") % pid_file_path_ ).str() );
+	  logger().debug( (format("Removed lock file %1%") % pid_file_path_ ).str() );
 	}
 
     }
@@ -56,31 +56,31 @@ namespace ucp {
     pid_file << getpid();
     pid_file.close();
     
-    logger.daemon_log_to_file( string( "/var/log/ucp.log" ) );
+    logger().daemon_log_to_file( string( "/var/log/ucp.log" ) );
 
 
   }
 
   void listener::run() {
 
-    logger.debug( "run listener" );
+    logger().debug( "run listener" );
     
     try {
       
       listen_thread listener( command_arguments_ );
-      thread t( listener, logger.get_fstream()  );
+      thread t( listener, logger().get_fstream()  );
       
       condition_.wait( lock_ );
-      logger.info( "Application recieved shut down signal...");
+      logger().info( "Application recieved shut down signal...");
       listener.shutdown();
     } catch( const std::exception& e ) {
-      logger.error( e.what() );
+      logger().error( e.what() );
     }
 
   }
 
   void listener::signal( int sig ) {
-    logger.debug( "got signal" );
+    logger().debug( "got signal" );
     condition_.notify_one();
   }
 

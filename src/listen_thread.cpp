@@ -23,9 +23,9 @@ namespace ucp {
   void listen_thread::operator()(shared_ptr<std::fstream> stm ) {
    
     try {
-      logger.set_fstream( stm );
-      logger.level() = command_arguments_["log-level"].as<unsigned int>();
-      logger.debug("fired up listener thread...");
+      logger().set_fstream( stm );
+      logger().level() = command_arguments_["log-level"].as<unsigned int>();
+      logger().debug("fired up listener thread...");
 
 
       addrinfo hints;
@@ -36,7 +36,7 @@ namespace ucp {
       hints.ai_family = AF_INET;
       hints.ai_socktype = SOCK_STREAM;
 
-      logger.debug( (format("Preparing to listen on port %1%") % port_ ).str() );
+      logger().debug( (format("Preparing to listen on port %1%") % port_ ).str() );
      
       string service = boost::lexical_cast<string>( port_ );		    
 
@@ -64,7 +64,7 @@ namespace ucp {
       
       freeaddrinfo( res );
 
-      logger.info( (format("Server is ready at port: %1%") % port_ ).str() );
+      logger().info( (format("Server is ready at port: %1%") % port_ ).str() );
 
       sockaddr_storage clientaddr;
       int addrlen = sizeof(clientaddr);
@@ -75,28 +75,28 @@ namespace ucp {
       }
 
       while(runnable_) {
-	logger.debug("waiting for connection....");
+	logger().debug("waiting for connection....");
 	UDTSOCKET receive_socket = UDT::accept(socket_, (sockaddr*)&clientaddr, &addrlen);
 	if( UDT::INVALID_SOCK == receive_socket ) {
 	  throw std::runtime_error( (format("Could not create listener socket: %1%") % 
 				     UDT::getlasterror().getErrorMessage() ).str() );
 	}
 
-	logger.debug( "Got connection...");
+	logger().debug( "Got connection...");
 	char clienthost[NI_MAXHOST];
 	char clientservice[NI_MAXSERV];
 	getnameinfo( (sockaddr*)&clientaddr, addrlen, clienthost, sizeof(clienthost),
 		     clientservice, sizeof(clientservice), NI_NUMERICHOST|NI_NUMERICSERV);
-	logger.debug( (format("New Connection: %1% : %2%") % 
+	logger().debug( (format("New Connection: %1% : %2%") % 
 		       clienthost % clientservice ).str());
 	connection_handler handler( receive_socket);
-	boost::thread thread( handler, logger.get_fstream(), logger.level() );
+	boost::thread thread( handler, logger().get_fstream(), logger().level() );
 
       }
 
 
     } catch( const std::exception& e ) {
-      logger.error( e.what() );
+      logger().error( e.what() );
     }
 
   }

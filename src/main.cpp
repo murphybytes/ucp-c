@@ -47,8 +47,8 @@ int main( int argc, char* argv[] ) {
     po::store(po::command_line_parser( argc, argv ).options(all_options).positional(pod).run(), command_arguments);
     po::notify(command_arguments);
 
-    ucp::logger.level() = log_level;
-    ucp::logger.debug( "ucp starting" );
+    ucp::logger().level() = log_level;
+    ucp::logger().debug( "ucp starting" );
     signal(SIGINT, on_signal);
 
     if( command_arguments.count("help") || 1 == argc  ) {
@@ -67,10 +67,10 @@ int main( int argc, char* argv[] ) {
 	signal_dispatcher.connect( ucp::signal_handler(application_ptr) );
 	application_ptr->run();
     } catch( const exception& e ) {
-	ucp::logger.error(  e.what() );
+	ucp::logger().error(  e.what() );
 	result = ucp::ERROR;
     }      
 
-    ucp::logger.debug( "ucp finished" );
+    ucp::logger().debug( "ucp finished" );
     return result;
 }
