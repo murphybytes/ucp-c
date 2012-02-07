@@ -14,19 +14,21 @@ if [ -z "${DUMMY_ACCOUNT}" ]; then
     exit 1
 fi
 
-if [ -e /home/${DUMMY_ACCOUNT}/ucp.pid ]; then
+if [ -e /var/run/ucp.pid ]; then
     echo "ucp listener already running"
 else
-  sudo su --login -c "./ucp --verbose -d -L --pid-directory=/home/${DUMMY_ACCOUNT} > trace.log &"  $DUMMY_ACCOUNT
+  sudo  src/ucp -d -L  
 fi
+
+sudo rm -f /home/${DUMMY_ACCOUNT}/testfile
 
 src/ucp data/testfile $DUMMY_ACCOUNT@localhost:testfile
 
 
 
-#sleep 2
+sleep 2
 
-#sudo kill -SIGINT `cat /home/${DUMMY_ACCOUNT}/ucp.pid`
+sudo kill -SIGINT `cat /var/run/ucp.pid`
  
 
 

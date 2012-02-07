@@ -24,7 +24,9 @@ namespace ucp {
    
     try {
       logger.set_fstream( stm );
+      logger.level() = command_arguments_["log-level"].as<int>();
       logger.debug("fired up listener thread...");
+
 
       addrinfo hints;
       addrinfo* res;
@@ -88,7 +90,7 @@ namespace ucp {
 	logger.debug( (format("New Connection: %1% : %2%") % 
 		       clienthost % clientservice ).str());
 	connection_handler handler( receive_socket);
-	boost::thread thread( handler, logger.get_fstream() );
+	boost::thread thread( handler, logger.get_fstream(), logger.level() );
 
       }
 

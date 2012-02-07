@@ -30,6 +30,8 @@ fi
 
 echo "Dummy account ${DUMMY_ACCOUNT}"
 
+echo "Backing up bashrc"
+cp ~/.bashrc ~/bashrc.$(date +%Y%m%d).backup
 
 grep -q DUMMY_ACCOUNT= ~/.bashrc || echo "export DUMMY_ACCOUNT=${DUMMY_ACCOUNT}" >> ~/.bashrc
 
@@ -37,9 +39,9 @@ grep -q DUMMY_ACCOUNT= ~/.bashrc || echo "export DUMMY_ACCOUNT=${DUMMY_ACCOUNT}"
 ( cat /etc/passwd | grep -q ${DUMMY_ACCOUNT} ) || userdel --remove ${DUMMY_ACCOUNT}
 
 useradd --create-home ${DUMMY_ACCOUNT}
-
-mkdir /home/${DUMMY_ACCOUNT}/.ssh 
-mkdir /home/${DUMMY_ACCOUNT}/.ucp
+mkdir -p ~/.ucp
+mkdir -p /home/${DUMMY_ACCOUNT}/.ssh 
+mkdir -p /home/${DUMMY_ACCOUNT}/.ucp
 
 chown -R ${DUMMY_ACCOUNT}:${DUMMY_ACCOUNT} /home/${DUMMY_ACCOUNT}
 

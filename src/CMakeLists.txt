@@ -27,7 +27,6 @@ add_library( ucp_core SHARED
   connection_handler.cpp
   messaging.cpp
   encryption_service.cpp
-  connection.cpp
   ucp_fstream.cpp
   user.cpp
 )
