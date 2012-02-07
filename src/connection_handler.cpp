@@ -116,9 +116,9 @@ namespace ucp {
     
   }
 
-  void connection_handler::operator()(shared_ptr<std::fstream> stm, unsigned int log_level ) {
-    logger().set_fstream( stm );
-    logger().level() = log_level;
+  void connection_handler::operator()() {
+    //logger().set_fstream( stm );
+    //logger().level() = log_level;
     logger().debug("started connection handler");
     // make a copy of the shared pointer, this thread will live
     // longer than inclosing class

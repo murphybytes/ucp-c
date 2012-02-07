@@ -91,13 +91,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00034"></a>00034 
 <a name="l00035"></a>00035     <span class="keywordtype">void</span> server_send_file( <a class="code" href="classucp_1_1messaging.html" title="Interface to UDT. Wraps wire communication.">messaging</a> endpoint );
 <a name="l00036"></a>00036     <span class="keywordtype">void</span> server_receive_file( <a class="code" href="classucp_1_1messaging.html" title="Interface to UDT. Wraps wire communication.">messaging</a> endpoint );
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> delete_secret_file( <span class="keyword">const</span> <a class="code" href="classucp_1_1user.html">user</a>&amp; u, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; secret_file_name );
+<a name="l00037"></a>00037     <span class="keywordtype">void</span> delete_secret_file( <span class="keyword">const</span> <a class="code" href="classucp_1_1user.html" title="Pertains to operating system user.">user</a>&amp; u, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; secret_file_name );
 <a name="l00038"></a>00038   <span class="keyword">public</span>:
 <a name="l00039"></a>00039     <a class="code" href="classucp_1_1connection__handler.html#ad6e2088d6b0c3fb75fca9ca32339d08b">connection_handler</a>( UDTSOCKET socket ); 
 <a name="l00040"></a>00040     <a class="code" href="classucp_1_1connection__handler.html#ad6e2088d6b0c3fb75fca9ca32339d08b">connection_handler</a>( <span class="keyword">const</span> po::variables_map&amp; );
 <a name="l00041"></a>00041     <span class="keyword">virtual</span> <a class="code" href="classucp_1_1connection__handler.html#af05e2f97f20a351238ef09161e33b631">~connection_handler</a>();
 <a name="l00042"></a><a class="code" href="classucp_1_1connection__handler.html#a28762f0bf5f86c749324e99ff46c4781">00042</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1connection__handler.html#a28762f0bf5f86c749324e99ff46c4781">last_error</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> last_error_; }
-<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classucp_1_1connection__handler.html#a89afa6714aa914860836b5883ec6c060">operator()</a>(shared_ptr&lt;std::fstream&gt;, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) ;
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="classucp_1_1connection__handler.html#a3924f04bf566630c8e4383bf1a85262b">operator()</a>();
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045   };
 <a name="l00046"></a>00046 } 
@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

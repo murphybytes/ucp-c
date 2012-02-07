@@ -40,7 +40,7 @@ namespace ucp {
     connection_handler( const po::variables_map& );
     virtual ~connection_handler();
     const string& last_error() const { return last_error_; }
-    void operator()(shared_ptr<std::fstream>, unsigned int) ;
+    void operator()();
 
   };
 } 

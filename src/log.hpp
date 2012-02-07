@@ -54,17 +54,7 @@ namespace ucp {
 	out_->close();
       }
     }
-    /**
-     *  This function is used to pass heap allocated file pointer from thread to thread
-     *  in daemon mode.  Logger doesn't work otherwise since we use a static global
-     *  instance to log and statics are stack based storage and threads have their own
-     *  stack.
-     */
-    shared_ptr<std::fstream> get_fstream() { return out_; }
-    /**
-     *  See get_fstream
-     */ 
-    void set_fstream( shared_ptr<std::fstream> fs ) { out_ = fs; }
+
 
     void daemon_log_to_file( const string& log ) {
       out_ = shared_ptr<std::fstream>(new std::fstream( log.c_str(),  std::ios::app | std::ios::out ) );

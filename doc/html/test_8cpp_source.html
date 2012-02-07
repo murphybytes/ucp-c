@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 
 <a name="l00012"></a>00012   <span class="keywordtype">string</span> lcommand = <span class="stringliteral">&quot;foo&quot;</span>;
 <a name="l00013"></a>00013   <span class="keywordtype">string</span> rcommand = <span class="stringliteral">&quot;user@localhost:8080:~/bar&quot;</span>;
-<a name="l00014"></a>00014   <a class="code" href="classucp_1_1copy__command.html">ucp::copy_command</a> command( lcommand, rcommand );
+<a name="l00014"></a>00014   <a class="code" href="classucp_1_1copy__command.html" title="Contains file copy instructions parsed from command line.">ucp::copy_command</a> command( lcommand, rcommand );
 <a name="l00015"></a>00015   BOOST_CHECK( command.<a class="code" href="classucp_1_1copy__command.html#a61ffc2f6fa9af457118e2f9cb80ebc84">contains_remote_information</a>( rcommand ) );
 <a name="l00016"></a>00016   BOOST_CHECK( !command.<a class="code" href="classucp_1_1copy__command.html#a61ffc2f6fa9af457118e2f9cb80ebc84">contains_remote_information</a>( lcommand ) );
 <a name="l00017"></a>00017   rcommand = <span class="stringliteral">&quot;user@:&quot;</span>;
@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00027"></a>00027   BOOST_CHECK( command.<a class="code" href="classucp_1_1copy__command.html#ad53e9225330b9e579a1d6b65524b5623">get_user</a>() == <span class="stringliteral">&quot;user&quot;</span> );
 <a name="l00028"></a>00028   BOOST_CHECK( command.<a class="code" href="classucp_1_1copy__command.html#a759b71c59857f2fae81b02569a1de2da">get_target</a>() == <span class="stringliteral">&quot;~/bar&quot;</span> );
 <a name="l00029"></a>00029   BOOST_CHECK( command.<a class="code" href="classucp_1_1copy__command.html#a423b808fbc0b66675b6cfed9accfbc54">get_source</a>() == <span class="stringliteral">&quot;foo&quot;</span> );
-<a name="l00030"></a>00030   command = <a class="code" href="classucp_1_1copy__command.html">ucp::copy_command</a>( <span class="stringliteral">&quot;abcd@eee.fff.com:&quot;</span>, <span class="stringliteral">&quot;xyz&quot;</span> );
+<a name="l00030"></a>00030   command = <a class="code" href="classucp_1_1copy__command.html" title="Contains file copy instructions parsed from command line.">ucp::copy_command</a>( <span class="stringliteral">&quot;abcd@eee.fff.com:&quot;</span>, <span class="stringliteral">&quot;xyz&quot;</span> );
 <a name="l00031"></a>00031   BOOST_CHECK( command.get_port() == 9090 );
 <a name="l00032"></a>00032   BOOST_CHECK( command.get_host() == <span class="stringliteral">&quot;eee.fff.com&quot;</span> );
 <a name="l00033"></a>00033   BOOST_CHECK( command.get_source() == <span class="stringliteral">&quot;&quot;</span> );
@@ -190,7 +190,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

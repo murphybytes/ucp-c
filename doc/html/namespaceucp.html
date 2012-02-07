@@ -84,6 +84,7 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1connection__handler.html">connection_handler</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles connection with remote client.  <a href="classucp_1_1connection__handler.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html">copy_command</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains file copy instructions parsed from command line.  <a href="classucp_1_1copy__command.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html">encryption_service</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">handles AES encryption of wire communication  <a href="classucp_1_1encryption__service.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1listen__thread.html">listen_thread</a></td></tr>
@@ -97,6 +98,7 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1fstream.html">fstream</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates AES encryption / decryption for files.  <a href="classucp_1_1fstream.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1user.html">user</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Pertains to operating system user.  <a href="classucp_1_1user.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#acaa13747b7425c3191a80c4011b7c46b">application_ptr</a></td></tr>
@@ -118,6 +120,7 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#aaa5b16c286d1ac45b25a817ba40b1d7b">get_application</a> (const po::variables_map &amp;command_arguments)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#aa049fafb414797c7ca0a4488782d7ce3">get_file_size</a> (const string &amp;file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classucp_1_1log.html">log</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#a4aa76e2144a171bedc700db8dc6130a1">chown</a> (const <a class="el" href="classucp_1_1user.html">user</a> &amp;owner, const bfs::path &amp;path)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -181,6 +184,7 @@ Variables</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+<p>platform independent integer for wire communication ( at least little endian platforms ) </p>
 
 <p>Definition at line <a class="el" href="ucp_8hpp_source.html#l00010">10</a> of file <a class="el" href="ucp_8hpp_source.html">ucp.hpp</a>.</p>
 
@@ -303,6 +307,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a973a56b26d7255c55cefe81b2c4008db"></a><!-- doxytag: member="ucp::logger" ref="a973a56b26d7255c55cefe81b2c4008db" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classucp_1_1log.html">log</a> &amp; ucp::logger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8cpp_source.html#l00004">4</a> of file <a class="el" href="log_8cpp_source.html">log.cpp</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Variable Documentation</h2>
 <a class="anchor" id="adc7d7afce06b4c9f71b0893bcfc2e01b"></a><!-- doxytag: member="ucp::ERROR" ref="adc7d7afce06b4c9f71b0893bcfc2e01b" args="" -->
 <div class="memitem">
@@ -364,7 +386,7 @@ Variables</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

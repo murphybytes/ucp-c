@@ -26,9 +26,8 @@ namespace ucp {
     /**
      * Thread handler function
      *
-     * \param stm output stream for logging
      */
-    void operator()(shared_ptr<std::fstream> stm);
+    void operator()();
   };
 
 }

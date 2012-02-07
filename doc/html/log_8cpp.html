@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>ucp: src/listener.hpp Source File</title>
+<title>ucp: src/log.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -56,46 +56,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div>
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src/listener.hpp</div>  </div>
+<div class="title">src/log.cpp File Reference</div>  </div>
 </div>
 <div class="contents">
-<a href="listener_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __LISTENER_HPP__</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __LISTENER_HPP__</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="application_8hpp.html">application.hpp</a>&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a>00007 <span class="keyword">namespace </span>ucp {
-<a name="l00014"></a><a class="code" href="classucp_1_1listener.html">00014</a>   <span class="keyword">class </span><a class="code" href="classucp_1_1listener.html" title="Application controller for ucp server.">listener</a> : <span class="keyword">public</span> <a class="code" href="structucp_1_1application.html" title="Superclass for ucp application controllers. See listener and client.">application</a> {
-<a name="l00015"></a>00015 
-<a name="l00016"></a>00016     <span class="keyword">friend</span> shared_ptr&lt;application&gt; <a class="code" href="classucp_1_1listener.html#ab38425204ae51dbb2f5fa1d8f3bf7e29">get_application</a>( <span class="keyword">const</span> po::variables_map&amp; );
-<a name="l00017"></a>00017     
-<a name="l00018"></a>00018     <span class="keywordtype">bool</span> run_;
-<a name="l00019"></a>00019     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> port_;
-<a name="l00020"></a>00020     mutex mutex_;
-<a name="l00021"></a>00021     unique_lock&lt; mutex &gt; lock_;                         
-<a name="l00022"></a>00022     condition_variable condition_;
-<a name="l00023"></a>00023     <span class="keywordtype">bool</span> daemonize_;
-<a name="l00024"></a>00024     fs::path pid_file_path_;
-<a name="l00025"></a>00025     po::variables_map command_arguments_;
-<a name="l00026"></a>00026     
-<a name="l00027"></a>00027     <a class="code" href="classucp_1_1listener.html" title="Application controller for ucp server.">listener</a>(<span class="keyword">const</span> po::variables_map&amp; );
-<a name="l00028"></a>00028     <span class="keyword">const</span> <span class="keywordtype">char</span>* get_service()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lexical_cast&lt; <span class="keywordtype">string</span> &gt;( port_ ).c_str() ; }
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> daemonize() ;
-<a name="l00030"></a>00030   <span class="keyword">public</span>:
-<a name="l00031"></a>00031     <span class="keyword">virtual</span> <a class="code" href="classucp_1_1listener.html#a859cd67b22cdd9ada311fb239f4cb0b9">~listener</a>();
-<a name="l00032"></a>00032     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classucp_1_1listener.html#a95bc043b5be793c19340de87755346ef">run</a>()  ;
-<a name="l00033"></a>00033     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classucp_1_1listener.html#aa98c5518c08bf4bf3893fa698c5ba25c">signal</a>( <span class="keywordtype">int</span> sig );
-<a name="l00034"></a>00034   };
-<a name="l00035"></a>00035 }
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#endif</span>
-</pre></div></div>
+<div class="textblock"><code>#include &quot;<a class="el" href="application_8hpp_source.html">application.hpp</a>&quot;</code><br/>
+</div>
+<p><a href="log_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html">ucp</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">log &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">ucp::logger</a> ()</td></tr>
+</table>
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"

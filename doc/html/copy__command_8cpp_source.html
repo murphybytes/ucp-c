@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00051"></a>00051 
 <a name="l00052"></a>00052   <span class="keywordtype">void</span> copy_command::parse_remote( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; remote_command ) {
 <a name="l00053"></a>00053     <span class="keywordtype">size_t</span> amp_pos = remote_command.find( <span class="stringliteral">&quot;@&quot;</span> );
-<a name="l00054"></a>00054     <a class="code" href="classucp_1_1user.html">user</a> = remote_command.substr( 0, amp_pos );
+<a name="l00054"></a>00054     <a class="code" href="classucp_1_1user.html" title="Pertains to operating system user.">user</a> = remote_command.substr( 0, amp_pos );
 <a name="l00055"></a>00055     <span class="keywordtype">size_t</span> colon_pos = remote_command.find( <span class="stringliteral">&quot;:&quot;</span>, amp_pos + 1 );
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057     host = remote_command.substr( amp_pos + 1, ( colon_pos - amp_pos - 1) );
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

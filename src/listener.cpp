@@ -68,7 +68,7 @@ namespace ucp {
     try {
       
       listen_thread listener( command_arguments_ );
-      thread t( listener, logger().get_fstream()  );
+      thread t( listener );
       
       condition_.wait( lock_ );
       logger().info( "Application recieved shut down signal...");

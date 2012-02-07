@@ -110,8 +110,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00047"></a>00047     po::store(po::command_line_parser( argc, argv ).options(all_options).positional(pod).run(), command_arguments);
 <a name="l00048"></a>00048     po::notify(command_arguments);
 <a name="l00049"></a>00049 
-<a name="l00050"></a>00050     ucp::logger.level() = log_level;
-<a name="l00051"></a>00051     ucp::logger.debug( <span class="stringliteral">&quot;ucp starting&quot;</span> );
+<a name="l00050"></a>00050     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">ucp::logger</a>().level() = log_level;
+<a name="l00051"></a>00051     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">ucp::logger</a>().debug( <span class="stringliteral">&quot;ucp starting&quot;</span> );
 <a name="l00052"></a>00052     signal(SIGINT, <a class="code" href="main_8cpp.html#adc1f4cc161f2d620c2913676b7dcc8ce">on_signal</a>);
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054     <span class="keywordflow">if</span>( command_arguments.count(<span class="stringliteral">&quot;help&quot;</span>) || 1 == argc  ) {
@@ -130,11 +130,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00067"></a>00067         <a class="code" href="main_8cpp.html#ae5a7a55fde6b9f2dfe77dc26f7febdba">signal_dispatcher</a>.connect( <a class="code" href="classucp_1_1signal__handler.html">ucp::signal_handler</a>(application_ptr) );
 <a name="l00068"></a>00068         application_ptr-&gt;run();
 <a name="l00069"></a>00069     } <span class="keywordflow">catch</span>( <span class="keyword">const</span> exception&amp; e ) {
-<a name="l00070"></a>00070         ucp::logger.error(  e.what() );
+<a name="l00070"></a>00070         <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">ucp::logger</a>().error(  e.what() );
 <a name="l00071"></a>00071         result = <a class="code" href="namespaceucp.html#adc7d7afce06b4c9f71b0893bcfc2e01b">ucp::ERROR</a>;
 <a name="l00072"></a>00072     }      
 <a name="l00073"></a>00073 
-<a name="l00074"></a>00074     ucp::logger.debug( <span class="stringliteral">&quot;ucp finished&quot;</span> );
+<a name="l00074"></a>00074     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">ucp::logger</a>().debug( <span class="stringliteral">&quot;ucp finished&quot;</span> );
 <a name="l00075"></a>00075     <span class="keywordflow">return</span> result;
 <a name="l00076"></a>00076 }
 </pre></div></div>
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

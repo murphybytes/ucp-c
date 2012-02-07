@@ -81,13 +81,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 
 <a name="l00020"></a><a class="code" href="classucp_1_1messaging.html#a17608fd60c2137dca68dfa7416ae888b">00020</a>   <span class="keywordtype">void</span> <a class="code" href="classucp_1_1messaging.html#a17608fd60c2137dca68dfa7416ae888b">messaging::set_user</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; user_name ) {
-<a name="l00021"></a>00021     logger.debug( (format(<span class="stringliteral">&quot;setting user %1% for session&quot;</span>) % user_name ).str() );
-<a name="l00022"></a>00022     user_ = shared_ptr&lt;user&gt;( <span class="keyword">new</span> <a class="code" href="classucp_1_1user.html">user</a>( user_name ) );
+<a name="l00021"></a>00021     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>( (format(<span class="stringliteral">&quot;setting user %1% for session&quot;</span>) % user_name ).str() );
+<a name="l00022"></a>00022     user_ = shared_ptr&lt;user&gt;( <span class="keyword">new</span> <a class="code" href="classucp_1_1user.html" title="Pertains to operating system user.">user</a>( user_name ) );
 <a name="l00023"></a>00023      
 <a name="l00024"></a>00024   }
 <a name="l00025"></a>00025 
 <a name="l00026"></a><a class="code" href="classucp_1_1messaging.html#aaae76b4e754e2901705f38783e832988">00026</a>   <span class="keywordtype">void</span> <a class="code" href="classucp_1_1messaging.html#aaae76b4e754e2901705f38783e832988">messaging::send_file</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ab8fbcc5c92d5368762b5028657f0b05f">file_name</a> ) {
-<a name="l00027"></a>00027     logger.debug( (format(<span class="stringliteral">&quot;Preparing to send file %1%&quot;</span>) % file_name ).str());
+<a name="l00027"></a>00027     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>( (format(<span class="stringliteral">&quot;Preparing to send file %1%&quot;</span>) % file_name ).str());
 <a name="l00028"></a>00028     <a class="code" href="classucp_1_1fstream.html" title="Encapsulates AES encryption / decryption for files.">ucp::fstream</a> in_stream( file_name, ios::in | ios::binary, encryptor_ );
 <a name="l00029"></a>00029     <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a1357557c17898a726f8f08c34a146faa">file_size</a> = <a class="code" href="namespaceucp.html#aa049fafb414797c7ca0a4488782d7ce3">get_file_size</a>( file_name );
 <a name="l00030"></a>00030     <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> offset = 0;
@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036     }
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038     UDT::perfmon( *socket_, &amp;trace );
-<a name="l00039"></a>00039     logger.info( (format(<span class="stringliteral">&quot;Transfer speed %1% Mbits/sec&quot;</span>) % trace.mbpsSendRate ).str() );
+<a name="l00039"></a>00039     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2bed2678b95ac9b2a59e9c0d18e96efd">info</a>( (format(<span class="stringliteral">&quot;Transfer speed %1% Mbits/sec&quot;</span>) % trace.mbpsSendRate ).str() );
 <a name="l00040"></a>00040     
 <a name="l00041"></a>00041   }
 <a name="l00042"></a>00042   
@@ -119,24 +119,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00056"></a>00056   }
 <a name="l00057"></a>00057 
 <a name="l00058"></a><a class="code" href="classucp_1_1messaging.html#ae34e1e8982cadad3f9b7f7277cb82301">00058</a>   <span class="keywordtype">void</span> <a class="code" href="classucp_1_1messaging.html#ae34e1e8982cadad3f9b7f7277cb82301">messaging::receive_file</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ab8fbcc5c92d5368762b5028657f0b05f">file_name</a>, <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a1357557c17898a726f8f08c34a146faa">file_size</a> ) {
-<a name="l00059"></a>00059     logger.debug( (format(<span class="stringliteral">&quot;Preparing to receive file %1% of size %2%.&quot;</span>) % file_name % file_size ).str() ); 
+<a name="l00059"></a>00059     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>( (format(<span class="stringliteral">&quot;Preparing to receive file %1% of size %2%.&quot;</span>) % file_name % file_size ).str() ); 
 <a name="l00060"></a>00060     <a class="code" href="classucp_1_1fstream.html" title="Encapsulates AES encryption / decryption for files.">ucp::fstream</a> out_stream( file_name, ios::binary | ios::trunc | ios::out, encryptor_ );
 <a name="l00061"></a>00061     <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> received_size = 0;
 <a name="l00062"></a>00062     <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> offset = 0 ;
 <a name="l00063"></a>00063     <span class="keywordflow">if</span>( <a class="code" href="namespaceucp.html#adc7d7afce06b4c9f71b0893bcfc2e01b">UDT::ERROR</a> == ( received_size = UDT::recvfile( *socket_, out_stream, offset, file_size ))) {
 <a name="l00064"></a>00064       <span class="keywordflow">throw</span> std::runtime_error( UDT::getlasterror().getErrorMessage() );
 <a name="l00065"></a>00065     }  
-<a name="l00066"></a>00066     logger.debug( (format(<span class="stringliteral">&quot;%1% was received successfully&quot;</span>) % file_name ).str() );
+<a name="l00066"></a>00066     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>( (format(<span class="stringliteral">&quot;%1% was received successfully&quot;</span>) % file_name ).str() );
 <a name="l00067"></a>00067   }
 <a name="l00068"></a>00068 
 <a name="l00069"></a>00069   <span class="keywordtype">void</span> messaging::trace_send( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg ) {
 <a name="l00070"></a>00070     <span class="keywordtype">string</span> role_name = (<a class="code" href="namespaceucp.html#aefc6c084492bba487cbc6a526f735668ae45739d3a058f703d2ff9791dfe70153">client_role</a> == role_ ? <span class="stringliteral">&quot;CLIENT&quot;</span> : <span class="stringliteral">&quot;SERVER&quot;</span>);
-<a name="l00071"></a>00071     logger.debug((format(<span class="stringliteral">&quot;%1% SEND: %2%&quot;</span>) % role_name % msg ).str());
+<a name="l00071"></a>00071     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>((format(<span class="stringliteral">&quot;%1% SEND: %2%&quot;</span>) % role_name % msg ).str());
 <a name="l00072"></a>00072   }
 <a name="l00073"></a>00073 
 <a name="l00074"></a>00074   <span class="keywordtype">void</span> messaging::trace_recv( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; msg ) {
 <a name="l00075"></a>00075     <span class="keywordtype">string</span> role_name = (<a class="code" href="namespaceucp.html#aefc6c084492bba487cbc6a526f735668ae45739d3a058f703d2ff9791dfe70153">client_role</a> == role_ ? <span class="stringliteral">&quot;CLIENT&quot;</span> : <span class="stringliteral">&quot;SERVER&quot;</span>);
-<a name="l00076"></a>00076     logger.debug( (format( <span class="stringliteral">&quot;%1% RECV: %2%&quot;</span> ) % role_name % msg ).str() );
+<a name="l00076"></a>00076     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().debug( (format( <span class="stringliteral">&quot;%1% RECV: %2%&quot;</span> ) % role_name % msg ).str() );
 <a name="l00077"></a>00077   }
 <a name="l00078"></a>00078 
 <a name="l00079"></a>00079   <span class="keywordtype">void</span> messaging::trace_send( <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> msg ) {
@@ -154,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00091"></a>00091   }
 <a name="l00092"></a>00092   
 <a name="l00093"></a><a class="code" href="classucp_1_1messaging.html#a9a985d89cecefa50e31db6d023813a47">00093</a>   <span class="keywordtype">void</span> <a class="code" href="classucp_1_1messaging.html#a9a985d89cecefa50e31db6d023813a47">messaging::close</a>() {
-<a name="l00094"></a>00094     logger.debug((format(<span class="stringliteral">&quot;Closing socket %1%&quot;</span>) % *socket_).str());
+<a name="l00094"></a>00094     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>((format(<span class="stringliteral">&quot;Closing socket %1%&quot;</span>) % *socket_).str());
 <a name="l00095"></a>00095     <a class="code" href="classucp_1_1messaging.html#a9a985d89cecefa50e31db6d023813a47">UDT::close</a>( *socket_ );
 <a name="l00096"></a>00096   }
 <a name="l00097"></a>00097 
@@ -235,7 +235,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

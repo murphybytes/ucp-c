@@ -20,11 +20,10 @@ namespace ucp {
    
   }
 
-  void listen_thread::operator()(shared_ptr<std::fstream> stm ) {
+  void listen_thread::operator()( ) {
    
     try {
-      logger().set_fstream( stm );
-      logger().level() = command_arguments_["log-level"].as<unsigned int>();
+
       logger().debug("fired up listener thread...");
 
 
@@ -90,7 +89,7 @@ namespace ucp {
 	logger().debug( (format("New Connection: %1% : %2%") % 
 		       clienthost % clientservice ).str());
 	connection_handler handler( receive_socket);
-	boost::thread thread( handler, logger().get_fstream(), logger().level() );
+	boost::thread thread( handler );
 
       }
 

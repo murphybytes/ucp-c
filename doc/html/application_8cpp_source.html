@@ -63,14 +63,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="application_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="client_8hpp.html">client.hpp</a>&quot;</span>
 <a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="listener_8hpp.html">listener.hpp</a>&quot;</span>
-<a name="l00003"></a>00003 <span class="comment">//#include &quot;connection.hpp&quot;</span>
+<a name="l00003"></a>00003 
 <a name="l00004"></a>00004 
 <a name="l00005"></a><a class="code" href="namespaceucp.html">00005</a> <span class="keyword">namespace </span>ucp {
 <a name="l00006"></a>00006 
 <a name="l00007"></a>00007 
 <a name="l00008"></a>00008 
 <a name="l00009"></a><a class="code" href="namespaceucp.html#aaa5b16c286d1ac45b25a817ba40b1d7b">00009</a>   shared_ptr&lt;application&gt; <a class="code" href="namespaceucp.html#aaa5b16c286d1ac45b25a817ba40b1d7b">get_application</a>( <span class="keyword">const</span> po::variables_map&amp; command_arguments ) {
-<a name="l00010"></a>00010     logger.debug(<span class="stringliteral">&quot;Called get_application&quot;</span> );
+<a name="l00010"></a>00010     <a class="code" href="namespaceucp.html#a973a56b26d7255c55cefe81b2c4008db">logger</a>().<a class="code" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a>(<span class="stringliteral">&quot;Called get_application&quot;</span> );
 <a name="l00011"></a>00011     shared_ptr&lt;application&gt; result ;
 <a name="l00012"></a>00012     
 <a name="l00013"></a>00013     <span class="keywordflow">if</span>( command_arguments.count(<span class="stringliteral">&quot;listener&quot;</span>) ) {
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:17 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 7 2012 07:42:20 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
