@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -52,6 +53,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -59,11 +61,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">src/copy_command.hpp</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __COPY_COMMAND_HPP__</span>
+<a href="copy__command_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __COPY_COMMAND_HPP__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __COPY_COMMAND_HPP__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;application.hpp&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="application_8hpp.html">application.hpp</a>&quot;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
 <a name="l00007"></a>00007 <span class="keyword">using</span> std::runtime_error;
 <a name="l00008"></a>00008 <span class="keyword">using</span> std::size_t;
@@ -75,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014   <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">int</span> default_port = 9090;
 <a name="l00015"></a>00015 
 <a name="l00016"></a><a class="code" href="classucp_1_1copy__command.html">00016</a>   <span class="keyword">class </span><a class="code" href="classucp_1_1copy__command.html">copy_command</a> {
-<a name="l00017"></a>00017     direction_t direction;
+<a name="l00017"></a>00017     <a class="code" href="namespaceucp.html#a603e5fff9d445566196ebc366c4ccd8d">direction_t</a> direction;
 <a name="l00018"></a>00018     <span class="keywordtype">string</span> <a class="code" href="classucp_1_1user.html">user</a>;
 <a name="l00019"></a>00019     <span class="keywordtype">string</span> host;
 <a name="l00020"></a>00020     <span class="keywordtype">int</span> port;
@@ -83,17 +85,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022     <span class="keywordtype">string</span> target;
 <a name="l00023"></a>00023     <span class="keywordtype">string</span> service;
 <a name="l00024"></a>00024   <span class="keyword">public</span>:
-<a name="l00025"></a>00025     <a class="code" href="classucp_1_1copy__command.html">copy_command</a>( <span class="keyword">const</span> po::variables_map&amp; vm );
-<a name="l00026"></a>00026     <a class="code" href="classucp_1_1copy__command.html">copy_command</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; left_command, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; right_command ); 
-<a name="l00027"></a>00027     <span class="keyword">virtual</span> ~<a class="code" href="classucp_1_1copy__command.html">copy_command</a>() ;
-<a name="l00028"></a>00028     direction_t get_direction()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; } 
-<a name="l00029"></a>00029     <span class="keywordtype">bool</span> contains_remote_information( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command ) <span class="keyword">const</span> ;
-<a name="l00030"></a>00030     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_source()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> source; }
-<a name="l00031"></a>00031     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_target()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> target; }
-<a name="l00032"></a>00032     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_user()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classucp_1_1user.html">user</a>; }
-<a name="l00033"></a>00033     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_host()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> host; }
-<a name="l00034"></a>00034     <span class="keyword">const</span> <span class="keywordtype">int</span> get_port()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> port; }
-<a name="l00035"></a>00035     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; get_service()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> service; } 
+<a name="l00025"></a>00025     <a class="code" href="classucp_1_1copy__command.html#a84486ca71232db41c7a1749d35b0f17f">copy_command</a>( <span class="keyword">const</span> po::variables_map&amp; vm );
+<a name="l00026"></a>00026     <a class="code" href="classucp_1_1copy__command.html#a84486ca71232db41c7a1749d35b0f17f">copy_command</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; left_command, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; right_command ); 
+<a name="l00027"></a>00027     <span class="keyword">virtual</span> <a class="code" href="classucp_1_1copy__command.html#aa8cbbaf4f1b6bc99897d86ef16d01602">~copy_command</a>() ;
+<a name="l00028"></a><a class="code" href="classucp_1_1copy__command.html#a34c0ea7c605cc42a11ec23089fa46c32">00028</a>     <a class="code" href="namespaceucp.html#a603e5fff9d445566196ebc366c4ccd8d">direction_t</a> <a class="code" href="classucp_1_1copy__command.html#a34c0ea7c605cc42a11ec23089fa46c32">get_direction</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; } 
+<a name="l00029"></a>00029     <span class="keywordtype">bool</span> <a class="code" href="classucp_1_1copy__command.html#a61ffc2f6fa9af457118e2f9cb80ebc84">contains_remote_information</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command ) <span class="keyword">const</span> ;
+<a name="l00030"></a><a class="code" href="classucp_1_1copy__command.html#a423b808fbc0b66675b6cfed9accfbc54">00030</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1copy__command.html#a423b808fbc0b66675b6cfed9accfbc54">get_source</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> source; }
+<a name="l00031"></a><a class="code" href="classucp_1_1copy__command.html#a759b71c59857f2fae81b02569a1de2da">00031</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1copy__command.html#a759b71c59857f2fae81b02569a1de2da">get_target</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> target; }
+<a name="l00032"></a><a class="code" href="classucp_1_1copy__command.html#ad53e9225330b9e579a1d6b65524b5623">00032</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1copy__command.html#ad53e9225330b9e579a1d6b65524b5623">get_user</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classucp_1_1user.html">user</a>; }
+<a name="l00033"></a><a class="code" href="classucp_1_1copy__command.html#a747b4413bdc4493d81bd2857bb28b2e0">00033</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1copy__command.html#a747b4413bdc4493d81bd2857bb28b2e0">get_host</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> host; }
+<a name="l00034"></a><a class="code" href="classucp_1_1copy__command.html#abfcb21d2ae8b5bfb6bb28e1e1b101072">00034</a>     <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classucp_1_1copy__command.html#abfcb21d2ae8b5bfb6bb28e1e1b101072">get_port</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> port; }
+<a name="l00035"></a><a class="code" href="classucp_1_1copy__command.html#abd81c652936690ba0173e88c08aa50ef">00035</a>     <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="classucp_1_1copy__command.html#abd81c652936690ba0173e88c08aa50ef">get_service</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> service; } 
 <a name="l00036"></a>00036   <span class="keyword">private</span>:
 <a name="l00037"></a>00037     <span class="keywordtype">void</span> parse_remote( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; remote_command ) ;
 <a name="l00038"></a>00038     <span class="keywordtype">void</span> init( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; left_command, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; right_command );
@@ -109,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

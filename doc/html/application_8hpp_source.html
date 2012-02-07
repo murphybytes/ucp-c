@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -52,6 +53,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -59,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">src/application.hpp</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __APPLICATION_HPP__</span>
+<a href="application_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __APPLICATION_HPP__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __APPLICATION_HPP__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;udt.h&gt;</span>
@@ -82,8 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00021"></a>00021 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00022"></a>00022 <span class="preprocessor">#include &lt;exception&gt;</span>
 <a name="l00023"></a>00023 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;ucp.hpp&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;log.hpp&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="ucp_8hpp.html">ucp.hpp</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="log_8hpp.html">log.hpp</a>&quot;</span>
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 
 <a name="l00028"></a>00028 <span class="keyword">using</span> std::cout;
@@ -100,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039 <span class="keyword">using</span> boost::mutex;
 <a name="l00040"></a>00040 <span class="keyword">using</span> boost::unique_lock;
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">typedef</span> std::basic_string&lt; unsigned char &gt; byte_string;
+<a name="l00042"></a><a class="code" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">00042</a> <span class="keyword">typedef</span> std::basic_string&lt; unsigned char &gt; <a class="code" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a>;
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 <span class="keyword">namespace </span>po = boost::program_options;
 <a name="l00045"></a>00045 <span class="keyword">namespace </span>fs = boost::filesystem3;
@@ -110,33 +112,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00049"></a>00049 <span class="keyword">namespace </span>ucp {
 <a name="l00050"></a>00050 
 <a name="l00051"></a>00051   <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> MAX_PENDING_CONNECTIONS = 10;
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="structucp_1_1application.html">00053</a>   <span class="keyword">struct </span><a class="code" href="structucp_1_1application.html">application</a> {
-<a name="l00054"></a>00054     <span class="keyword">virtual</span> <span class="keywordtype">void</span> run()  = 0;
-<a name="l00055"></a>00055     <span class="keyword">virtual</span> <span class="keywordtype">void</span> signal( <span class="keywordtype">int</span> ) = 0;
-<a name="l00056"></a>00056   };
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058   <span class="keyword">typedef</span> shared_ptr&lt; application &gt; application_ptr;
+<a name="l00055"></a><a class="code" href="structucp_1_1application.html">00055</a>   <span class="keyword">struct </span><a class="code" href="structucp_1_1application.html" title="Superclass for ucp application controllers. See listener and client.">application</a> {
+<a name="l00056"></a>00056     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structucp_1_1application.html#a9187f473f3bd70e1064cb94b3cc02fe3">run</a>()  = 0;
+<a name="l00057"></a>00057     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="structucp_1_1application.html#a96dfc060718a051e360145c32421c258">signal</a>( <span class="keywordtype">int</span> ) = 0;
+<a name="l00058"></a>00058   };
 <a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="classucp_1_1signal__handler.html">00060</a>   <span class="keyword">class </span><a class="code" href="classucp_1_1signal__handler.html">signal_handler</a> {
-<a name="l00061"></a>00061     application_ptr app_;
-<a name="l00062"></a>00062   <span class="keyword">public</span>:
-<a name="l00063"></a>00063     <a class="code" href="classucp_1_1signal__handler.html">signal_handler</a>( shared_ptr&lt; application &gt; app )
-<a name="l00064"></a>00064       :app_(app){}
-<a name="l00065"></a>00065     <span class="keywordtype">void</span> operator()() {
-<a name="l00066"></a>00066       app_-&gt;signal(0);
-<a name="l00067"></a>00067     }
-<a name="l00068"></a>00068   };
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070   shared_ptr&lt;application&gt; get_application( <span class="keyword">const</span> po::variables_map&amp; command_arguments );
+<a name="l00060"></a><a class="code" href="namespaceucp.html#acaa13747b7425c3191a80c4011b7c46b">00060</a>   <span class="keyword">typedef</span> shared_ptr&lt; application &gt; <a class="code" href="namespaceucp.html#acaa13747b7425c3191a80c4011b7c46b">application_ptr</a>;
+<a name="l00061"></a>00061 
+<a name="l00062"></a><a class="code" href="classucp_1_1signal__handler.html">00062</a>   <span class="keyword">class </span><a class="code" href="classucp_1_1signal__handler.html">signal_handler</a> {
+<a name="l00063"></a>00063     <a class="code" href="namespaceucp.html#acaa13747b7425c3191a80c4011b7c46b">application_ptr</a> app_;
+<a name="l00064"></a>00064   <span class="keyword">public</span>:
+<a name="l00065"></a><a class="code" href="classucp_1_1signal__handler.html#a339965af0f9d009229c44c456cdd6d7f">00065</a>     <a class="code" href="classucp_1_1signal__handler.html#a339965af0f9d009229c44c456cdd6d7f">signal_handler</a>( shared_ptr&lt; application &gt; app )
+<a name="l00066"></a>00066       :app_(app){}
+<a name="l00067"></a><a class="code" href="classucp_1_1signal__handler.html#a2666fdb24082914452e3d0ab9d2dbd1b">00067</a>     <span class="keywordtype">void</span> <a class="code" href="classucp_1_1signal__handler.html#a2666fdb24082914452e3d0ab9d2dbd1b">operator()</a>() {
+<a name="l00068"></a>00068       app_-&gt;signal(0);
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070   };
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072 
-<a name="l00073"></a>00073   int_t get_file_size( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; file_name );
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074   shared_ptr&lt;application&gt; <a class="code" href="namespaceucp.html#aaa5b16c286d1ac45b25a817ba40b1d7b">get_application</a>( <span class="keyword">const</span> po::variables_map&amp; command_arguments );
+<a name="l00075"></a>00075 
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
+<a name="l00077"></a>00077   <a class="code" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> <a class="code" href="namespaceucp.html#aa049fafb414797c7ca0a4488782d7ce3">get_file_size</a>( <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ab8fbcc5c92d5368762b5028657f0b05f">file_name</a> );
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 }
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="comment">//  static po::variables_map x_command_arguments;</span>
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -144,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -153,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:17 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

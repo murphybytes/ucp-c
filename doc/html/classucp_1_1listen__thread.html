@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1listen__thread.html">listen_thread</a>      </li>
     </ul>
   </div>
@@ -71,20 +73,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::listen_thread" -->
+<p>Handles server listener socket.  
+ <a href="classucp_1_1listen__thread.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="listen__thread_8hpp_source.html">listen_thread.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1listen__thread-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a109b9802f45df7a824f80209535f1dc1"></a><!-- doxytag: member="ucp::listen_thread::listen_thread" ref="a109b9802f45df7a824f80209535f1dc1" args="(unsigned int port)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>listen_thread</b> (unsigned int port)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7b05f92f51753f6be5bfdd6238c3af3"></a><!-- doxytag: member="ucp::listen_thread::shutdown" ref="ae7b05f92f51753f6be5bfdd6238c3af3" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>shutdown</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfd6641389c06f6037563ec36774b3b5"></a><!-- doxytag: member="ucp::listen_thread::operator()" ref="abfd6641389c06f6037563ec36774b3b5" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1listen__thread.html#aa03f00e80bc44097a228ded5fa39f78d">listen_thread</a> (const po::variables_map &amp;command_arguments)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1listen__thread.html#ac9787d743263bec42af74056c75628ea">~listen_thread</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1listen__thread.html#ae7b05f92f51753f6be5bfdd6238c3af3">shutdown</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1listen__thread.html#abc3150adef2d90751d5d38ec6626f0e8">operator()</a> (shared_ptr&lt; std::fstream &gt; stm)</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Handles server listener socket. </p>
+<p>Class handles server side socket that listens for incoming connections. See <a class="el" href="connection__handler_8hpp.html">connection_handler.hpp</a> for code that handles conversation with external clients. </p>
+
+<p>Definition at line <a class="el" href="listen__thread_8hpp_source.html#l00014">14</a> of file <a class="el" href="listen__thread_8hpp_source.html">listen_thread.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa03f00e80bc44097a228ded5fa39f78d"></a><!-- doxytag: member="ucp::listen_thread::listen_thread" ref="aa03f00e80bc44097a228ded5fa39f78d" args="(const po::variables_map &amp;command_arguments)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::listen_thread::listen_thread </td>
+          <td>(</td>
+          <td class="paramtype">const po::variables_map &amp;&#160;</td>
+          <td class="paramname"><em>command_arguments</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="listen__thread_8cpp_source.html#l00005">5</a> of file <a class="el" href="listen__thread_8cpp_source.html">listen_thread.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9787d743263bec42af74056c75628ea"></a><!-- doxytag: member="ucp::listen_thread::~listen_thread" ref="ac9787d743263bec42af74056c75628ea" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::listen_thread::~listen_thread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="listen__thread_8cpp_source.html#l00016">16</a> of file <a class="el" href="listen__thread_8cpp_source.html">listen_thread.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="abc3150adef2d90751d5d38ec6626f0e8"></a><!-- doxytag: member="ucp::listen_thread::operator()" ref="abc3150adef2d90751d5d38ec6626f0e8" args="(shared_ptr&lt; std::fstream &gt; stm)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::listen_thread::operator() </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; std::fstream &gt;&#160;</td>
+          <td class="paramname"><em>stm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Thread handler function</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stm</td><td>output stream for logging </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="listen__thread_8cpp_source.html#l00023">23</a> of file <a class="el" href="listen__thread_8cpp_source.html">listen_thread.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7b05f92f51753f6be5bfdd6238c3af3"></a><!-- doxytag: member="ucp::listen_thread::shutdown" ref="ae7b05f92f51753f6be5bfdd6238c3af3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::listen_thread::shutdown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Causes application to stop listening for incoming connections </p>
+
+<p>Definition at line <a class="el" href="listen__thread_8hpp_source.html#l00025">25</a> of file <a class="el" href="listen__thread_8hpp_source.html">listen_thread.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="listen__thread_8hpp_source.html">listen_thread.hpp</a></li>
-<li>src/listen_thread.cpp</li>
+<li>src/<a class="el" href="listen__thread_8cpp_source.html">listen_thread.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -92,7 +186,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +195,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

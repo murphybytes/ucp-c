@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1encryption__service.html">encryption_service</a>      </li>
     </ul>
   </div>
@@ -71,48 +73,500 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::encryption_service" -->
+<p>handles AES encryption of wire communication  
+ <a href="classucp_1_1encryption__service.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1encryption__service-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a681fb57012f39b855a340cb8e0312a"></a><!-- doxytag: member="ucp::encryption_service::get_key_from_shared_secret" ref="a5a681fb57012f39b855a340cb8e0312a" args="(const byte_string &amp;shared_secret) const " -->
-byte_string&#160;</td><td class="memItemRight" valign="bottom"><b>get_key_from_shared_secret</b> (const byte_string &amp;shared_secret) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b7f92e7c900aa4a0ff06af8514bcf82"></a><!-- doxytag: member="ucp::encryption_service::get_iv_from_shared_secret" ref="a6b7f92e7c900aa4a0ff06af8514bcf82" args="(const byte_string &amp;shared_secret) const " -->
-byte_string&#160;</td><td class="memItemRight" valign="bottom"><b>get_iv_from_shared_secret</b> (const byte_string &amp;shared_secret) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0453351594b0579d9f72957fadc5891d"></a><!-- doxytag: member="ucp::encryption_service::generate_shared_secret" ref="a0453351594b0579d9f72957fadc5891d" args="(byte_string &amp;shared_secret) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>generate_shared_secret</b> (byte_string &amp;shared_secret) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f8804dd3e7e2d1ccb90aa77e6f48e05"></a><!-- doxytag: member="ucp::encryption_service::write_shared_secret_to_file" ref="a6f8804dd3e7e2d1ccb90aa77e6f48e05" args="(const byte_string &amp;shared_secret, string &amp;file_name) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write_shared_secret_to_file</b> (const byte_string &amp;shared_secret, string &amp;file_name) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9ead3fc1a8fa77e8d12c9c4f8e421db"></a><!-- doxytag: member="ucp::encryption_service::read_shared_secret_from_file" ref="ac9ead3fc1a8fa77e8d12c9c4f8e421db" args="(const string &amp;file_name, byte_string &amp;shared_secret) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>read_shared_secret_from_file</b> (const string &amp;file_name, byte_string &amp;shared_secret) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50bcad909507df670398ad2c3c39f3e7"></a><!-- doxytag: member="ucp::encryption_service::get_random_filename" ref="a50bcad909507df670398ad2c3c39f3e7" args="(string &amp;file_name) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>get_random_filename</b> (string &amp;file_name) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedfe44673a0500366d0cf4641ba4525b"></a><!-- doxytag: member="ucp::encryption_service::send_shared_secret_to_remote_host" ref="aedfe44673a0500366d0cf4641ba4525b" args="(const string &amp;remote_user, const string &amp;remote_host, const string &amp;file_name) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_shared_secret_to_remote_host</b> (const string &amp;remote_user, const string &amp;remote_host, const string &amp;file_name) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af594647f4bc740a5d1faef070aa6e890"></a><!-- doxytag: member="ucp::encryption_service::get_key_directory" ref="af594647f4bc740a5d1faef070aa6e890" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_key_directory</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac530cfea606f1490973d7a0b0504a6b8"></a><!-- doxytag: member="ucp::encryption_service::encrypt" ref="ac530cfea606f1490973d7a0b0504a6b8" args="(const string &amp;plain_text, string &amp;cipher)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>encrypt</b> (const string &amp;plain_text, string &amp;cipher)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8004e16bc4b8615e75bcea5f2f3f1997"></a><!-- doxytag: member="ucp::encryption_service::encrypt" ref="a8004e16bc4b8615e75bcea5f2f3f1997" args="(const char *plain_text, char *cipher, size_t sz)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>encrypt</b> (const char *plain_text, char *cipher, size_t sz)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bc26bc927b3185ad8c125bb8b83c624"></a><!-- doxytag: member="ucp::encryption_service::decrypt" ref="a6bc26bc927b3185ad8c125bb8b83c624" args="(const string &amp;cipher, string &amp;plain_text)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decrypt</b> (const string &amp;cipher, string &amp;plain_text)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8c9a20d0b1cb5ae5a0834ec23b77e17"></a><!-- doxytag: member="ucp::encryption_service::decrypt" ref="ad8c9a20d0b1cb5ae5a0834ec23b77e17" args="(const char *cipher, char *plain_text, size_t sz)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>decrypt</b> (const char *cipher, char *plain_text, size_t sz)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3b46456dfd3e059f1915741ebc21e1d"></a><!-- doxytag: member="ucp::encryption_service::pretty_print" ref="af3b46456dfd3e059f1915741ebc21e1d" args="(const string &amp;cipher) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pretty_print</b> (const string &amp;cipher) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad88952c6400be400455c8d4b959afce4"></a><!-- doxytag: member="ucp::encryption_service::make_pretty" ref="ad88952c6400be400455c8d4b959afce4" args="(const string &amp;cipher) const " -->
-string&#160;</td><td class="memItemRight" valign="bottom"><b>make_pretty</b> (const string &amp;cipher) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f1a0a06e2a9605d8a71d5f2d97c94f1"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="a3f1a0a06e2a9605d8a71d5f2d97c94f1" args="(const string &amp;secret_file_name)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>encryption_service</b> (const string &amp;secret_file_name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af22d48fe7ce2572af1e65885a115508a"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="af22d48fe7ce2572af1e65885a115508a" args="(const byte_string &amp;shared_secret)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>encryption_service</b> (const byte_string &amp;shared_secret)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac345e2bdefdddc32265ead602a000fef"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="ac345e2bdefdddc32265ead602a000fef" args="(const string &amp;home_dir, const string &amp;secret_file_name)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>encryption_service</b> (const string &amp;home_dir, const string &amp;secret_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a5a681fb57012f39b855a340cb8e0312a">get_key_from_shared_secret</a> (const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a6b7f92e7c900aa4a0ff06af8514bcf82">get_iv_from_shared_secret</a> (const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a0453351594b0579d9f72957fadc5891d">generate_shared_secret</a> (<a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a6f8804dd3e7e2d1ccb90aa77e6f48e05">write_shared_secret_to_file</a> (const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret, string &amp;file_name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#ac9ead3fc1a8fa77e8d12c9c4f8e421db">read_shared_secret_from_file</a> (const string &amp;file_name, <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a50bcad909507df670398ad2c3c39f3e7">get_random_filename</a> (string &amp;file_name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#aedfe44673a0500366d0cf4641ba4525b">send_shared_secret_to_remote_host</a> (const string &amp;remote_user, const string &amp;remote_host, const string &amp;file_name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#af594647f4bc740a5d1faef070aa6e890">get_key_directory</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#ac530cfea606f1490973d7a0b0504a6b8">encrypt</a> (const string &amp;plain_text, string &amp;cipher)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a8004e16bc4b8615e75bcea5f2f3f1997">encrypt</a> (const char *plain_text, char *cipher, size_t sz)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a6bc26bc927b3185ad8c125bb8b83c624">decrypt</a> (const string &amp;cipher, string &amp;plain_text)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#ad8c9a20d0b1cb5ae5a0834ec23b77e17">decrypt</a> (const char *cipher, char *plain_text, size_t sz)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#af3b46456dfd3e059f1915741ebc21e1d">pretty_print</a> (const string &amp;cipher) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#ad88952c6400be400455c8d4b959afce4">make_pretty</a> (const string &amp;cipher) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a3c68e572b8425cb3d8b9f378ab07d78d">encryption_service</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#a3f1a0a06e2a9605d8a71d5f2d97c94f1">encryption_service</a> (const string &amp;secret_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#af22d48fe7ce2572af1e65885a115508a">encryption_service</a> (const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;shared_secret)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#ac345e2bdefdddc32265ead602a000fef">encryption_service</a> (const string &amp;home_dir, const string &amp;secret_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1encryption__service.html#af3f537d8998ce663f48f0884a772988e">~encryption_service</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>handles AES encryption of wire communication </p>
+
+<p>Definition at line <a class="el" href="encryption__service_8hpp_source.html#l00028">28</a> of file <a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3c68e572b8425cb3d8b9f378ab07d78d"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="a3c68e572b8425cb3d8b9f378ab07d78d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::encryption_service::encryption_service </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00021">21</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f1a0a06e2a9605d8a71d5f2d97c94f1"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="a3f1a0a06e2a9605d8a71d5f2d97c94f1" args="(const string &amp;secret_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::encryption_service::encryption_service </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>secret_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00025">25</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af22d48fe7ce2572af1e65885a115508a"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="af22d48fe7ce2572af1e65885a115508a" args="(const byte_string &amp;shared_secret)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::encryption_service::encryption_service </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00037">37</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac345e2bdefdddc32265ead602a000fef"></a><!-- doxytag: member="ucp::encryption_service::encryption_service" ref="ac345e2bdefdddc32265ead602a000fef" args="(const string &amp;home_dir, const string &amp;secret_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::encryption_service::encryption_service </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>home_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>secret_file_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00045">45</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3f537d8998ce663f48f0884a772988e"></a><!-- doxytag: member="ucp::encryption_service::~encryption_service" ref="af3f537d8998ce663f48f0884a772988e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::encryption_service::~encryption_service </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00018">18</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a6bc26bc927b3185ad8c125bb8b83c624"></a><!-- doxytag: member="ucp::encryption_service::decrypt" ref="a6bc26bc927b3185ad8c125bb8b83c624" args="(const string &amp;cipher, string &amp;plain_text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::decrypt </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cipher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>plain_text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00086">86</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8c9a20d0b1cb5ae5a0834ec23b77e17"></a><!-- doxytag: member="ucp::encryption_service::decrypt" ref="ad8c9a20d0b1cb5ae5a0834ec23b77e17" args="(const char *cipher, char *plain_text, size_t sz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::decrypt </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>cipher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>plain_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>sz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00078">78</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac530cfea606f1490973d7a0b0504a6b8"></a><!-- doxytag: member="ucp::encryption_service::encrypt" ref="ac530cfea606f1490973d7a0b0504a6b8" args="(const string &amp;plain_text, string &amp;cipher)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::encrypt </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>plain_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>cipher</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00058">58</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8004e16bc4b8615e75bcea5f2f3f1997"></a><!-- doxytag: member="ucp::encryption_service::encrypt" ref="a8004e16bc4b8615e75bcea5f2f3f1997" args="(const char *plain_text, char *cipher, size_t sz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::encrypt </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>plain_text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>cipher</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>sz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00069">69</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0453351594b0579d9f72957fadc5891d"></a><!-- doxytag: member="ucp::encryption_service::generate_shared_secret" ref="a0453351594b0579d9f72957fadc5891d" args="(byte_string &amp;shared_secret) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::generate_shared_secret </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00122">122</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b7f92e7c900aa4a0ff06af8514bcf82"></a><!-- doxytag: member="ucp::encryption_service::get_iv_from_shared_secret" ref="a6b7f92e7c900aa4a0ff06af8514bcf82" args="(const byte_string &amp;shared_secret) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> ucp::encryption_service::get_iv_from_shared_secret </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8hpp_source.html#l00039">39</a> of file <a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af594647f4bc740a5d1faef070aa6e890"></a><!-- doxytag: member="ucp::encryption_service::get_key_directory" ref="af594647f4bc740a5d1faef070aa6e890" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::encryption_service::get_key_directory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8hpp_source.html#l00045">45</a> of file <a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a681fb57012f39b855a340cb8e0312a"></a><!-- doxytag: member="ucp::encryption_service::get_key_from_shared_secret" ref="a5a681fb57012f39b855a340cb8e0312a" args="(const byte_string &amp;shared_secret) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> ucp::encryption_service::get_key_from_shared_secret </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8hpp_source.html#l00038">38</a> of file <a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50bcad909507df670398ad2c3c39f3e7"></a><!-- doxytag: member="ucp::encryption_service::get_random_filename" ref="a50bcad909507df670398ad2c3c39f3e7" args="(string &amp;file_name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::get_random_filename </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00137">137</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad88952c6400be400455c8d4b959afce4"></a><!-- doxytag: member="ucp::encryption_service::make_pretty" ref="ad88952c6400be400455c8d4b959afce4" args="(const string &amp;cipher) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ucp::encryption_service::make_pretty </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cipher</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00097">97</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3b46456dfd3e059f1915741ebc21e1d"></a><!-- doxytag: member="ucp::encryption_service::pretty_print" ref="af3b46456dfd3e059f1915741ebc21e1d" args="(const string &amp;cipher) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::pretty_print </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>cipher</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00103">103</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9ead3fc1a8fa77e8d12c9c4f8e421db"></a><!-- doxytag: member="ucp::encryption_service::read_shared_secret_from_file" ref="ac9ead3fc1a8fa77e8d12c9c4f8e421db" args="(const string &amp;file_name, byte_string &amp;shared_secret) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::read_shared_secret_from_file </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00167">167</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aedfe44673a0500366d0cf4641ba4525b"></a><!-- doxytag: member="ucp::encryption_service::send_shared_secret_to_remote_host" ref="aedfe44673a0500366d0cf4641ba4525b" args="(const string &amp;remote_user, const string &amp;remote_host, const string &amp;file_name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::send_shared_secret_to_remote_host </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>remote_user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>remote_host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00179">179</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f8804dd3e7e2d1ccb90aa77e6f48e05"></a><!-- doxytag: member="ucp::encryption_service::write_shared_secret_to_file" ref="a6f8804dd3e7e2d1ccb90aa77e6f48e05" args="(const byte_string &amp;shared_secret, string &amp;file_name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::encryption_service::write_shared_secret_to_file </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="application_8hpp.html#a4deeb599ec7a593a4670b41e22ea02e9">byte_string</a> &amp;&#160;</td>
+          <td class="paramname"><em>shared_secret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="encryption__service_8cpp_source.html#l00149">149</a> of file <a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="encryption__service_8hpp_source.html">encryption_service.hpp</a></li>
-<li>src/encryption_service.cpp</li>
+<li>src/<a class="el" href="encryption__service_8cpp_source.html">encryption_service.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -120,7 +574,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>make_pretty</b> (co
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,7 +583,7 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>make_pretty</b> (co
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

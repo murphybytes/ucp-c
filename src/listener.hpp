@@ -6,6 +6,8 @@
 
 namespace ucp {
   /**
+   * \brief Application controller for ucp server.
+   *
    * Manages lifetime of ucp application that handles client connections
    *
    */

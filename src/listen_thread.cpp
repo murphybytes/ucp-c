@@ -24,7 +24,7 @@ namespace ucp {
    
     try {
       logger.set_fstream( stm );
-      logger.level() = command_arguments_["log-level"].as<int>();
+      logger.level() = command_arguments_["log-level"].as<unsigned int>();
       logger.debug("fired up listener thread...");
 
 

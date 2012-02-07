@@ -13,6 +13,10 @@ namespace ucp {
     server_role
   };
 
+  /**
+   * \brief Interface to UDT. Wraps wire communication.
+   *
+   */
   class messaging {
     shared_ptr<UDTSOCKET> socket_;
     shared_ptr<encryption_service> encryptor_;

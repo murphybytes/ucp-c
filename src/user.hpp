@@ -7,7 +7,12 @@ namespace bfs = boost::filesystem3;
 
 
 namespace ucp {
-
+  /**
+   * \brief Pertains to operating system user
+   *
+   *  Class contains data and behaviour associated with management of 
+   *  a Linux OS user.  
+   */
   class user {
     bfs::path home_dir_;
     int uid_;

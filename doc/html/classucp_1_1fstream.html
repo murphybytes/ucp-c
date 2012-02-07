@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1fstream.html">fstream</a>      </li>
     </ul>
   </div>
@@ -71,20 +73,141 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::fstream" -->
+<p>Encapsulates AES encryption / decryption for files.  
+ <a href="classucp_1_1fstream.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ucp__fstream_8hpp_source.html">ucp_fstream.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1fstream-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a356c70af580e32538f34a2babf2261c9"></a><!-- doxytag: member="ucp::fstream::fstream" ref="a356c70af580e32538f34a2babf2261c9" args="(const string &amp;, ios_base::openmode, shared_ptr&lt; encryption_service &gt;)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>fstream</b> (const string &amp;, ios_base::openmode, shared_ptr&lt; <a class="el" href="classucp_1_1encryption__service.html">encryption_service</a> &gt;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4332c726222f1779b5fb03b81f04cfd7"></a><!-- doxytag: member="ucp::fstream::read" ref="a4332c726222f1779b5fb03b81f04cfd7" args="(char *buffer, streamsize sz)" -->
-virtual istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (char *buffer, streamsize sz)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a467fba123d1ba709e3f6017e34dd3d23"></a><!-- doxytag: member="ucp::fstream::write" ref="a467fba123d1ba709e3f6017e34dd3d23" args="(const char *buffer, streamsize sz)" -->
-virtual ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const char *buffer, streamsize sz)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1fstream.html#a356c70af580e32538f34a2babf2261c9">fstream</a> (const string &amp;, ios_base::openmode, shared_ptr&lt; <a class="el" href="classucp_1_1encryption__service.html">encryption_service</a> &gt;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1fstream.html#abbef72544142460e4abf019cdb4b1dff">~fstream</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1fstream.html#a4332c726222f1779b5fb03b81f04cfd7">read</a> (char *buffer, streamsize sz)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1fstream.html#a467fba123d1ba709e3f6017e34dd3d23">write</a> (const char *buffer, streamsize sz)</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Encapsulates AES encryption / decryption for files. </p>
+<p>Extends std::fstream so we can seamlessly incorporate AES encryption into UDT library. </p>
+
+<p>Definition at line <a class="el" href="ucp__fstream_8hpp_source.html#l00021">21</a> of file <a class="el" href="ucp__fstream_8hpp_source.html">ucp_fstream.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a356c70af580e32538f34a2babf2261c9"></a><!-- doxytag: member="ucp::fstream::fstream" ref="a356c70af580e32538f34a2babf2261c9" args="(const string &amp;, ios_base::openmode, shared_ptr&lt; encryption_service &gt;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::fstream::fstream </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ios_base::openmode&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="classucp_1_1encryption__service.html">encryption_service</a> &gt;&#160;</td>
+          <td class="paramname"><em>encryptor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ucp__fstream_8cpp_source.html#l00006">6</a> of file <a class="el" href="ucp__fstream_8cpp_source.html">ucp_fstream.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abbef72544142460e4abf019cdb4b1dff"></a><!-- doxytag: member="ucp::fstream::~fstream" ref="abbef72544142460e4abf019cdb4b1dff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::fstream::~fstream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ucp__fstream_8cpp_source.html#l00010">10</a> of file <a class="el" href="ucp__fstream_8cpp_source.html">ucp_fstream.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a4332c726222f1779b5fb03b81f04cfd7"></a><!-- doxytag: member="ucp::fstream::read" ref="a4332c726222f1779b5fb03b81f04cfd7" args="(char *buffer, streamsize sz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">istream &amp; ucp::fstream::read </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">streamsize&#160;</td>
+          <td class="paramname"><em>sz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ucp__fstream_8cpp_source.html#l00021">21</a> of file <a class="el" href="ucp__fstream_8cpp_source.html">ucp_fstream.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a467fba123d1ba709e3f6017e34dd3d23"></a><!-- doxytag: member="ucp::fstream::write" ref="a467fba123d1ba709e3f6017e34dd3d23" args="(const char *buffer, streamsize sz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream &amp; ucp::fstream::write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">streamsize&#160;</td>
+          <td class="paramname"><em>sz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="ucp__fstream_8cpp_source.html#l00013">13</a> of file <a class="el" href="ucp__fstream_8cpp_source.html">ucp_fstream.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ucp__fstream_8hpp_source.html">ucp_fstream.hpp</a></li>
-<li>src/ucp_fstream.cpp</li>
+<li>src/<a class="el" href="ucp__fstream_8cpp_source.html">ucp_fstream.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -92,7 +215,7 @@ virtual ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>writ
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,7 +224,7 @@ virtual ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>writ
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -16,7 +16,7 @@ using boost::shared_ptr;
 
 namespace ucp {
   /**
-   *  Provides logging service for application.  
+   *  \brief Provides logging service for application.  
    */
   class log {
     unsigned int log_level ;

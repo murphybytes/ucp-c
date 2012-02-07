@@ -20,7 +20,11 @@ namespace ucp {
 
   typedef CryptoPP::CFB_Mode< CryptoPP::AES >::Encryption encryptor_t;
   typedef CryptoPP::CFB_Mode< CryptoPP::AES >::Decryption decryptor_t;
-  
+
+  /**
+   * \brief handles AES encryption of wire communication
+   *
+   */  
   class encryption_service {
     string key_directory_;
     boost::filesystem3::path shared_secret_file_;

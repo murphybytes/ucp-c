@@ -12,7 +12,12 @@ using std::ostream;
 using std::streamsize;
 
 namespace ucp {
-
+  /**
+   * \brief Encapsulates AES encryption / decryption for files
+   *
+   * Extends std::fstream so we can seamlessly incorporate AES 
+   * encryption into UDT library. 
+   */
   class fstream : public std::fstream {
     shared_ptr< encryption_service > encryptor_;
 

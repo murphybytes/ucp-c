@@ -1,0 +1,103 @@
+UCP - THE BEST FILE TRANSFER PROGRAM EVER!!!
+
+I hate huge repositories so rather than put everything in this one, you'll
+have to have a couple dependencies installed on your system and in the 
+build path.  You can thank me later.
+
+External Dependencies
+------------------
+Boost 1.46
+
+I've listed the libraries that are required on the system to build and
+run UCP.  Most of these will already be on your system, but if they are not
+you'll have to install them along with development headers. 
+
+libboost_program_options
+libboost_regex
+libboost_signals
+libboost_thread
+libboost_filesystem
+libstdc++
+libm
+libgcc_s
+libc
+libpthread
+libboost_system
+librt
+libicudata
+libicui18n
+libicuuc
+libcrypto++ 
+
+cmake 2.8.3 (For generating makefile)
+
+Building
+----------------
+
+Install cmake and run build.sh in the root of the project.  
+
+UDT_OS and UDT_ARCH environment variables may be defined to specify architecture and operating system 
+before building. 
+
+UDT_OS=[LINUX(default), BSD, OSX]
+UDT_ARCH=[IA64(default), IA32, POWERPC, IA64, AMD64]
+
+Testing
+-------------------------------
+The build script will create unit tests in a binary called 'test'.  Run test_setup.sh
+before running the test script. This script will create a test user 
+that is used for some of the unit tests. 
+
+Usage
+-------------------------------
+ucp options:
+  -h [ --help ]                    Show help message.
+  -v [ --version ]                 Show version.
+  -V [ --verbose ]                 Verbose output.
+  -l [ --log-level ] arg (=3)      Log level, 3 most verbose, 0 least verbose
+  -L [ --listener ]                Run in listener mode.
+  -P [ --listen-port ] arg (=9090) Port to listen on in listener mode
+  -p [ --pid-directory ] arg (=/var/run) Directory to store pid file if in daemon mode
+  -m [ --max-bandwidth ] arg (= -1) Throttle bandwidth value in bytes per second.  -1 = infinite
+  -d [ --daemonize ]               Run in daemon mode (Listener only)
+  --copy-command arg               Client copy command source-file 
+                                   user@host:port:dest-file
+
+The ucp program can run as client or server.  The typical use case would be to have 
+a server running on a machine as a deamon and kick off ucp in client mode on 
+another machine to transfer files back and forth.  You'll want to  run ucp in server 
+mode as root like so:
+
+sudo ./ucp -L -d 
+
+You could then tail /var/log/ucp.log to see what's going on with the file transfers.
+
+Call the client to send a file to the server
+
+./ucp filetotransfer me@myhost:/home/me/serverfile
+
+Call the client to send a file to the client
+
+./ucp me@myhost:/home/me/serverfile clientfile
+
+As you can see, ucp works pretty much like scp.  
+
+Note.  ucp now uses ssh to authenticate users.  If you are a client wishing to send files to user
+'foo' on a server you'll need to do the following:
+
+1) create a public rsa key 
+   ssh-keygen -t rsa 
+2) transfer public key to user foo on server
+   scp .ssh/id_rsa.pub foo@server.com:
+3) append your key to authorized users file
+   ssh foo@server.com 'cat id_rsa.pub >> .ssh/authorized_keys'
+4) create a hidden directory for ucp keys
+   ssh foo@server.com 'mkdir ~/.ucp'
+
+
+TODO's 
+
+create command line way to specify location of log file.
+
+make logging thread safe
+  

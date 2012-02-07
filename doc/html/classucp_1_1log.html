@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1log.html">log</a>      </li>
     </ul>
   </div>
@@ -72,41 +74,367 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::log" -->
+<p>Provides logging service for application.  
+ <a href="classucp_1_1log.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="log_8hpp_source.html">log.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1log-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa32e6b76944bb65c24670789a6bfba6f"></a><!-- doxytag: member="ucp::log::daemon_log_to_file" ref="aa32e6b76944bb65c24670789a6bfba6f" args="(const string &amp;log)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>daemon_log_to_file</b> (const string &amp;<a class="el" href="classucp_1_1log.html">log</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a944fe7b6bdcd31e9924c99961787ece0"></a><!-- doxytag: member="ucp::log::level" ref="a944fe7b6bdcd31e9924c99961787ece0" args="()" -->
-unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>level</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b1fab4f766ff5988edc6bbfcfbf5023"></a><!-- doxytag: member="ucp::log::debug" ref="a2b1fab4f766ff5988edc6bbfcfbf5023" args="(const char *msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>debug</b> (const char *msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedb92e2d78fb4eb07c81c69bab81b5cd"></a><!-- doxytag: member="ucp::log::debug" ref="aedb92e2d78fb4eb07c81c69bab81b5cd" args="(const std::string &amp;msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>debug</b> (const std::string &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81d98e63a470bc0c990d75788de81df3"></a><!-- doxytag: member="ucp::log::error" ref="a81d98e63a470bc0c990d75788de81df3" args="(const char *msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (const char *msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91abc49346fa86e95b0b16f35749cb0e"></a><!-- doxytag: member="ucp::log::error" ref="a91abc49346fa86e95b0b16f35749cb0e" args="(const std::string &amp;msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (const std::string &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bed2678b95ac9b2a59e9c0d18e96efd"></a><!-- doxytag: member="ucp::log::info" ref="a2bed2678b95ac9b2a59e9c0d18e96efd" args="(const char *msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> (const char *msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa93f82c98b253484252a8e4a5082623b"></a><!-- doxytag: member="ucp::log::info" ref="aa93f82c98b253484252a8e4a5082623b" args="(const std::string &amp;msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>info</b> (const std::string &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee6cd3d0053107aa2c367c84f89bb080"></a><!-- doxytag: member="ucp::log::warn" ref="aee6cd3d0053107aa2c367c84f89bb080" args="(const char *msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>warn</b> (const char *msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e44bca0750ae5af1198a98fb39d9eac"></a><!-- doxytag: member="ucp::log::warn" ref="a6e44bca0750ae5af1198a98fb39d9eac" args="(const std::string &amp;msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>warn</b> (const std::string &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#ab7aa776cfdee7466dfaeb45cd1bb9967">log</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a75048f911aebad58c478d6a2bdfff2f7">~log</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; std::fstream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a68f8358eff79aff058c41b98e692f912">get_fstream</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#acab14ce0ad7d71cdfc90cd3c7a86ca98">set_fstream</a> (shared_ptr&lt; std::fstream &gt; fs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#aa32e6b76944bb65c24670789a6bfba6f">daemon_log_to_file</a> (const string &amp;<a class="el" href="classucp_1_1log.html">log</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a944fe7b6bdcd31e9924c99961787ece0">level</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a2b1fab4f766ff5988edc6bbfcfbf5023">debug</a> (const char *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#aedb92e2d78fb4eb07c81c69bab81b5cd">debug</a> (const std::string &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a81d98e63a470bc0c990d75788de81df3">error</a> (const char *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a91abc49346fa86e95b0b16f35749cb0e">error</a> (const std::string &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a2bed2678b95ac9b2a59e9c0d18e96efd">info</a> (const char *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#aa93f82c98b253484252a8e4a5082623b">info</a> (const std::string &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#aee6cd3d0053107aa2c367c84f89bb080">warn</a> (const char *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a6e44bca0750ae5af1198a98fb39d9eac">warn</a> (const std::string &amp;msg)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa62c98576ccf83e48f561cc47828c373"></a><!-- doxytag: member="ucp::log::DEBUG" ref="aa62c98576ccf83e48f561cc47828c373" args="" -->
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>DEBUG</b> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1bd83814b59a9fc6f0561661cfd7fe8"></a><!-- doxytag: member="ucp::log::INFO" ref="ab1bd83814b59a9fc6f0561661cfd7fe8" args="" -->
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>INFO</b> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16fe37b91e06037d8a699565d60a5c83"></a><!-- doxytag: member="ucp::log::WARN" ref="a16fe37b91e06037d8a699565d60a5c83" args="" -->
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>WARN</b> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac858714a60ace612ad489487af41bb9e"></a><!-- doxytag: member="ucp::log::ERROR" ref="ac858714a60ace612ad489487af41bb9e" args="" -->
-static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>ERROR</b> = 0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#aa62c98576ccf83e48f561cc47828c373">DEBUG</a> = 3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#ab1bd83814b59a9fc6f0561661cfd7fe8">INFO</a> = 2</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#a16fe37b91e06037d8a699565d60a5c83">WARN</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1log.html#ac858714a60ace612ad489487af41bb9e">ERROR</a> = 0</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Provides logging service for application. </p>
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00021">21</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab7aa776cfdee7466dfaeb45cd1bb9967"></a><!-- doxytag: member="ucp::log::log" ref="ab7aa776cfdee7466dfaeb45cd1bb9967" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::log::log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00051">51</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75048f911aebad58c478d6a2bdfff2f7"></a><!-- doxytag: member="ucp::log::~log" ref="a75048f911aebad58c478d6a2bdfff2f7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ucp::log::~log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00052">52</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aa32e6b76944bb65c24670789a6bfba6f"></a><!-- doxytag: member="ucp::log::daemon_log_to_file" ref="aa32e6b76944bb65c24670789a6bfba6f" args="(const string &amp;log)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::daemon_log_to_file </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>log</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00069">69</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b1fab4f766ff5988edc6bbfcfbf5023"></a><!-- doxytag: member="ucp::log::debug" ref="a2b1fab4f766ff5988edc6bbfcfbf5023" args="(const char *msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::debug </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00077">77</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aedb92e2d78fb4eb07c81c69bab81b5cd"></a><!-- doxytag: member="ucp::log::debug" ref="aedb92e2d78fb4eb07c81c69bab81b5cd" args="(const std::string &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::debug </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00083">83</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91abc49346fa86e95b0b16f35749cb0e"></a><!-- doxytag: member="ucp::log::error" ref="a91abc49346fa86e95b0b16f35749cb0e" args="(const std::string &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::error </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00093">93</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81d98e63a470bc0c990d75788de81df3"></a><!-- doxytag: member="ucp::log::error" ref="a81d98e63a470bc0c990d75788de81df3" args="(const char *msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::error </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00087">87</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68f8358eff79aff058c41b98e692f912"></a><!-- doxytag: member="ucp::log::get_fstream" ref="a68f8358eff79aff058c41b98e692f912" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;std::fstream&gt; ucp::log::get_fstream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>This function is used to pass heap allocated file pointer from thread to thread in daemon mode. Logger doesn't work otherwise since we use a static global instance to log and statics are stack based storage and threads have their own stack. </p>
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00063">63</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2bed2678b95ac9b2a59e9c0d18e96efd"></a><!-- doxytag: member="ucp::log::info" ref="a2bed2678b95ac9b2a59e9c0d18e96efd" args="(const char *msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::info </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00097">97</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa93f82c98b253484252a8e4a5082623b"></a><!-- doxytag: member="ucp::log::info" ref="aa93f82c98b253484252a8e4a5082623b" args="(const std::string &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::info </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00103">103</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a944fe7b6bdcd31e9924c99961787ece0"></a><!-- doxytag: member="ucp::log::level" ref="a944fe7b6bdcd31e9924c99961787ece0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int&amp; ucp::log::level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00075">75</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acab14ce0ad7d71cdfc90cd3c7a86ca98"></a><!-- doxytag: member="ucp::log::set_fstream" ref="acab14ce0ad7d71cdfc90cd3c7a86ca98" args="(shared_ptr&lt; std::fstream &gt; fs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::set_fstream </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; std::fstream &gt;&#160;</td>
+          <td class="paramname"><em>fs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>See get_fstream </p>
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00067">67</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e44bca0750ae5af1198a98fb39d9eac"></a><!-- doxytag: member="ucp::log::warn" ref="a6e44bca0750ae5af1198a98fb39d9eac" args="(const std::string &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::warn </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00113">113</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee6cd3d0053107aa2c367c84f89bb080"></a><!-- doxytag: member="ucp::log::warn" ref="aee6cd3d0053107aa2c367c84f89bb080" args="(const char *msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::log::warn </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00107">107</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa62c98576ccf83e48f561cc47828c373"></a><!-- doxytag: member="ucp::log::DEBUG" ref="aa62c98576ccf83e48f561cc47828c373" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="classucp_1_1log.html#aa62c98576ccf83e48f561cc47828c373">ucp::log::DEBUG</a> = 3<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00046">46</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac858714a60ace612ad489487af41bb9e"></a><!-- doxytag: member="ucp::log::ERROR" ref="ac858714a60ace612ad489487af41bb9e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="classucp_1_1log.html#ac858714a60ace612ad489487af41bb9e">ucp::log::ERROR</a> = 0<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00049">49</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1bd83814b59a9fc6f0561661cfd7fe8"></a><!-- doxytag: member="ucp::log::INFO" ref="ab1bd83814b59a9fc6f0561661cfd7fe8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="classucp_1_1log.html#ab1bd83814b59a9fc6f0561661cfd7fe8">ucp::log::INFO</a> = 2<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00047">47</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16fe37b91e06037d8a699565d60a5c83"></a><!-- doxytag: member="ucp::log::WARN" ref="a16fe37b91e06037d8a699565d60a5c83" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="classucp_1_1log.html#a16fe37b91e06037d8a699565d60a5c83">ucp::log::WARN</a> = 1<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="log_8hpp_source.html#l00048">48</a> of file <a class="el" href="log_8hpp_source.html">log.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/<a class="el" href="log_8hpp_source.html">log.hpp</a></li>
 </ul>
@@ -116,7 +444,7 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,7 +453,7 @@ static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

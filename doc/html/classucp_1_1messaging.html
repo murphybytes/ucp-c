@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1messaging.html">messaging</a>      </li>
     </ul>
   </div>
@@ -71,38 +73,323 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::messaging" -->
+<p>Interface to UDT. Wraps wire communication.  
+ <a href="classucp_1_1messaging.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="messaging_8hpp_source.html">messaging.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1messaging-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4b8ee9ebb54651b608fc585c14b7903"></a><!-- doxytag: member="ucp::messaging::messaging" ref="ac4b8ee9ebb54651b608fc585c14b7903" args="(shared_ptr&lt; UDTSOCKET &gt; socket, messaging_role r)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>messaging</b> (shared_ptr&lt; UDTSOCKET &gt; socket, messaging_role r)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a092a164f2f8eb364a5697245e2767d44"></a><!-- doxytag: member="ucp::messaging::send" ref="a092a164f2f8eb364a5697245e2767d44" args="(const string &amp;msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send</b> (const string &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af964fc26ee3976722b705dae29ee3ad0"></a><!-- doxytag: member="ucp::messaging::send" ref="af964fc26ee3976722b705dae29ee3ad0" args="(int_t msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send</b> (int_t msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8efd8f5acd146c4e556c5aef4425211"></a><!-- doxytag: member="ucp::messaging::receive" ref="ad8efd8f5acd146c4e556c5aef4425211" args="(string &amp;buffer)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive</b> (string &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4b2932579451d9f74806aadb99ef4e7"></a><!-- doxytag: member="ucp::messaging::receive" ref="ae4b2932579451d9f74806aadb99ef4e7" args="(int_t *msg)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive</b> (int_t *msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a985d89cecefa50e31db6d023813a47"></a><!-- doxytag: member="ucp::messaging::close" ref="a9a985d89cecefa50e31db6d023813a47" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaae76b4e754e2901705f38783e832988"></a><!-- doxytag: member="ucp::messaging::send_file" ref="aaae76b4e754e2901705f38783e832988" args="(const string &amp;file_name)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>send_file</b> (const string &amp;file_name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae34e1e8982cadad3f9b7f7277cb82301"></a><!-- doxytag: member="ucp::messaging::receive_file" ref="ae34e1e8982cadad3f9b7f7277cb82301" args="(const string &amp;file_name, int_t file_size)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive_file</b> (const string &amp;file_name, int_t file_size)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cd6dd724b7031317e834876acef5f24"></a><!-- doxytag: member="ucp::messaging::receive_file" ref="a0cd6dd724b7031317e834876acef5f24" args="(const bfs::path &amp;path, int_t file_size)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive_file</b> (const bfs::path &amp;path, int_t file_size)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7916554bbf21636673a1fe6b0f999ac9"></a><!-- doxytag: member="ucp::messaging::receive_file_from_remote" ref="a7916554bbf21636673a1fe6b0f999ac9" args="(const string &amp;file_name, int_t file_size)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive_file_from_remote</b> (const string &amp;file_name, int_t file_size)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b23174b2a8bd3eba6ddb1149a371a0b"></a><!-- doxytag: member="ucp::messaging::enable_encryption" ref="a2b23174b2a8bd3eba6ddb1149a371a0b" args="(const string &amp;secret_file_name)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enable_encryption</b> (const string &amp;secret_file_name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17608fd60c2137dca68dfa7416ae888b"></a><!-- doxytag: member="ucp::messaging::set_user" ref="a17608fd60c2137dca68dfa7416ae888b" args="(const string &amp;user_name)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_user</b> (const string &amp;user_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#ac4b8ee9ebb54651b608fc585c14b7903">messaging</a> (shared_ptr&lt; UDTSOCKET &gt; socket, <a class="el" href="namespaceucp.html#aefc6c084492bba487cbc6a526f735668">messaging_role</a> r)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a21caf344e793822fed2bc47ecc86db07">~messaging</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a092a164f2f8eb364a5697245e2767d44">send</a> (const string &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#af964fc26ee3976722b705dae29ee3ad0">send</a> (<a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#ad8efd8f5acd146c4e556c5aef4425211">receive</a> (string &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#ae4b2932579451d9f74806aadb99ef4e7">receive</a> (<a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a9a985d89cecefa50e31db6d023813a47">close</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#aaae76b4e754e2901705f38783e832988">send_file</a> (const string &amp;file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#ae34e1e8982cadad3f9b7f7277cb82301">receive_file</a> (const string &amp;file_name, <a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> file_size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a0cd6dd724b7031317e834876acef5f24">receive_file</a> (const bfs::path &amp;path, <a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> file_size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a7916554bbf21636673a1fe6b0f999ac9">receive_file_from_remote</a> (const string &amp;file_name, <a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> file_size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a2b23174b2a8bd3eba6ddb1149a371a0b">enable_encryption</a> (const string &amp;secret_file_name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1messaging.html#a17608fd60c2137dca68dfa7416ae888b">set_user</a> (const string &amp;user_name)</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Interface to UDT. Wraps wire communication. </p>
+
+<p>Definition at line <a class="el" href="messaging_8hpp_source.html#l00020">20</a> of file <a class="el" href="messaging_8hpp_source.html">messaging.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac4b8ee9ebb54651b608fc585c14b7903"></a><!-- doxytag: member="ucp::messaging::messaging" ref="ac4b8ee9ebb54651b608fc585c14b7903" args="(shared_ptr&lt; UDTSOCKET &gt; socket, messaging_role r)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::messaging::messaging </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; UDTSOCKET &gt;&#160;</td>
+          <td class="paramname"><em>socket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#aefc6c084492bba487cbc6a526f735668">messaging_role</a>&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8hpp_source.html#l00036">36</a> of file <a class="el" href="messaging_8hpp_source.html">messaging.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21caf344e793822fed2bc47ecc86db07"></a><!-- doxytag: member="ucp::messaging::~messaging" ref="a21caf344e793822fed2bc47ecc86db07" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::messaging::~messaging </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00089">89</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a9a985d89cecefa50e31db6d023813a47"></a><!-- doxytag: member="ucp::messaging::close" ref="a9a985d89cecefa50e31db6d023813a47" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00093">93</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b23174b2a8bd3eba6ddb1149a371a0b"></a><!-- doxytag: member="ucp::messaging::enable_encryption" ref="a2b23174b2a8bd3eba6ddb1149a371a0b" args="(const string &amp;secret_file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::enable_encryption </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>secret_file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00010">10</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8efd8f5acd146c4e556c5aef4425211"></a><!-- doxytag: member="ucp::messaging::receive" ref="ad8efd8f5acd146c4e556c5aef4425211" args="(string &amp;buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::receive </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00133">133</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4b2932579451d9f74806aadb99ef4e7"></a><!-- doxytag: member="ucp::messaging::receive" ref="ae4b2932579451d9f74806aadb99ef4e7" args="(int_t *msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::receive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a> *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00124">124</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0cd6dd724b7031317e834876acef5f24"></a><!-- doxytag: member="ucp::messaging::receive_file" ref="a0cd6dd724b7031317e834876acef5f24" args="(const bfs::path &amp;path, int_t file_size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::receive_file </td>
+          <td>(</td>
+          <td class="paramtype">const bfs::path &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a>&#160;</td>
+          <td class="paramname"><em>file_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00054">54</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae34e1e8982cadad3f9b7f7277cb82301"></a><!-- doxytag: member="ucp::messaging::receive_file" ref="ae34e1e8982cadad3f9b7f7277cb82301" args="(const string &amp;file_name, int_t file_size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::receive_file </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a>&#160;</td>
+          <td class="paramname"><em>file_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00058">58</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7916554bbf21636673a1fe6b0f999ac9"></a><!-- doxytag: member="ucp::messaging::receive_file_from_remote" ref="a7916554bbf21636673a1fe6b0f999ac9" args="(const string &amp;file_name, int_t file_size)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::receive_file_from_remote </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a>&#160;</td>
+          <td class="paramname"><em>file_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00043">43</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af964fc26ee3976722b705dae29ee3ad0"></a><!-- doxytag: member="ucp::messaging::send" ref="af964fc26ee3976722b705dae29ee3ad0" args="(int_t msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::send </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceucp.html#abce4f6c36fa8dc6ef7238fe6b0fd359a">int_t</a>&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00116">116</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a092a164f2f8eb364a5697245e2767d44"></a><!-- doxytag: member="ucp::messaging::send" ref="a092a164f2f8eb364a5697245e2767d44" args="(const string &amp;msg)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::send </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00098">98</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaae76b4e754e2901705f38783e832988"></a><!-- doxytag: member="ucp::messaging::send_file" ref="aaae76b4e754e2901705f38783e832988" args="(const string &amp;file_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::send_file </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00026">26</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a17608fd60c2137dca68dfa7416ae888b"></a><!-- doxytag: member="ucp::messaging::set_user" ref="a17608fd60c2137dca68dfa7416ae888b" args="(const string &amp;user_name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::messaging::set_user </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>user_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="messaging_8cpp_source.html#l00020">20</a> of file <a class="el" href="messaging_8cpp_source.html">messaging.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="messaging_8hpp_source.html">messaging.hpp</a></li>
-<li>src/messaging.cpp</li>
+<li>src/<a class="el" href="messaging_8cpp_source.html">messaging.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -110,7 +397,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_user</b> (const s
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,7 +406,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>set_user</b> (const s
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

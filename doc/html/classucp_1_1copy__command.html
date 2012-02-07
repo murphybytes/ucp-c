@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1copy__command.html">copy_command</a>      </li>
     </ul>
   </div>
@@ -71,34 +73,243 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="ucp::copy_command" -->
+<p><code>#include &lt;<a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>&gt;</code></p>
+
 <p><a href="classucp_1_1copy__command-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84486ca71232db41c7a1749d35b0f17f"></a><!-- doxytag: member="ucp::copy_command::copy_command" ref="a84486ca71232db41c7a1749d35b0f17f" args="(const po::variables_map &amp;vm)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>copy_command</b> (const po::variables_map &amp;vm)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab033754d9c9178f16559c777be38cffe"></a><!-- doxytag: member="ucp::copy_command::copy_command" ref="ab033754d9c9178f16559c777be38cffe" args="(const string &amp;left_command, const string &amp;right_command)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>copy_command</b> (const string &amp;left_command, const string &amp;right_command)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34c0ea7c605cc42a11ec23089fa46c32"></a><!-- doxytag: member="ucp::copy_command::get_direction" ref="a34c0ea7c605cc42a11ec23089fa46c32" args="() const " -->
-direction_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_direction</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61ffc2f6fa9af457118e2f9cb80ebc84"></a><!-- doxytag: member="ucp::copy_command::contains_remote_information" ref="a61ffc2f6fa9af457118e2f9cb80ebc84" args="(const string &amp;command) const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains_remote_information</b> (const string &amp;command) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a423b808fbc0b66675b6cfed9accfbc54"></a><!-- doxytag: member="ucp::copy_command::get_source" ref="a423b808fbc0b66675b6cfed9accfbc54" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_source</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a759b71c59857f2fae81b02569a1de2da"></a><!-- doxytag: member="ucp::copy_command::get_target" ref="a759b71c59857f2fae81b02569a1de2da" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_target</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad53e9225330b9e579a1d6b65524b5623"></a><!-- doxytag: member="ucp::copy_command::get_user" ref="ad53e9225330b9e579a1d6b65524b5623" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_user</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a747b4413bdc4493d81bd2857bb28b2e0"></a><!-- doxytag: member="ucp::copy_command::get_host" ref="a747b4413bdc4493d81bd2857bb28b2e0" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_host</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfcb21d2ae8b5bfb6bb28e1e1b101072"></a><!-- doxytag: member="ucp::copy_command::get_port" ref="abfcb21d2ae8b5bfb6bb28e1e1b101072" args="() const " -->
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>get_port</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd81c652936690ba0173e88c08aa50ef"></a><!-- doxytag: member="ucp::copy_command::get_service" ref="abd81c652936690ba0173e88c08aa50ef" args="() const " -->
-const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_service</b> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a84486ca71232db41c7a1749d35b0f17f">copy_command</a> (const po::variables_map &amp;vm)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#ab033754d9c9178f16559c777be38cffe">copy_command</a> (const string &amp;left_command, const string &amp;right_command)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#aa8cbbaf4f1b6bc99897d86ef16d01602">~copy_command</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceucp.html#a603e5fff9d445566196ebc366c4ccd8d">direction_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a34c0ea7c605cc42a11ec23089fa46c32">get_direction</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a61ffc2f6fa9af457118e2f9cb80ebc84">contains_remote_information</a> (const string &amp;command) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a423b808fbc0b66675b6cfed9accfbc54">get_source</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a759b71c59857f2fae81b02569a1de2da">get_target</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#ad53e9225330b9e579a1d6b65524b5623">get_user</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#a747b4413bdc4493d81bd2857bb28b2e0">get_host</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#abfcb21d2ae8b5bfb6bb28e1e1b101072">get_port</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1copy__command.html#abd81c652936690ba0173e88c08aa50ef">get_service</a> () const </td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00016">16</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a84486ca71232db41c7a1749d35b0f17f"></a><!-- doxytag: member="ucp::copy_command::copy_command" ref="a84486ca71232db41c7a1749d35b0f17f" args="(const po::variables_map &amp;vm)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::copy_command::copy_command </td>
+          <td>(</td>
+          <td class="paramtype">const po::variables_map &amp;&#160;</td>
+          <td class="paramname"><em>vm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8cpp_source.html#l00007">7</a> of file <a class="el" href="copy__command_8cpp_source.html">copy_command.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab033754d9c9178f16559c777be38cffe"></a><!-- doxytag: member="ucp::copy_command::copy_command" ref="ab033754d9c9178f16559c777be38cffe" args="(const string &amp;left_command, const string &amp;right_command)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::copy_command::copy_command </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>left_command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>right_command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8cpp_source.html#l00019">19</a> of file <a class="el" href="copy__command_8cpp_source.html">copy_command.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8cbbaf4f1b6bc99897d86ef16d01602"></a><!-- doxytag: member="ucp::copy_command::~copy_command" ref="aa8cbbaf4f1b6bc99897d86ef16d01602" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::copy_command::~copy_command </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8cpp_source.html#l00025">25</a> of file <a class="el" href="copy__command_8cpp_source.html">copy_command.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a61ffc2f6fa9af457118e2f9cb80ebc84"></a><!-- doxytag: member="ucp::copy_command::contains_remote_information" ref="a61ffc2f6fa9af457118e2f9cb80ebc84" args="(const string &amp;command) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ucp::copy_command::contains_remote_information </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8cpp_source.html#l00047">47</a> of file <a class="el" href="copy__command_8cpp_source.html">copy_command.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34c0ea7c605cc42a11ec23089fa46c32"></a><!-- doxytag: member="ucp::copy_command::get_direction" ref="a34c0ea7c605cc42a11ec23089fa46c32" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceucp.html#a603e5fff9d445566196ebc366c4ccd8d">direction_t</a> ucp::copy_command::get_direction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00028">28</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a747b4413bdc4493d81bd2857bb28b2e0"></a><!-- doxytag: member="ucp::copy_command::get_host" ref="a747b4413bdc4493d81bd2857bb28b2e0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::copy_command::get_host </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00033">33</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abfcb21d2ae8b5bfb6bb28e1e1b101072"></a><!-- doxytag: member="ucp::copy_command::get_port" ref="abfcb21d2ae8b5bfb6bb28e1e1b101072" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int ucp::copy_command::get_port </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00034">34</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd81c652936690ba0173e88c08aa50ef"></a><!-- doxytag: member="ucp::copy_command::get_service" ref="abd81c652936690ba0173e88c08aa50ef" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::copy_command::get_service </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00035">35</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a423b808fbc0b66675b6cfed9accfbc54"></a><!-- doxytag: member="ucp::copy_command::get_source" ref="a423b808fbc0b66675b6cfed9accfbc54" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::copy_command::get_source </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00030">30</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a759b71c59857f2fae81b02569a1de2da"></a><!-- doxytag: member="ucp::copy_command::get_target" ref="a759b71c59857f2fae81b02569a1de2da" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::copy_command::get_target </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00031">31</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad53e9225330b9e579a1d6b65524b5623"></a><!-- doxytag: member="ucp::copy_command::get_user" ref="ad53e9225330b9e579a1d6b65524b5623" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string&amp; ucp::copy_command::get_user </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="copy__command_8hpp_source.html#l00032">32</a> of file <a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="copy__command_8hpp_source.html">copy_command.hpp</a></li>
-<li>src/copy_command.cpp</li>
+<li>src/<a class="el" href="copy__command_8cpp_source.html">copy_command.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -106,7 +317,7 @@ const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_ser
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,7 +326,7 @@ const string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_ser
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

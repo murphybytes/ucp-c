@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="classucp_1_1client.html">client</a>      </li>
     </ul>
   </div>
@@ -82,7 +84,7 @@ Inheritance diagram for ucp::client:</div>
  <div class="center">
   <img src="classucp_1_1client.png" usemap="#ucp::client_map" alt=""/>
   <map id="ucp::client_map" name="ucp::client_map">
-<area href="structucp_1_1application.html" alt="ucp::application" shape="rect" coords="0,0,100,24"/>
+<area href="structucp_1_1application.html" title="Superclass for ucp application controllers. See listener and client." alt="ucp::application" shape="rect" coords="0,0,100,24"/>
 </map>
  </div></div>
 
@@ -90,21 +92,102 @@ Inheritance diagram for ucp::client:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f416913e885fd61edd79e5af22ea716"></a><!-- doxytag: member="ucp::client::run" ref="a5f416913e885fd61edd79e5af22ea716" args="()" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acefbb4eb72fc2f22cb1a665b877256ce"></a><!-- doxytag: member="ucp::client::signal" ref="acefbb4eb72fc2f22cb1a665b877256ce" args="(int)" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (int)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1client.html#add48ba59b8330fd2e2aa6a997cf8831a">~client</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1client.html#a5f416913e885fd61edd79e5af22ea716">run</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1client.html#acefbb4eb72fc2f22cb1a665b877256ce">signal</a> (int)</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab38425204ae51dbb2f5fa1d8f3bf7e29"></a><!-- doxytag: member="ucp::client::get_application" ref="ab38425204ae51dbb2f5fa1d8f3bf7e29" args="(const po::variables_map &amp;)" -->
-shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_application</b> (const po::variables_map &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classucp_1_1client.html#ab38425204ae51dbb2f5fa1d8f3bf7e29">get_application</a> (const po::variables_map &amp;)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Client connection handler. </p>
 <p>Class handles client side communication with remote server. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+
+<p>Definition at line <a class="el" href="client_8hpp_source.html#l00015">15</a> of file <a class="el" href="client_8hpp_source.html">client.hpp</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="add48ba59b8330fd2e2aa6a997cf8831a"></a><!-- doxytag: member="ucp::client::~client" ref="add48ba59b8330fd2e2aa6a997cf8831a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ucp::client::~client </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="client_8cpp_source.html#l00024">24</a> of file <a class="el" href="client_8cpp_source.html">client.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a5f416913e885fd61edd79e5af22ea716"></a><!-- doxytag: member="ucp::client::run" ref="a5f416913e885fd61edd79e5af22ea716" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ucp::client::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="structucp_1_1application.html#a9187f473f3bd70e1064cb94b3cc02fe3">ucp::application</a>.</p>
+
+<p>Definition at line <a class="el" href="client_8cpp_source.html#l00051">51</a> of file <a class="el" href="client_8cpp_source.html">client.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acefbb4eb72fc2f22cb1a665b877256ce"></a><!-- doxytag: member="ucp::client::signal" ref="acefbb4eb72fc2f22cb1a665b877256ce" args="(int)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ucp::client::signal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="structucp_1_1application.html#a96dfc060718a051e360145c32421c258">ucp::application</a>.</p>
+
+<p>Definition at line <a class="el" href="client_8hpp_source.html#l00045">45</a> of file <a class="el" href="client_8hpp_source.html">client.hpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="ab38425204ae51dbb2f5fa1d8f3bf7e29"></a><!-- doxytag: member="ucp::client::get_application" ref="ab38425204ae51dbb2f5fa1d8f3bf7e29" args="(const po::variables_map &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">shared_ptr&lt;<a class="el" href="structucp_1_1application.html">application</a>&gt; get_application </td>
+          <td>(</td>
+          <td class="paramtype">const po::variables_map &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00009">9</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="client_8hpp_source.html">client.hpp</a></li>
-<li>src/client.cpp</li>
+<li>src/<a class="el" href="client_8cpp_source.html">client.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -112,7 +195,7 @@ shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -121,7 +204,7 @@ shared_ptr&lt; <a class="el" href="structucp_1_1application.html">application</a
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

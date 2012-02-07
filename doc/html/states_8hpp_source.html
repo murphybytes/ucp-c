@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -52,6 +53,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -59,38 +61,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">src/states.hpp</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __STATES_HPP__</span>
+<a href="states_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef __STATES_HPP__</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define __STATES_HPP__</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="keyword">namespace </span>ucp {
-<a name="l00005"></a>00005   <span class="keyword">namespace </span>send {
-<a name="l00006"></a>00006     <span class="keyword">enum</span> txfer_state {
-<a name="l00007"></a>00007       file_name,
-<a name="l00008"></a>00008       file_name_ack,
-<a name="l00009"></a>00009       file_size,
-<a name="l00010"></a>00010       file_size_ack,
-<a name="l00011"></a>00011       file_send,
-<a name="l00012"></a>00012       wait_for_req_file,
-<a name="l00013"></a>00013       wait_for_file_size_req,
-<a name="l00014"></a>00014       wait_for_send_ack,
-<a name="l00015"></a>00015       error_ack,
-<a name="l00016"></a>00016       error,
-<a name="l00017"></a>00017       term
+<a name="l00005"></a><a class="code" href="namespaceucp_1_1send.html">00005</a>   <span class="keyword">namespace </span>send {
+<a name="l00006"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5">00006</a>     <span class="keyword">enum</span> <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5">txfer_state</a> {
+<a name="l00007"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ab8fbcc5c92d5368762b5028657f0b05f">00007</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ab8fbcc5c92d5368762b5028657f0b05f">file_name</a>,
+<a name="l00008"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ad3cd305aae1b9730070a7ffe1e5fba7f">00008</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5ad3cd305aae1b9730070a7ffe1e5fba7f">file_name_ack</a>,
+<a name="l00009"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a1357557c17898a726f8f08c34a146faa">00009</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a1357557c17898a726f8f08c34a146faa">file_size</a>,
+<a name="l00010"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a567ce7cd865978111c6f911b62521e32">00010</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a567ce7cd865978111c6f911b62521e32">file_size_ack</a>,
+<a name="l00011"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a8e1a4ef78f9c8037a44e2e7cd5a6f307">00011</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a8e1a4ef78f9c8037a44e2e7cd5a6f307">file_send</a>,
+<a name="l00012"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a50033d59ce6d4964141ab433369bb946">00012</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a50033d59ce6d4964141ab433369bb946">wait_for_req_file</a>,
+<a name="l00013"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a93a59d6e42bb8ef0861c4a1ed97948dd">00013</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a93a59d6e42bb8ef0861c4a1ed97948dd">wait_for_file_size_req</a>,
+<a name="l00014"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a4759ba036d57c9fa990658206cae3a40">00014</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a4759ba036d57c9fa990658206cae3a40">wait_for_send_ack</a>,
+<a name="l00015"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5aae107fcd3fc93f368ecd5dd40d7aa61d">00015</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5aae107fcd3fc93f368ecd5dd40d7aa61d">error_ack</a>,
+<a name="l00016"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a4a2ebe434d532dfbea6317b2ed2907ff">00016</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a4a2ebe434d532dfbea6317b2ed2907ff">error</a>,
+<a name="l00017"></a><a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a2aa4d72d4d1e2083c5a7d629c6b377c4">00017</a>       <a class="code" href="namespaceucp_1_1send.html#aed11a0fa6f869e95247a8c58742f26c5a2aa4d72d4d1e2083c5a7d629c6b377c4">term</a>
 <a name="l00018"></a>00018     };
 <a name="l00019"></a>00019   }
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021   <span class="keyword">namespace </span>recv {
-<a name="l00022"></a>00022   <span class="keyword">enum</span> txfer_state {
-<a name="l00023"></a>00023     wait_for_file_size,
-<a name="l00024"></a>00024     ack_file_size,
-<a name="l00025"></a>00025     receive_file,
-<a name="l00026"></a>00026     send_file_name,
-<a name="l00027"></a>00027     send_file_ack,
-<a name="l00028"></a>00028     receive_file_size,
-<a name="l00029"></a>00029     request_file_size,
-<a name="l00030"></a>00030     error,
-<a name="l00031"></a>00031     error_ack,
-<a name="l00032"></a>00032     term
+<a name="l00021"></a><a class="code" href="namespaceucp_1_1recv.html">00021</a>   <span class="keyword">namespace </span>recv {
+<a name="l00022"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688de">00022</a>   <span class="keyword">enum</span> <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688de">txfer_state</a> {
+<a name="l00023"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaa6cfc4502d2488b3fb4879e224ccd291">00023</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaa6cfc4502d2488b3fb4879e224ccd291">wait_for_file_size</a>,
+<a name="l00024"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea9425882cb024cf1edaa5d4fa2bc0a683">00024</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea9425882cb024cf1edaa5d4fa2bc0a683">ack_file_size</a>,
+<a name="l00025"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea4f43d38c2faf4ef8af720076e2ed259d">00025</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea4f43d38c2faf4ef8af720076e2ed259d">receive_file</a>,
+<a name="l00026"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea7791fe7471e186e73a417f8b89524594">00026</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea7791fe7471e186e73a417f8b89524594">send_file_name</a>,
+<a name="l00027"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaec68361acb72afcd1052a80c0c1ec03e">00027</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaec68361acb72afcd1052a80c0c1ec03e">send_file_ack</a>,
+<a name="l00028"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaea9de3cd41fd37db2b8f0f4910a28653">00028</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaea9de3cd41fd37db2b8f0f4910a28653">receive_file_size</a>,
+<a name="l00029"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea3b9dbd2be52564af4ffb7b1ea327b4bc">00029</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea3b9dbd2be52564af4ffb7b1ea327b4bc">request_file_size</a>,
+<a name="l00030"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaad6b614bafb1110997d268d3b7670ee4">00030</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deaad6b614bafb1110997d268d3b7670ee4">error</a>,
+<a name="l00031"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea5b621cddf0e2fe81518eeec91b849658">00031</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688dea5b621cddf0e2fe81518eeec91b849658">error_ack</a>,
+<a name="l00032"></a><a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deafb1401e713e6dfc49b43cce9dc26e46a">00032</a>     <a class="code" href="namespaceucp_1_1recv.html#af02af84215ffeafba2dcbf33b7d688deafb1401e713e6dfc49b43cce9dc26e46a">term</a>
 <a name="l00033"></a>00033   };
 <a name="l00034"></a>00034   }
 <a name="l00035"></a>00035 }
@@ -106,7 +108,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

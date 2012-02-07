@@ -49,7 +49,9 @@ using boost::shared_ptr;
 namespace ucp {
 
   const static unsigned int MAX_PENDING_CONNECTIONS = 10;
-
+  /**
+   * \brief Superclass for ucp application controllers. See listener and client.
+   */
   struct application {
     virtual void run()  = 0;
     virtual void signal( int ) = 0;

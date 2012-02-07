@@ -29,6 +29,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li id="searchli">
@@ -54,11 +55,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>ucp</b>      </li>
+      <li class="navelem"><a class="el" href="namespaceucp.html">ucp</a>      </li>
       <li class="navelem"><a class="el" href="structucp_1_1application.html">application</a>      </li>
     </ul>
   </div>
@@ -70,15 +72,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ucp::application Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="ucp::application" --><div class="dynheader">
+<!-- doxytag: class="ucp::application" -->
+<p>Superclass for ucp application controllers. See listener and client.  
+ <a href="structucp_1_1application.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="application_8hpp_source.html">application.hpp</a>&gt;</code></p>
+<div class="dynheader">
 Inheritance diagram for ucp::application:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="structucp_1_1application.png" usemap="#ucp::application_map" alt=""/>
   <map id="ucp::application_map" name="ucp::application_map">
-<area href="classucp_1_1client.html" title="Client connection handler." alt="ucp::client" shape="rect" coords="0,56,101,80"/>
-<area href="classucp_1_1connection.html" alt="ucp::connection" shape="rect" coords="111,56,212,80"/>
-<area href="classucp_1_1listener.html" alt="ucp::listener" shape="rect" coords="222,56,323,80"/>
+<area href="classucp_1_1client.html" title="Client connection handler." alt="ucp::client" shape="rect" coords="0,56,100,80"/>
+<area href="classucp_1_1listener.html" title="Application controller for ucp server." alt="ucp::listener" shape="rect" coords="110,56,210,80"/>
 </map>
  </div></div>
 
@@ -86,11 +92,51 @@ Inheritance diagram for ucp::application:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9187f473f3bd70e1064cb94b3cc02fe3"></a><!-- doxytag: member="ucp::application::run" ref="a9187f473f3bd70e1064cb94b3cc02fe3" args="()=0" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96dfc060718a051e360145c32421c258"></a><!-- doxytag: member="ucp::application::signal" ref="a96dfc060718a051e360145c32421c258" args="(int)=0" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (int)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structucp_1_1application.html#a9187f473f3bd70e1064cb94b3cc02fe3">run</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structucp_1_1application.html#a96dfc060718a051e360145c32421c258">signal</a> (int)=0</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Superclass for ucp application controllers. See listener and client. </p>
+
+<p>Definition at line <a class="el" href="application_8hpp_source.html#l00055">55</a> of file <a class="el" href="application_8hpp_source.html">application.hpp</a>.</p>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a9187f473f3bd70e1064cb94b3cc02fe3"></a><!-- doxytag: member="ucp::application::run" ref="a9187f473f3bd70e1064cb94b3cc02fe3" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ucp::application::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classucp_1_1client.html#a5f416913e885fd61edd79e5af22ea716">ucp::client</a>, and <a class="el" href="classucp_1_1listener.html#a95bc043b5be793c19340de87755346ef">ucp::listener</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96dfc060718a051e360145c32421c258"></a><!-- doxytag: member="ucp::application::signal" ref="a96dfc060718a051e360145c32421c258" args="(int)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ucp::application::signal </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented in <a class="el" href="classucp_1_1client.html#acefbb4eb72fc2f22cb1a665b877256ce">ucp::client</a>, and <a class="el" href="classucp_1_1listener.html#aa98c5518c08bf4bf3893fa698c5ba25c">ucp::listener</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="application_8hpp_source.html">application.hpp</a></li>
 </ul>
@@ -100,7 +146,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (i
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,7 +155,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>signal</b> (i
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Fri Feb 3 2012 16:06:08 for ucp by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Feb 6 2012 20:22:18 for ucp by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

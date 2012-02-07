@@ -12,7 +12,9 @@ namespace ucp {
 
 
   const static int default_port = 9090;
-
+  /**
+   * \brief Contains file copy instructions parsed from command line
+   */
   class copy_command {
     direction_t direction;
     string user;
